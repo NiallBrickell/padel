@@ -221,7 +221,8 @@ export function ChatWidget() {
             <ConversationContent className="gap-3 p-3">
               {messages.length === 0 && !error && (
                 <p className="m-auto max-w-[26ch] pt-10 text-center text-sm text-(--muted)">
-                  Ask anything about the business case or the next-steps sheet.
+                  Ask anything about the business case, the strategy note or
+                  the next-steps sheet.
                 </p>
               )}
               {messages.map((m) =>

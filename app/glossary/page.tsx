@@ -42,6 +42,7 @@ export default function GlossaryPage() {
           <footer className="doc">
             Padel business case · working documents ·{" "}
             <Link href="/">Business case</Link> ·{" "}
+            <Link href="/strategy">Strategy</Link> ·{" "}
             <Link href="/next-steps">Next steps</Link>
           </footer>
         </div>

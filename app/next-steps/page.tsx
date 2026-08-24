@@ -49,7 +49,7 @@ const SECTIONS: TocSection[] = [
     no: "2",
     title: "Set up the company and start the applications",
     subs: [
-      { id: "bet-6", title: "The two decisions" },
+      { id: "bet-6", title: "The three decisions" },
       { id: "bet-7", title: "Start Up Loans" },
       { id: "bet-8", title: "EIS advance assurance" },
       { id: "bet-9", title: "South East Angels" },
@@ -421,16 +421,22 @@ export default function NextStepsPage() {
                 <Bet
                   id="bet-6"
                   no={6}
-                  title="The two decisions, made properly"
-                  summary="Structure settled, founder terms in writing."
+                  title="The three decisions, made properly"
+                  summary="Structure, founder terms and the platform track settled."
                 >
                   <BetSec label="The ask (of ourselves)">
                     <p>
-                      One evening, two decisions, written down. First, the
+                      One evening, three decisions, written down. First, the
                       structure: not-for-profit or company limited by shares
                       (the fork described at the top of this sheet). Second,
                       founder terms: who owns what, who does what, and who
-                      signs personal guarantees, capped at what.
+                      signs personal guarantees, capped at what. Third, the
+                      strategy: do we adopt the two-company plan in{" "}
+                      <Link href="/strategy">the strategy note</Link> — the
+                      venue plus an operator-owned booking software company,
+                      built in parallel — or keep this venue-only? The
+                      parallel build only makes sense if the group genuinely
+                      wants both.
                     </p>
                     <ul className="subbet-list">
                       <SubBet
@@ -441,6 +447,10 @@ export default function NextStepsPage() {
                         betKey="b2-founders-agreement"
                         label="Decision 2 — founder terms: who owns what, does what, signs what"
                       />
+                      <SubBet
+                        betKey="b2-strategy-decision"
+                        label="Decision 3 — the strategy: two companies in parallel, or venue-only"
+                      />
                     </ul>
                   </BetSec>
                   <Want>
@@ -449,9 +459,11 @@ export default function NextStepsPage() {
                       are, so this unblocks everything.
                     </WantLead>
                     <p>
-                      And agreeing the difficult terms now is far easier than
-                      agreeing them once real money is involved. It’s the
-                      cheapest insurance in the whole plan.
+                      Agreeing the difficult terms now is far easier than
+                      agreeing them once real money is involved, and the
+                      strategy decision determines whether a second company
+                      gets incorporated at all. It’s the cheapest insurance in
+                      the whole plan.
                     </p>
                   </Want>
                   <Read>
@@ -773,7 +785,12 @@ export default function NextStepsPage() {
                     conversation covers crowdfunding experience and local
                     operating reality, at a venue we can simply book a court
                     at. Russell built their rugby-club partnership model,
-                    which is close cousin to our Route C.
+                    which is close cousin to our Route C. When we talk, three
+                    questions from{" "}
+                    <Link href="/strategy">the strategy note</Link>: what does
+                    their Playtomic contract actually restrict, would they run
+                    zero-commission direct booking alongside it, and would
+                    they join a cross-venue local league?
                   </li>
                   <li>
                     <strong>
@@ -828,7 +845,10 @@ export default function NextStepsPage() {
                     <strong>Eixo Padel, Goddards Green.</strong> Independent
                     local operators (Companies House lists Ben and Samantha
                     Ellis as directors). A coffee at their own venue — the
-                    closest thing to our situation, a few years ahead.
+                    closest thing to our situation, a few years ahead. Same
+                    three <Link href="/strategy">strategy-note</Link> questions
+                    as for Smash: their Playtomic contract terms, appetite for
+                    direct booking rails, and the cross-venue league.
                   </li>
                 </ul>
 
@@ -1032,10 +1052,13 @@ export default function NextStepsPage() {
                       </tr>
                       <tr>
                         <td>6</td>
-                        <td>The two decisions</td>
+                        <td>The three decisions</td>
                         <td>2</td>
                         <td>an evening</td>
-                        <td>Structure settled, founder terms in writing</td>
+                        <td>
+                          Structure, founder terms and the platform track
+                          settled
+                        </td>
                         <td>Certain</td>
                       </tr>
                       <tr>

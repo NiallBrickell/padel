@@ -736,17 +736,22 @@ details.toc-m a .n {
   transition: color 0.15s, border-color 0.15s;
   white-space: nowrap;
 }
-/* Mobile: short brand, tighter spacing — everything fits a 360px viewport */
+/* Mobile: short brand, tighter spacing — four links fit a 360px viewport */
 @media (max-width: 599px) {
   .site-nav .nav-inner {
-    padding: 0 14px;
-    gap: 0.8rem;
+    padding: 0 10px;
+    gap: 0.45rem;
+  }
+  .site-nav .brand {
+    font-size: 0.9rem;
+    gap: 0.4rem;
   }
   .site-nav .brand .brand-rest {
     display: none;
   }
   .site-nav .nav-link {
-    font-size: 0.82rem;
+    font-size: 0.74rem;
+    letter-spacing: -0.01em;
   }
 }
 .site-nav .nav-link:hover {
