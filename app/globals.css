@@ -1457,6 +1457,486 @@ footer.doc a {
   text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
+/* ---------- stage progress strip (next-steps + board) ---------- */
+.stage-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 1.6rem 0 0.2rem;
+}
+.todos-page .stage-strip {
+  margin: 0 0 1.4rem;
+}
+@media (max-width: 640px) {
+  .stage-strip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.stage-seg {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 0.7rem 0.85rem 0.6rem;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+.stage-seg .seg-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.seg-kicker {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.seg-count {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.seg-name {
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.25;
+  color: var(--ink2);
+  margin: 0.15rem 0 0.55rem;
+}
+.seg-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--thead);
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+.seg-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+.seg-note {
+  margin-top: 0.45rem;
+  min-height: 1em;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.stage-seg.active {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: 0 1px 8px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.stage-seg.active .seg-kicker {
+  color: var(--accent);
+}
+.stage-seg.active .seg-name {
+  color: var(--ink);
+}
+.stage-seg.locked {
+  opacity: 0.62;
+  background: color-mix(in srgb, var(--surface) 60%, var(--bg));
+}
+.stage-seg.locked .seg-fill {
+  background: var(--muted);
+}
+.stage-seg.complete .seg-note {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+/* ---------- next-steps: stage prize lines + bet card anatomy ---------- */
+.stage-prize {
+  font-style: italic;
+  color: var(--ink2);
+  padding-left: 1rem;
+  border-left: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.doc-body h3 .star {
+  color: var(--accent);
+  font-size: 0.82em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.bet-label {
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  display: inline-block;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.bet-label-note {
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-left: 0.45rem;
+}
+.bet-who {
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink2);
+  margin: 0.1rem 0 0.95rem;
+}
+.bet-who .bet-label {
+  color: var(--muted);
+  margin-right: 0.45rem;
+}
+.bet-sec {
+  margin: 0 0 1rem;
+}
+.bet-sec > .bet-label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.bet-sec .bet-label-note {
+  display: inline-block;
+  margin: -0.15rem 0 0.3rem 0;
+}
+.bet-sec-body > p {
+  margin: 0 0 0.55rem;
+}
+.bet-sec-body > p:last-child {
+  margin-bottom: 0;
+}
+.bet-sec-body > ul {
+  margin: 0.35rem 0 0;
+}
+.bet-sec-body > ul:last-child {
+  margin-bottom: 0;
+}
+.want-lead {
+  color: var(--accent-deep);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+.want-lead strong,
+.doc-body .want-lead strong {
+  color: inherit;
+  font-weight: 650;
+}
+.bet-read {
+  border-top: 1px dashed var(--line-soft);
+  margin: 1.05rem -1.1rem 0;
+  padding: 0.55rem 1.1rem 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink2);
+}
+.bet-read .bet-label {
+  color: var(--muted);
+  margin-right: 0.5rem;
+}
+/* the read line outside a card (store item missing → plain document fallback) */
+:not(.bet-card) > .bet-read {
+  margin-left: 0;
+  margin-right: 0;
+}
+.bet-intel {
+  background: color-mix(in srgb, var(--thead) 60%, transparent);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem 0.7rem;
+  margin: 0 0 1rem;
+  font-size: 0.93rem;
+}
+.bet-intel > .bet-label {
+  display: block;
+  color: var(--band);
+  margin-bottom: 0.3rem;
+}
+.bet-intel p {
+  margin: 0 0 0.55rem;
+}
+.subbet-list {
+  list-style: none;
+  margin: 0.55rem 0 0;
+  padding: 0;
+}
+.doc-body ul.subbet-list {
+  padding-left: 0;
+}
+/* the static card variant (bet 6 — no single header item) */
+.bet-card .bet-head.static {
+  cursor: default;
+}
+/* wide bet card (bet 2 carries the listings grid); prose inside stays 70ch */
+.bet-card.breakout .bet-who,
+.bet-card.breakout .bet-sec,
+.bet-card.breakout .bet-intel {
+  max-width: 76ch;
+}
+/* the standing item — never done, deliberately */
+.bet-card.fun {
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface));
+  padding-bottom: 0.35rem;
+  margin-top: 2.4rem;
+}
+.bet-card.fun .bet-head h3 {
+  color: var(--accent-deep);
+}
+
+/* ---------- next-steps: the watchlist (monitored, deliberately passive) ---------- */
+.watchlist {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 0.25rem 1.15rem;
+  margin: 1.4rem 0 1.6rem;
+}
+.watch-item {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.watch-item:last-child {
+  border-bottom: none;
+}
+.watch-dot {
+  flex: 0 0 auto;
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background: var(--muted);
+}
+.watch-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid var(--muted);
+  opacity: 0.45;
+  animation: watch-pulse 3.2s ease-out infinite;
+}
+@keyframes watch-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .watch-dot::after {
+    animation: none;
+    opacity: 0.3;
+  }
+}
+.watch-body {
+  min-width: 0;
+}
+.watch-name {
+  font-size: 0.92rem;
+  font-weight: 650;
+  color: var(--ink2);
+  margin: 0 0 0.3rem;
+}
+.watch-body > p {
+  font-size: 0.95rem;
+  color: var(--ink2);
+  margin: 0 0 0.4rem;
+}
+.watch-trigger {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+.watch-trigger .bet-label {
+  color: var(--muted);
+  margin-right: 0.45rem;
+}
+
+/* ---------- next-steps: listings showcase (bet 2) ---------- */
+.listings {
+  margin: 0.2rem 0 1.2rem;
+}
+.listings-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem 0.8rem;
+  margin-bottom: 0.6rem;
+}
+.listings-note {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+  gap: 10px;
+}
+.listing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg) 45%, var(--surface));
+  padding: 0.75rem 0.85rem 0.7rem;
+}
+.lc-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.lc-name {
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--ink);
+}
+.lc-area {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.lc-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--ink2);
+  font-variant-numeric: tabular-nums;
+}
+.lc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.lc-chip {
+  font-size: 0.66rem;
+  font-weight: 650;
+  line-height: 1.1;
+  border-radius: 999px;
+  padding: 0.16rem 0.5rem;
+  background: var(--thead);
+  color: var(--ink2);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+.lc-chip.lead {
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.lc-why {
+  font-family: var(--font-serif-body), "Source Serif 4", Georgia, serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin: 0;
+}
+.lc-link {
+  margin-top: auto;
+  padding-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+.lc-link:hover {
+  text-decoration: underline;
+}
+
+/* height bar: eaves height against the 6m courts minimum + 8m ideal */
+.hbar {
+  margin: 0.1rem 0 0;
+}
+.hbar-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.hbar-cap {
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hbar-val {
+  font-size: 0.7rem;
+  font-weight: 650;
+  color: var(--ink2);
+}
+.hbar.unknown .hbar-val {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 500;
+}
+.hbar-track {
+  position: relative;
+  height: 10px;
+  border-radius: 4px;
+  background: var(--thead);
+  border: 1px solid var(--line-soft);
+}
+.hbar.unknown .hbar-track {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--thead) 0 4px,
+    transparent 4px 8px
+  );
+}
+.hbar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px 2px 2px 4px;
+  background: linear-gradient(90deg, var(--stack2), var(--stack3));
+}
+.hbar-fill.short {
+  background: var(--warn);
+}
+.hbar-mark {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 0;
+  border-left: 2px solid var(--warn);
+}
+.hbar-mark.ideal {
+  border-left: 2px dotted var(--muted);
+}
+.hbar-scale {
+  position: relative;
+  height: 0.95rem;
+  margin-top: 0.12rem;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hbar-scale span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
 /* ---------- passcode / name overlay ---------- */
 .pc-overlay {
   position: fixed;

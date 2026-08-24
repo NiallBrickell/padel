@@ -18,11 +18,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { StageStrip } from "@/components/stage-strip";
 import {
   AssigneeSelect,
-  BatchBadge,
   DueBadge,
   PasscodeOverlay,
+  StageBadge,
   ThemeBadge,
   ThemeSelect,
   TrashIcon,
@@ -167,6 +168,8 @@ export default function TodosPage() {
 
           <main className="doc-body">
             <section className="todos-page" style={{ paddingTop: "1.2rem" }}>
+              <StageStrip todos={todos} loading={data === null} />
+
               {error && (
                 <p className="mb-3 max-w-xl rounded-md border border-(--warn-line) bg-(--warn-bg) px-3 py-2 font-ui text-sm text-(--warn)">
                   {error}
@@ -564,7 +567,7 @@ function BoardCard({ t, api }: { t: Todo; api: TodosApi }) {
       className={`board-card group${t.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
     >
       <div className="bc-top" {...stop}>
-        <BatchBadge itemKey={t.key} />
+        <StageBadge itemKey={t.key} />
         <ThemeSelect
           value={t.theme || ""}
           themes={api.themes}
@@ -724,7 +727,7 @@ function ListView({
                 {t.text}
               </p>
               <div className="mt-1 flex flex-wrap items-center gap-1.5 font-ui text-[0.72rem] text-(--muted)">
-                <BatchBadge itemKey={t.key} />
+                <StageBadge itemKey={t.key} />
                 <ThemeBadge theme={t.theme} />
                 {t.by && <span>added by {t.by}</span>}
               </div>

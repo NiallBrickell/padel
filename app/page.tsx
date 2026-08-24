@@ -152,11 +152,11 @@ export default function BusinessCasePage() {
                 <li>
                   <strong>
                     The economics work at moderate{" "}
-                    <G term="utilisation">utilisation</G>.
+                    utilisation.
                   </strong>{" "}
                   Base case: ~£990k revenue and ~£350k{" "}
                   <G term="EBITDA">EBITDA</G> on ~£950k invested.{" "}
-                  <G term="break-even">Break-even</G> including debt service sits
+                  Break-even including debt service sits
                   at roughly 50–55% court utilisation, against observed local
                   utilisation of 85–97%.
                   Filling the venue needs ~1,290 regular players — about 12–14% of
@@ -175,12 +175,12 @@ export default function BusinessCasePage() {
                   background — so the real question is how to answer that gap, and
                   Section 8 lays out four routes rather than one plan:{" "}
                   <strong>(A)</strong> assemble a full stack now (founder capital,{" "}
-                  <G term="Start Up Loans">Start Up Loans</G>,{" "}
+                  Start Up Loans,{" "}
                   <G term="asset finance">asset finance</G> on the courts,
                   landlord contribution, a £250–350k <G term="EIS">EIS</G> equity
                   round with precedents at exactly this size);{" "}
                   <strong>(B)</strong> bring in institutional capital — the{" "}
-                  <G term="British Business Bank">British Business Bank</G>’s
+                  British Business Bank’s
                   brand-new South East Investment Fund (loans £25k–£2m, equity to
                   £5m), the leisure
                   funds already invested in padel as anchor investors, or landlord
@@ -189,7 +189,7 @@ export default function BusinessCasePage() {
                   12–18 months, and finance the full venue off real accounts;{" "}
                   <strong>(D)</strong> franchise first to borrow someone else’s
                   credibility and playbook; or <strong>(E)</strong> structure as a
-                  not-for-profit and unlock the <G term="LTA">LTA</G> loans that
+                  not-for-profit and unlock the LTA loans that
                   have built 100+ padel courts — the cheapest money in the
                   sector, at the price of an{" "}
                   <G term="asset lock">asset lock</G> (salaries yes, equity
@@ -292,7 +292,7 @@ export default function BusinessCasePage() {
                   year early.
                 </li>
                 <li>
-                  <G term="Playtomic">Playtomic</G>’s 2026 Global Padel Report classifies the UK as a
+                  Playtomic’s 2026 Global Padel Report classifies the UK as a
                   “Hotspot” market: demand consistently outpacing supply, ~85%
                   average court occupancy, and roughly half of UK players reporting
                   difficulty booking peak slots.
@@ -530,7 +530,7 @@ export default function BusinessCasePage() {
                       <td>4 indoor</td>
                       <td>
                         <strong>Approved May 2026</strong>; conditions being
-                        discharged Aug 2026 — <G term="fit-out">fit-out</G>{" "}
+                        discharged Aug 2026 — fit-out{" "}
                         imminent
                       </td>
                       <td>
@@ -722,7 +722,7 @@ export default function BusinessCasePage() {
 
               <h3 id="s4-singles">Singles courts</h3>
               <p>
-                A <G term="padel singles court">padel singles court</G> measures
+                A padel singles court measures
                 20m × 6m against 20m × 10m for
                 doubles, so it fits floor-space a doubles court cannot use. Within
                 20 miles there is one bookable outdoor singles court (Eixo) and one
@@ -761,7 +761,7 @@ export default function BusinessCasePage() {
                     <strong>Option B — courts with a full hospitality layer.</strong>{" "}
                     The same courts plus a licensed bar, kitchen, garden/terrace
                     and membership programming. Adds £200–300k of{" "}
-                    <G term="capex">capex</G> and
+                    capex and
                     requires hospitality operations. In return: 20–35% of revenue
                     from streams pay-and-play venues do not have, customers with
                     reasons to attend beyond slot availability, and materially
@@ -982,7 +982,7 @@ export default function BusinessCasePage() {
                     </tr>
                     <tr>
                       <td>
-                        <G term="working capital">Working capital</G> /
+                        Working capital /
                         opening-period buffer
                       </td>
                       <td>£100k</td>
@@ -1132,7 +1132,7 @@ export default function BusinessCasePage() {
                     </tr>
                     <tr>
                       <td>
-                        <G term="business rates">Business rates</G> (leisure
+                        Business rates (leisure
                         multiplier, post-2026 regime)
                       </td>
                       <td>£45k</td>
@@ -1266,12 +1266,12 @@ export default function BusinessCasePage() {
               <p>
                 No UK padel venue in the £500k–£2m range that we found was funded
                 mainly by{" "}
-                <G term="unsecured loan">unsecured bank debt</G>. Unsecured
+                unsecured bank debt. Unsecured
                 lenders underwrite against
                 filed accounts: Funding Circle excludes businesses under a year
                 old, iwoca caps new companies around £10k, Starling wants trading
                 businesses plus{" "}
-                <G term="personal guarantee">personal guarantees</G>, and the
+                personal guarantees, and the
                 high-street banks cap
                 unsecured lending at £25k–£100k against track records a new company
                 doesn’t have. Projected revenue, however well-evidenced, isn’t
@@ -1358,7 +1358,7 @@ export default function BusinessCasePage() {
                           <td>Landlord contribution</td>
                           <td>£50–100k equivalent</td>
                           <td>
-                            <G term="rent-free period">Rent-free period</G> plus
+                            Rent-free period plus
                             capital contribution — standard
                             incentives on hard-to-let big-box units, which 7m-eaves
                             sheds are
@@ -1368,13 +1368,13 @@ export default function BusinessCasePage() {
                         <tr>
                           <td>
                             <strong>Equity round</strong> (
-                            <G term="angel investor">angels</G> / EIS /{" "}
-                            <G term="equity crowdfunding">crowdfunding</G>)
+                            angels / EIS /{" "}
+                            crowdfunding)
                           </td>
                           <td>£250–350k</td>
                           <td>See supporting detail below</td>
                           <td>
-                            25–35% <G term="dilution">dilution</G> at a
+                            25–35% dilution at a
                             defensible newco valuation
                           </td>
                         </tr>
@@ -1735,7 +1735,7 @@ export default function BusinessCasePage() {
 
               <p>
                 Also looked at and set aside: a commercial mortgage (
-                <G term="freehold">freehold</G>-only,
+                freehold-only,
                 needs trading history) and a council concession like Hove Beach
                 Park (the channel exists but is currently occupied, and costs the
                 licence and the format).
@@ -1749,7 +1749,7 @@ export default function BusinessCasePage() {
                 business — but the first ~£300k of risk (planning, licensing and
                 the build, all pre-revenue) is venture risk that debt providers
                 simply won’t price. Equity absorbs the risk debt refuses; debt
-                finances the <G term="asset-backed">asset-backed</G> layer it’s
+                finances the asset-backed layer it’s
                 good at. An EIS-qualifying
                 round — 30% income-tax relief to investors, which meaningfully
                 improves the terms we can ask for — covering 25–35% of the company

@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { NONE, batchLabel, formatDue, isOverdue } from "@/lib/use-todos";
+import { NONE, formatDue, isOverdue, stageLabel } from "@/lib/use-todos";
 
 /**
  * Assignee picker. Uses the internal NONE sentinel for "no assignee" but never
@@ -138,9 +138,9 @@ export function ThemeSelect({
   );
 }
 
-/** "Batch 1/2/3" pill derived from the item's stable key prefix. */
-export function BatchBadge({ itemKey }: { itemKey?: string | null }) {
-  const label = batchLabel(itemKey);
+/** "Stage 1/2/3" pill derived from the item's stable key prefix. */
+export function StageBadge({ itemKey }: { itemKey?: string | null }) {
+  const label = stageLabel(itemKey);
   if (!label) return null;
   return <span className="pill pill-batch">{label}</span>;
 }

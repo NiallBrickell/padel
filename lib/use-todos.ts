@@ -43,10 +43,10 @@ export function saveLS(key: string, value: string) {
   }
 }
 
-/** "b1-millwood" → "Batch 1", "b3-preapp" → "Batch 3", anything else → null. */
-export function batchLabel(key?: string | null): string | null {
+/** "b1-millwood" → "Stage 1", "b3-preapp" → "Stage 3", anything else → null. */
+export function stageLabel(key?: string | null): string | null {
   const m = key?.match(/^b([123])-/);
-  return m ? `Batch ${m[1]}` : null;
+  return m ? `Stage ${m[1]}` : null;
 }
 
 export function formatDue(due: string): string {

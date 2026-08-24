@@ -25,6 +25,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { Checkbox } from "@/components/ui/checkbox";
+import { StageStrip } from "@/components/stage-strip";
 import {
   AssigneeSelect,
   DueBadge,
@@ -89,6 +90,16 @@ export function NextStepsLive({ children }: { children: ReactNode }) {
         onCancel={api.cancelPasscode}
       />
     </Ctx.Provider>
+  );
+}
+
+/* ---------------- stage progress strip (live wrapper) ---------------- */
+
+/** The three-stage progress strip, fed from the shared store via context. */
+export function LiveStageStrip() {
+  const ctx = useContext(Ctx);
+  return (
+    <StageStrip todos={ctx?.todos ?? []} loading={!ctx || ctx.data === null} />
   );
 }
 
@@ -223,25 +234,35 @@ function BetMeta({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
  */
 export function Bet({
   betKey,
+  id,
+  className,
   title,
   children,
 }: {
   betKey: string;
+  /** Anchor id placed on the h3 (used by the TOC scrollspy). */
+  id?: string;
+  /** Extra class on the card wrapper (e.g. "fun"). */
+  className?: string;
   title: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   const ctx = useContext(Ctx);
   const item = ctx?.byKey.get(betKey);
   if (!ctx || !item) {
+    // No matching store item (or data not loaded yet): same card chrome,
+    // no live controls — the document reads identically either way.
     return (
-      <>
-        <h3>{title}</h3>
+      <div className={`bet-card${className ? ` ${className}` : ""}`}>
+        <div className="bet-head static">
+          <h3 id={id}>{title}</h3>
+        </div>
         {children}
-      </>
+      </div>
     );
   }
   return (
-    <BetCard ctx={ctx} item={item} title={title}>
+    <BetCard ctx={ctx} item={item} id={id} className={className} title={title}>
       {children}
     </BetCard>
   );
@@ -250,23 +271,27 @@ export function Bet({
 function BetCard({
   ctx,
   item,
+  id,
+  className,
   title,
   children,
 }: {
   ctx: LiveCtx;
   item: Todo;
+  id?: string;
+  className?: string;
   title: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   const { setNodeRef, listeners, isDragging } = useDraggable({ id: item.id });
   return (
     <div
       ref={setNodeRef}
-      className={`bet-card${item.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
+      className={`bet-card${item.done ? " done" : ""}${isDragging ? " dragging" : ""}${className ? ` ${className}` : ""}`}
     >
       <div className="bet-head" {...listeners}>
         <BetCheck ctx={ctx} item={item} />
-        <h3>{title}</h3>
+        <h3 id={id}>{title}</h3>
         <BetMeta ctx={ctx} item={item} />
       </div>
       {children}
