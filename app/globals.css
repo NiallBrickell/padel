@@ -1926,6 +1926,14 @@ footer.doc a {
 .map-venuelabel.coming {
   fill: var(--band);
 }
+.map-venue.target {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+}
+.map-venuelabel.target {
+  fill: var(--accent);
+}
 .map-legend {
   display: flex;
   flex-wrap: wrap;
@@ -1967,6 +1975,14 @@ footer.doc a {
   border-radius: 999px;
   background: var(--band);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--band) 28%, transparent);
+}
+.ml-swatch.target {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  box-sizing: border-box;
 }
 
 /* listings grid — dense cards, numbered to match the map pins */

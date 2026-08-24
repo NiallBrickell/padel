@@ -38,6 +38,7 @@ const SECTIONS: TocSection[] = [
       { id: "candidates", title: "The live candidates" },
       { id: "bet-3", title: "Tennis Sussex" },
       { id: "bet-4", title: "Court suppliers" },
+      { id: "bet-5", title: "Rural site partners" },
     ],
   },
   {
@@ -45,11 +46,11 @@ const SECTIONS: TocSection[] = [
     no: "2",
     title: "Set up the company and start the applications",
     subs: [
-      { id: "bet-5", title: "The two decisions" },
-      { id: "bet-6", title: "Start Up Loans" },
-      { id: "bet-7", title: "EIS advance assurance" },
-      { id: "bet-8", title: "South East Angels" },
-      { id: "bet-9", title: "Sussex Innovation" },
+      { id: "bet-6", title: "The two decisions" },
+      { id: "bet-7", title: "Start Up Loans" },
+      { id: "bet-8", title: "EIS advance assurance" },
+      { id: "bet-9", title: "South East Angels" },
+      { id: "bet-10", title: "Sussex Innovation" },
     ],
   },
   {
@@ -57,9 +58,9 @@ const SECTIONS: TocSection[] = [
     no: "3",
     title: "Commit to a building, or stop",
     subs: [
-      { id: "bet-10", title: "Council pre-app advice" },
-      { id: "bet-11", title: "Crowdcube" },
-      { id: "bet-12", title: "LTA facility loans" },
+      { id: "bet-11", title: "Council pre-app advice" },
+      { id: "bet-12", title: "Crowdcube" },
+      { id: "bet-13", title: "LTA facility loans" },
     ],
   },
   { id: "monitoring", no: "§", title: "Being watched" },
@@ -120,10 +121,11 @@ export default function NextStepsPage() {
               <section id="stage-1" className="measure">
                 <h2>Stage 1 — First conversations</h2>
                 <p className="stage-prize">
-                  Six emails and a coffee. Between them they answer the three
-                  questions everything else depends on: will anyone lend to us,
-                  does a suitable building exist, and what would it actually
-                  cost to build? Until we know those, the rest is theory.
+                  A handful of emails and a coffee. Between them they answer the
+                  three questions everything else depends on: will anyone lend
+                  to us, does a suitable building exist, and what would it
+                  actually cost to build? Until we know those, the rest is
+                  theory.
                 </p>
 
                 <Bet
@@ -336,6 +338,56 @@ export default function NextStepsPage() {
                     more useful once we have a specific building to point at.
                   </Read>
                 </Bet>
+
+                <Bet
+                  betKey="b1-rural"
+                  id="bet-5"
+                  no={5}
+                  title="Rural site partners — test the country-club version"
+                  summary="Whether the country-club version is available at all."
+                >
+                  <Who>
+                    Three letters. <strong>Mid Sussex Golf Club</strong>,
+                    Ditchling (admin@midsussexgolfclub.co.uk · 01273 846567) —
+                    they applied for four outdoor padel courts and were refused
+                    in September 2025, so they demonstrably want this.{" "}
+                    <strong>Singing Hills Golf Centre</strong>, Albourne
+                    (shop@singinghills.co.uk · 01273 835353) — family-owned, 27
+                    holes, public restaurant, weddings, no padel.{" "}
+                    <strong>Hickstead</strong> (events@hickstead.co.uk) — the
+                    biggest rural leisure site in the belt, actively
+                    diversifying, quiet outside the showjumping season.
+                  </Who>
+                  <Ask>
+                    <p>
+                      Would you consider hosting indoor padel courts on your
+                      site, built and operated by a funded local group? For Mid
+                      Sussex GC specifically: your application failed on noise
+                      and floodlighting — an enclosed building answers both,
+                      and we’d bring the capital and the operations.
+                    </p>
+                  </Ask>
+                  <Want>
+                    <WantLead>
+                      To find out whether the country-club version of this venue
+                      — courts with Downs views on an established rural site,
+                      using their clubhouse, parking and power — is available
+                      at all.
+                    </WantLead>
+                    <p>
+                      Recent decisions show exactly this format getting approved
+                      (Plumpton Racecourse, Q Leisure, even a grain-store
+                      conversion inside the National Park), so the question is
+                      only whether a site wants a partner. One warm reply
+                      changes the whole shape of the project.
+                    </p>
+                  </Want>
+                  <Read>
+                    Genuinely uncertain — these are cold letters to businesses
+                    that haven’t asked for us. But Mid Sussex GC has already
+                    shown its hand, and the cost is three emails.
+                  </Read>
+                </Bet>
               </section>
 
               {/* ---------------- Stage 2 ---------------- */}
@@ -349,8 +401,8 @@ export default function NextStepsPage() {
                 </p>
 
                 <Bet
-                  id="bet-5"
-                  no={5}
+                  id="bet-6"
+                  no={6}
                   title="The two decisions, made properly"
                   summary="Structure settled, founder terms in writing."
                 >
@@ -391,8 +443,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b2-startup-loans"
-                  id="bet-6"
-                  no={6}
+                  id="bet-7"
+                  no={7}
                   title="Start Up Loans — up to £100k that doesn’t need trading history"
                   summary="Whether £100k of the plan is confirmed."
                 >
@@ -425,8 +477,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b2-eis"
-                  id="bet-7"
-                  no={7}
+                  id="bet-8"
+                  no={8}
                   title="EIS advance assurance — the letter that unlocks investors"
                   summary="Whether the investor route works at all."
                 >
@@ -462,8 +514,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b2-sea"
-                  id="bet-8"
-                  no={8}
+                  id="bet-9"
+                  no={9}
                   title="South East Angels — the first investor conversation"
                   summary="First investor interest and introductions."
                 >
@@ -498,8 +550,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b2-sussex-innovation"
-                  id="bet-9"
-                  no={9}
+                  id="bet-10"
+                  no={10}
                   title="Sussex Innovation — a second network for coffee money"
                   summary="A second investor pool and advice."
                 >
@@ -537,8 +589,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b3-preapp"
-                  id="bet-10"
-                  no={10}
+                  id="bet-11"
+                  no={11}
                   title="Council pre-application advice — the official signal"
                   summary="The council’s view on a real building."
                 >
@@ -576,8 +628,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b3-crowdcube"
-                  id="bet-11"
-                  no={11}
+                  id="bet-12"
+                  no={12}
                   title="Crowdcube — the round that closes the gap"
                   summary="The final £150–250k, plus founding members."
                 >
@@ -617,8 +669,8 @@ export default function NextStepsPage() {
 
                 <Bet
                   betKey="b3-lta-loan"
-                  id="bet-12"
-                  no={12}
+                  id="bet-13"
+                  no={13}
                   title="LTA facility loans — only on the not-for-profit route"
                   summary="The not-for-profit route’s terms."
                 >
@@ -774,6 +826,16 @@ export default function NextStepsPage() {
                       </tr>
                       <tr>
                         <td>5</td>
+                        <td>Rural site partners</td>
+                        <td>1</td>
+                        <td>3 emails</td>
+                        <td>
+                          Whether the country-club version is available at all
+                        </td>
+                        <td>Uncertain, but cheap</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
                         <td>The two decisions</td>
                         <td>2</td>
                         <td>an evening</td>
@@ -781,7 +843,7 @@ export default function NextStepsPage() {
                         <td>Certain</td>
                       </tr>
                       <tr>
-                        <td>6</td>
+                        <td>7</td>
                         <td>Start Up Loans</td>
                         <td>2</td>
                         <td>4 applications</td>
@@ -789,7 +851,7 @@ export default function NextStepsPage() {
                         <td>High</td>
                       </tr>
                       <tr>
-                        <td>7</td>
+                        <td>8</td>
                         <td>EIS advance assurance</td>
                         <td>2</td>
                         <td>£499 + VAT</td>
@@ -797,7 +859,7 @@ export default function NextStepsPage() {
                         <td>Good</td>
                       </tr>
                       <tr>
-                        <td>8</td>
+                        <td>9</td>
                         <td>South East Angels</td>
                         <td>2</td>
                         <td>a form</td>
@@ -805,7 +867,7 @@ export default function NextStepsPage() {
                         <td>Uncertain</td>
                       </tr>
                       <tr>
-                        <td>9</td>
+                        <td>10</td>
                         <td>Sussex Innovation</td>
                         <td>2</td>
                         <td>£50/month</td>
@@ -813,7 +875,7 @@ export default function NextStepsPage() {
                         <td>Uncertain</td>
                       </tr>
                       <tr>
-                        <td>10</td>
+                        <td>11</td>
                         <td>Council pre-app</td>
                         <td>3</td>
                         <td>£582–£1,586</td>
@@ -821,7 +883,7 @@ export default function NextStepsPage() {
                         <td>High, once timed right</td>
                       </tr>
                       <tr>
-                        <td>11</td>
+                        <td>12</td>
                         <td>Crowdcube</td>
                         <td>3</td>
                         <td>fees on success</td>
@@ -829,7 +891,7 @@ export default function NextStepsPage() {
                         <td>Good, but goes last</td>
                       </tr>
                       <tr>
-                        <td>12</td>
+                        <td>13</td>
                         <td>LTA loan</td>
                         <td>3</td>
                         <td>a form</td>

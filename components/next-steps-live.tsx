@@ -265,11 +265,11 @@ function useCardOpen(storeKey: string | undefined, collapsible: boolean) {
 }
 
 type BetProps = {
-  /** Stable store key; omit for cards with no single store item (bet 5). */
+  /** Stable store key; omit for cards with no single store item (bet 6). */
   betKey?: string;
   /** Anchor id placed on the h3 (used by the TOC scrollspy). */
   id?: string;
-  /** The move's number in the sheet (1–12). */
+  /** The move's number in the sheet (1–13). */
   no?: number;
   /** Extra class on the card wrapper (e.g. "fun"). */
   className?: string;
@@ -425,7 +425,7 @@ function CardChrome({
 
 /**
  * A compact live sub-task row for store items that share a bet block
- * (e.g. the GS&P / SHW briefs inside bet 2, or the two decisions in bet 5).
+ * (e.g. the GS&P / SHW briefs inside bet 2, or the two decisions in bet 6).
  * Renders nothing when the store has no matching item — the document then
  * reads exactly as before.
  */

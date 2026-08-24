@@ -68,6 +68,7 @@ const SECTIONS: TocSection[] = [
     title: "Property and planning",
     subs: [
       { id: "s10-location", title: "Location" },
+      { id: "s10-country", title: "The country-club route" },
       { id: "s10-building", title: "Building requirements" },
       { id: "s10-market", title: "Buildings on the market" },
     ],
@@ -436,9 +437,18 @@ export default function BusinessCasePage() {
                       <td>Places Leisure</td>
                     </tr>
                     <tr>
+                      <td>David Lloyd Wickwoods</td>
+                      <td>Albourne</td>
+                      <td>3</td>
+                      <td>Members-only country club (pool, spa)</td>
+                      <td>Membership £100+/mo</td>
+                      <td>Full clubhouse</td>
+                      <td>Members app</td>
+                    </tr>
+                    <tr>
                       <td>
-                        Others (Henfield, Cottesmore golf hotel, Bluecoat Horsham,
-                        Hassocks racquets club)
+                        Others (Henfield Leisure Centre, Cottesmore golf hotel,
+                        Bluecoat Horsham, Hassocks racquets club)
                       </td>
                       <td>—</td>
                       <td>~8–10</td>
@@ -451,10 +461,10 @@ export default function BusinessCasePage() {
                 </table>
               </TW>
               <p>
-                Approximately <strong>30 courts</strong> serve a catchment of
+                Approximately <strong>33 courts</strong> serve a catchment of
                 roughly <strong>450,000 people</strong> (Brighton &amp; Hove 284k,
                 Mid Sussex 155k, plus the Adur/Worthing/Lewes fringes): about one
-                court per 15,000 people.
+                court per 13,500 people.
               </p>
 
               <h3 id="s3-demand">Evidence of unmet demand</h3>
@@ -518,9 +528,12 @@ export default function BusinessCasePage() {
                         <strong>The Padel Club @ Q Leisure</strong>
                       </td>
                       <td>Albourne (Hickstead)</td>
-                      <td>4 covered + 2 outdoor</td>
-                      <td>Planning submitted (DM/25/3096); targeting 2026</td>
-                      <td>National chain; clubhouse with food and drink</td>
+                      <td>4 canopied + 2 outdoor</td>
+                      <td>
+                        <strong>Approved Mar 2026</strong> (10.6m canopy,
+                        clubhouse)
+                      </td>
+                      <td>National chain; existing activity park with bar</td>
                     </tr>
                     <tr>
                       <td>
@@ -584,7 +597,7 @@ export default function BusinessCasePage() {
               </TW>
               <p>
                 If the full pipeline completes, the catchment reaches{" "}
-                <strong>~60 courts by end-2027</strong> — one per ~7,500 people,
+                <strong>~63 courts by end-2027</strong> — one per ~7,100 people,
                 still two to three times below current Spanish or Swedish
                 provision. The relevant question is whether the catchment can
                 absorb the pipeline plus one further venue. Sections 4 and 6
@@ -663,11 +676,11 @@ export default function BusinessCasePage() {
 
               <h3 id="s4-lands">What happens when the pipeline lands</h3>
               <p>
-                The real test is end-2027: ~65 courts in the catchment (current
-                stock, full pipeline including the approved Consort Way and Eixo
-                expansions, plus this venue). Total capacity at that point is
-                ~29,600 court-hours per month. What average utilisation each
-                scenario produces:
+                The real test is end-2027: ~68 courts in the catchment (current
+                stock, full pipeline including the approved Consort Way, Q
+                Leisure and Eixo schemes, plus this venue). Total capacity at
+                that point is ~31,000 court-hours per month. What average
+                utilisation each scenario produces:
               </p>
               <TW size="mid">
                 <table>
@@ -675,24 +688,24 @@ export default function BusinessCasePage() {
                     <tr>
                       <th>Player-base scenario (end-2027)</th>
                       <th>Active players</th>
-                      <th>Implied average utilisation across all ~65 courts</th>
+                      <th>Implied average utilisation across all ~68 courts</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Growth stops dead today</td>
                       <td>~10,000</td>
-                      <td>~34%</td>
+                      <td>~32%</td>
                     </tr>
                     <tr>
                       <td>Half the current national growth rate</td>
                       <td>~16,000</td>
-                      <td>~54%</td>
+                      <td>~52%</td>
                     </tr>
                     <tr>
                       <td>National trajectory continues</td>
                       <td>~22,000+</td>
-                      <td>~74%+ (supply-capped again)</td>
+                      <td>~71%+ (supply-capped again)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -877,10 +890,14 @@ export default function BusinessCasePage() {
                 <strong>Substitutes.</strong> Gyms, five-a-side, tennis and other
                 leisure spend. Padel is currently taking share from these, and 92%
                 first-session retention indicates it holds what it takes. The most
-                credible substitute threat is padel bolted onto existing gyms
-                (David Lloyd is the UK’s largest padel operator), but its nearest
-                padel sites are outside this catchment and its product is an add-on
-                for existing members rather than a standalone destination.
+                credible substitute threat is padel inside existing clubs: David
+                Lloyd — the UK’s largest padel operator — now runs three courts at
+                its Wickwoods country club in Albourne, in the heart of the
+                corridor. But Wickwoods is an adults-only members’ club at
+                £100+/month: padel as a perk inside a gym membership. An open,
+                bookable social venue does a different job, and Wickwoods
+                operating profitably in the belt is evidence the country-club
+                setting works here rather than a door closing.
               </p>
               <p>
                 <strong>Supplier power.</strong> Court manufacturers and installers
@@ -1975,6 +1992,146 @@ export default function BusinessCasePage() {
                 wants — Downs views, trees, a garden — is achievable on the park’s
                 edge without any of that.
               </p>
+
+              <h3 id="s10-country">
+                The country-club route — a real alternative to the shed
+              </h3>
+              <p>
+                The countryside strip just north of the Downs but{" "}
+                <strong>outside</strong> the park boundary — the Low Weald belt
+                through Albourne, Hurstpierpoint, Henfield, Twineham, Bolney and
+                the Plumpton fringe — has Downs views, stays within 15 minutes of
+                both Brighton and Burgess Hill, and is demonstrably approving
+                padel. Recent decisions there give a clear formula for what wins
+                and what loses:
+              </p>
+              <TW size="wide">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>What was proposed</th>
+                      <th>Outcome</th>
+                      <th>The lesson</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Q Leisure, Albourne — 6 courts on an existing activity
+                        park, 4 under a canopy
+                      </td>
+                      <td>Approved Mar 2026</td>
+                      <td>Existing leisure site + covered courts works</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Plumpton Racecourse — 5 courts fully inside a building,
+                        diversification case
+                      </td>
+                      <td>Approved Aug 2026</td>
+                      <td>Existing venue + indoor + economic story works</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Housedean Farm — 1 court inside an existing grain store,
+                        no external changes
+                      </td>
+                      <td>
+                        Approved Feb 2026,{" "}
+                        <strong>inside the National Park</strong>
+                      </td>
+                      <td>Re-using a rural building works even in the park</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Mid Sussex Golf Club, Ditchling — 4 open floodlit courts
+                        on scrubland
+                      </td>
+                      <td>
+                        <strong>Refused Sep 2025</strong>
+                      </td>
+                      <td>
+                        Greenfield + floodlights + noise = refusal, even outside
+                        the park
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </TW>
+              <p>
+                So the rural entry ticket is:{" "}
+                <strong>
+                  an existing leisure site or existing building, courts fully
+                  enclosed, a noise assessment submitted up front, and a
+                  diversification story.
+                </strong>{" "}
+                Named opportunities that fit:
+              </p>
+              <ul>
+                <li>
+                  <strong>Mid Sussex Golf Club</strong> — the standout opening.
+                  They <em>want</em> padel (they applied and lost), they have
+                  land, a clubhouse, bar, restaurant and Downs views, and the
+                  refusal was about the format, not the principle. A revised
+                  indoor scheme, brought with a capitalised partner, addresses
+                  exactly what the officers objected to.
+                </li>
+                <li>
+                  <strong>Singing Hills Golf Centre, Albourne</strong> —
+                  family-owned 27 holes with a covered floodlit range, public
+                  restaurant, weddings and a big car park; no padel and no
+                  announced plans. Existing three-phase power and catering
+                  infrastructure de-risk two of the rural route’s costs.
+                </li>
+                <li>
+                  <strong>Hickstead</strong> — the biggest rural leisure
+                  landholder in the belt, on the A23, actively diversifying into
+                  weddings and corporate events, with a heavily seasonal calendar
+                  that leaves year-round capacity unused.
+                </li>
+                <li>
+                  <strong>Mannings Heath Golf &amp; Wine Estate</strong> — golf
+                  plus vineyard plus restaurant; the closest existing brand to
+                  the concept’s tone.
+                </li>
+                <li>
+                  <strong>Farm buildings and equestrian arenas</strong> —
+                  redundant grain stores are tall enough for courts (the trade
+                  press now covers padel as a standard farm diversification, and
+                  installers offer landowner revenue-share builds); an indoor
+                  riding arena is ~60m × 25m of clear-span rural building. None
+                  is openly marketed in the belt right now, so this runs through
+                  the rural agents (HJ Burt in Steyning, Batcheller Monkhouse,
+                  Churchill Country &amp; Equestrian).
+                </li>
+              </ul>
+              <p>
+                <strong>
+                  Trade-offs against the industrial unit, honestly:
+                </strong>{" "}
+                planning is slower and less certain than a change of use on
+                employment land; rural three-phase power can cost real money on a
+                bare site (another reason golf clubs, with kitchens and floodlit
+                ranges, appeal); a countryside location thins the 20-minute
+                catchment and makes the venue drive-only, which matters for a
+                bar. And the belt is no longer empty — David Lloyd Wickwoods, Q
+                Leisure and Plumpton bracket it. What remains genuinely open is
+                the western side (Henfield–Partridge Green–Cowfold–Twineham) and
+                the format itself: nobody in the belt operates an open, bookable
+                social club — the country-club venues are members-only and the
+                approved schemes are courts-plus-café.
+              </p>
+              <p>
+                <strong>
+                  The site search therefore runs two tracks in parallel
+                </strong>
+                : the industrial shortlist above (faster, cheaper, certain), and
+                partnership letters to the named rural sites (slower, riskier,
+                and the version of the venue this plan was actually dreamed up
+                for). The first track to produce a signable deal that passes the
+                Section 7 numbers wins.
+              </p>
+
               <h3 id="s10-building">Building requirements</h3>
               <ul>
                 <li>

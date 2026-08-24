@@ -1,9 +1,13 @@
 // Bespoke schematic map of the Brighton–Mid Sussex corridor: coastline along
 // the bottom, the A23 running north–south and the A27 east–west, town labels,
 // numbered teal pins for the seven candidate buildings (numbers match the
-// listing cards below the map) and small neutral/amber markers for the
-// existing and incoming padel venues. Pure inline SVG, themed entirely with
+// listing cards below the map), small neutral/amber markers for the existing
+// and incoming padel venues, and hollow teal rings for the rural
+// partner-target sites (move 5). Pure inline SVG, themed entirely with
 // the document's CSS variables — no external images.
+//
+// Cottesmore (Pease Pottage, ~51.08°N) sits north of the viewBox's latitude
+// range and is deliberately omitted rather than clipped.
 //
 // Placement is proportional to real coordinates (x ∝ longitude,
 // y ∝ −latitude), lightly nudged where markers would otherwise collide.
@@ -57,13 +61,14 @@ const CANDIDATES: { no: number; name: string; at: [number, number] }[] = [
   { no: 7, name: "Buckingham Park, Lewes", at: pt(50.878, 0.008) },
 ];
 
-/** Existing / incoming padel venues. */
+/** Existing / incoming padel venues, plus rural partner-target sites. */
 const VENUES: {
   name: string;
   at: [number, number];
   label: [number, number];
   anchor: Anchor;
   coming?: boolean;
+  target?: boolean;
 }[] = [
   { name: "PADELHUB (Warninglid)", at: pt(51.02, -0.25), label: [x(-0.25) + 12, y(51.02) + 4], anchor: "start" },
   { name: "Eixo, Goddards Green", at: pt(50.95, -0.182), label: [x(-0.182) - 4, y(50.95) + 18], anchor: "middle" },
@@ -71,9 +76,19 @@ const VENUES: {
   { name: "Withdean", at: pt(50.86, -0.15), label: [x(-0.15) - 12, y(50.86) - 2], anchor: "end" },
   { name: "Hove Beach Park", at: [x(-0.172) - 6, y(50.828) + 20], label: [x(-0.172) - 6, y(50.828) + 34], anchor: "middle" },
   { name: "Atmos, West Worthing", at: pt(50.822, -0.378), label: [x(-0.378) - 12, y(50.822) - 14], anchor: "start" },
+  // Albourne now holds a small cluster (town dot, Wickwoods, Q Leisure,
+  // Singing Hills) — each marker is nudged off the true point and labelled
+  // away from the others.
+  { name: "David Lloyd Wickwoods", at: [x(-0.21) - 18, y(50.93) - 10], label: [x(-0.21) - 28, y(50.93) - 12], anchor: "end" },
+  { name: "Henfield Leisure Centre", at: pt(50.93, -0.28), label: [x(-0.28), y(50.93) + 16], anchor: "middle" },
   { name: "Club Padel (opening)", at: [x(-0.272) - 8, y(50.834) - 8], label: [x(-0.272) + 4, y(50.834) - 5], anchor: "start", coming: true },
   { name: "Consort Way (approved)", at: [x(-0.112) + 6, y(50.958)], label: [x(-0.112) + 18, y(50.958) + 17], anchor: "start", coming: true },
   { name: "Plumpton (approved)", at: pt(50.93, -0.06), label: [x(-0.06), y(50.93) + 18], anchor: "middle", coming: true },
+  { name: "Q Leisure (approved)", at: [x(-0.205) - 10, y(50.955) + 2], label: [x(-0.205) - 22, y(50.955) - 1], anchor: "end", coming: true },
+  { name: "Mid Sussex GC", at: pt(50.92, -0.09), label: [x(-0.09) - 12, y(50.92) + 4], anchor: "end", target: true },
+  { name: "Singing Hills", at: [x(-0.2), y(50.92) + 6], label: [x(-0.2) + 10, y(50.92) + 10], anchor: "start", target: true },
+  { name: "Hickstead", at: pt(50.98, -0.26), label: [x(-0.26) - 10, y(50.98) + 4], anchor: "end", target: true },
+  { name: "Mannings Heath", at: pt(51.03, -0.3), label: [x(-0.3) + 10, y(51.03) + 4], anchor: "start", target: true },
 ];
 
 const A27: [number, number][] = [
@@ -137,7 +152,7 @@ export function CorridorMap() {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
-        aria-label="Schematic map of the Brighton–Mid Sussex corridor showing the A23 and A27, the seven candidate buildings as numbered pins, and existing and incoming padel venues"
+        aria-label="Schematic map of the Brighton–Mid Sussex corridor showing the A23 and A27, the seven candidate buildings as numbered pins, existing and incoming padel venues, and the rural partner-target sites — Mid Sussex Golf Club, Singing Hills, Hickstead and Mannings Heath"
       >
         <title>The Brighton–Mid Sussex corridor</title>
 
@@ -177,15 +192,16 @@ export function CorridorMap() {
           </g>
         ))}
 
-        {/* venues: open (neutral) and approved/coming (amber) */}
+        {/* venues: open (neutral), approved/coming (amber, dashed ring) and
+            rural partner targets (hollow teal ring) */}
         {VENUES.map((v) => (
           <g key={v.name}>
             <title>{v.name}</title>
             <circle
-              className={`map-venue${v.coming ? " coming" : ""}`}
+              className={`map-venue${v.coming ? " coming" : ""}${v.target ? " target" : ""}`}
               cx={v.at[0]}
               cy={v.at[1]}
-              r={4}
+              r={v.target ? 5 : 4}
             />
             {v.coming && (
               <circle
@@ -196,7 +212,7 @@ export function CorridorMap() {
               />
             )}
             <text
-              className={`map-venuelabel${v.coming ? " coming" : ""}`}
+              className={`map-venuelabel${v.coming ? " coming" : ""}${v.target ? " target" : ""}`}
               x={v.label[0]}
               y={v.label[1]}
               textAnchor={v.anchor}
@@ -227,13 +243,19 @@ export function CorridorMap() {
           <span className="ml-swatch coming" aria-hidden="true" />
           approved &amp; coming
         </span>
+        <span className="ml-item">
+          <span className="ml-swatch target" aria-hidden="true" />
+          rural partner target
+        </span>
       </div>
 
       <figcaption>
         The corridor at a glance. Numbered teal pins are the seven candidate
         buildings (numbers match the cards below); grey dots are padel venues
-        already open, amber dots are approved or opening soon. Positions are
-        schematic.
+        already open, amber dots are approved or opening soon, and hollow teal
+        rings are the rural partner-target sites from move 5. Positions are
+        schematic; Cottesmore (Pease Pottage) sits just north of the mapped
+        area.
       </figcaption>
     </figure>
   );

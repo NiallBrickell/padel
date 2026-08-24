@@ -8,7 +8,7 @@ export function PipelineAbsorptionFigure() {
       <svg
         viewBox="0 0 660 252"
         role="img"
-        aria-label="Bar chart: implied average utilisation across all 65 catchment courts at end-2027 under three player-growth scenarios — 34% if growth stops dead, 54% at half the national growth rate, 74%+ on the national trajectory — against the venue's break-even band of 50 to 55% utilisation. The middle scenario sits right at break-even; only the growth-stops-dead scenario falls below it."
+        aria-label="Bar chart: implied average utilisation across all 68 catchment courts at end-2027 under three player-growth scenarios — 32% if growth stops dead, 52% at half the national growth rate, 71%+ on the national trajectory — against the venue's break-even band of 50 to 55% utilisation. The middle scenario sits right at break-even; only the growth-stops-dead scenario falls below it."
       >
         <line className="gline" x1="285" y1="42" x2="285" y2="196" />
         <line className="gline" x1="515" y1="42" x2="515" y2="196" />
@@ -26,9 +26,9 @@ export function PipelineAbsorptionFigure() {
         <text className="sM" x="160" y="80" textAnchor="end">
           ~10,000 players
         </text>
-        <rect className="bar" x="170" y="55" width="156" height="26" rx="3" />
-        <text className="sL" x="334" y="73" textAnchor="start">
-          ~34%
+        <rect className="bar" x="170" y="55" width="147" height="26" rx="3" />
+        <text className="sL" x="325" y="73" textAnchor="start">
+          ~32%
         </text>
 
         <text className="sL" x="160" y="116" textAnchor="end">
@@ -37,9 +37,9 @@ export function PipelineAbsorptionFigure() {
         <text className="sM" x="160" y="130" textAnchor="end">
           ~16,000 players
         </text>
-        <rect className="bar" x="170" y="105" width="248" height="26" rx="3" />
-        <text className="sL" x="426" y="123" textAnchor="start">
-          ~54%
+        <rect className="bar" x="170" y="105" width="239" height="26" rx="3" />
+        <text className="sL" x="417" y="123" textAnchor="start">
+          ~52%
         </text>
 
         <text className="sL" x="160" y="166" textAnchor="end">
@@ -48,9 +48,9 @@ export function PipelineAbsorptionFigure() {
         <text className="sM" x="160" y="180" textAnchor="end">
           ~22,000+ players
         </text>
-        <rect className="bar" x="170" y="155" width="340" height="26" rx="3" />
-        <text className="sL" x="518" y="173" textAnchor="start">
-          ~74%+
+        <rect className="bar" x="170" y="155" width="327" height="26" rx="3" />
+        <text className="sL" x="505" y="173" textAnchor="start">
+          ~71%+
         </text>
 
         <line className="axis" x1="170" y1="196" x2="630" y2="196" />
@@ -70,11 +70,11 @@ export function PipelineAbsorptionFigure() {
           100%
         </text>
         <text className="sM" x="400" y="240" textAnchor="middle">
-          implied average utilisation across all ~65 courts, end-2027
+          implied average utilisation across all ~68 courts, end-2027
         </text>
       </svg>
       <figcaption>
-        The pipeline test: with the full pipeline now approved (~65 courts), the
+        The pipeline test: with the full pipeline now approved (~68 courts), the
         growth scenario clears the venue&rsquo;s 50–55% break-even comfortably,
         the middle scenario sits right at it, and only growth-stops-dead falls
         below — in a moderate-growth world, differentiation decides who wins.
