@@ -16,7 +16,7 @@ export function NavBar() {
       <div className="nav-inner">
         <Link href="/" className="brand">
           <span className="dot" aria-hidden="true" />
-          Padel Business Case
+          Padel<span className="brand-rest"> Business Case</span>
         </Link>
         {LINKS.map((l) => (
           <Link

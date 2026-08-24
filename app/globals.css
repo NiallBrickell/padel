@@ -732,6 +732,20 @@ details.toc-m a .n {
   padding: 0.35rem 0.1rem;
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+/* Mobile: short brand, tighter spacing — everything fits a 360px viewport */
+@media (max-width: 599px) {
+  .site-nav .nav-inner {
+    padding: 0 14px;
+    gap: 0.8rem;
+  }
+  .site-nav .brand .brand-rest {
+    display: none;
+  }
+  .site-nav .nav-link {
+    font-size: 0.82rem;
+  }
 }
 .site-nav .nav-link:hover {
   color: var(--ink);
