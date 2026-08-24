@@ -1,5 +1,7 @@
-// The seven candidate buildings from the next-steps sheet (bet 2), hand-keyed
-// from the agents' live listings. Snapshot: August 2026 — listings move.
+// The seven candidate buildings from the next-steps sheet ("The live
+// candidates"), hand-keyed from the agents' live listings. Snapshot:
+// August 2026 — listings move. Card order sets the pin numbers on the
+// corridor map — keep the two in step.
 
 export type Listing = {
   id: string;
@@ -35,7 +37,7 @@ export const LISTINGS: Listing[] = [
     heightM: 8,
     heightLabel: "8m eaves",
     chips: ["Closest spec match", "8m eaves"],
-    why: "The closest spec match on the market — the right size band with 8m of clear height.",
+    why: "The closest match to our spec.",
     url: "https://property.shw.co.uk/property/details/35193/",
   },
   {
@@ -47,7 +49,7 @@ export const LISTINGS: Listing[] = [
     heightM: 10,
     heightLabel: "10m",
     chips: ["10m clear", "29,829 sq ft"],
-    why: "Well over the size brief, but the most height of any candidate.",
+    why: "Oversized, but the height is perfect.",
     url: "https://property.shw.co.uk/property/details/26635/",
   },
   {
@@ -59,7 +61,7 @@ export const LISTINGS: Listing[] = [
     heightM: null,
     heightLabel: "height unstated — ask",
     chips: ["£9.75/sq ft", "20,000 sq ft"],
-    why: "Top of the size band at a mid rent — the height question is the one to ask.",
+    why: "Height not stated — the first thing to ask.",
     url: "https://www.gsp.uk.com/commercial-property/warehouse-and-industrial/",
   },
   {
@@ -71,7 +73,7 @@ export const LISTINGS: Listing[] = [
     heightM: 6.7,
     heightLabel: "6.7m high-bay",
     chips: ["6.7m high-bay", "£10/sq ft"],
-    why: "High-bay space that clears the 6m courts minimum.",
+    why: "High-bay space clearing the 6m courts minimum.",
     url: "https://www.rightmove.co.uk/properties/168932528",
   },
   {
@@ -83,7 +85,7 @@ export const LISTINGS: Listing[] = [
     heightM: null,
     heightLabel: "height unstated — view it",
     chips: ["Class E consent already", "£6.75/sq ft"],
-    why: "Already holds Class E consent — worth viewing for the planning shortcut alone.",
+    why: "Already holds Class E consent — indoor sport needs no planning change of use. Worth a viewing for that alone, though the two-storey layout may rule it out.",
     url: "https://www.rightmove.co.uk/properties/760551190483760",
   },
   {
@@ -95,7 +97,7 @@ export const LISTINGS: Listing[] = [
     heightM: 6.5,
     heightLabel: "6.5m",
     chips: ["6.5m clear", "13,011 sq ft"],
-    why: "Clears the courts minimum at the compact end of the size brief.",
+    why: "The only realistic Brighton-fringe option found.",
     url: "https://www.rightmove.co.uk/properties/769819742381744",
   },
   {
@@ -107,7 +109,7 @@ export const LISTINGS: Listing[] = [
     heightM: null,
     heightLabel: "pre-let — spec set before build",
     chips: ["Takes pre-lets"],
-    why: "Pre-let route via Oakley (Steven Harvey) — alongside Panattoni's design-and-build option at Burgess Hill.",
+    why: "Takes pre-lets via Oakley (Steven Harvey, steven@oakleyproperty.com, 01273 645772).",
     url: "https://dtre.com/search/properties/118333-buckingham-park-brooks-road-lewes",
   },
 ];

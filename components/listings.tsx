@@ -1,7 +1,8 @@
-// The candidate-buildings showcase inside bet 2: a card grid where each
-// building's eaves height is plotted against the 6m courts minimum and the
-// 8m ideal, so spec-fit reads at a glance. No agent photos (rights) — the
-// cards carry the weight with type, chips and the height bars.
+// The candidate-buildings grid inside "The live candidates" subsection:
+// dense cards, numbered to match the corridor map's pins, each plotting the
+// building's stated height against the 6m courts minimum and the 8m ideal so
+// spec-fit reads at a glance. No agent photos (rights) — the map and the
+// cards carry the weight.
 
 import {
   HEIGHT_IDEAL_M,
@@ -50,10 +51,13 @@ function HeightBar({ listing }: { listing: Listing }) {
   );
 }
 
-function ListingCard({ listing }: { listing: Listing }) {
+function ListingCard({ listing, no }: { listing: Listing; no: number }) {
   return (
     <article className="listing-card">
       <div className="lc-head">
+        <span className="lc-no" aria-label={`Map pin ${no}`}>
+          {no}
+        </span>
         <h4 className="lc-name">{listing.name}</h4>
         <span className="lc-area">{listing.area}</span>
       </div>
@@ -70,7 +74,7 @@ function ListingCard({ listing }: { listing: Listing }) {
           </span>
         ))}
       </div>
-      <p className="lc-why">{listing.why}</p>
+      {listing.why && <p className="lc-why">{listing.why}</p>}
       <a
         className="lc-link"
         href={listing.url}
@@ -86,15 +90,16 @@ function ListingCard({ listing }: { listing: Listing }) {
 export function ListingsShowcase() {
   return (
     <div className="listings breakout font-ui">
-      <div className="listings-head">
-        <span className="bet-label">The live candidates</span>
-        <span className="listings-note">snapshot Aug 2026 — listings move</span>
-      </div>
       <div className="listings-grid">
-        {LISTINGS.map((l) => (
-          <ListingCard key={l.id} listing={l} />
+        {LISTINGS.map((l, i) => (
+          <ListingCard key={l.id} listing={l} no={i + 1} />
         ))}
       </div>
+      <p className="listings-foot">
+        Also: Panattoni offers design-and-build at Burgess Hill, and Buckingham
+        Park in Lewes takes pre-lets (Oakley: Steven Harvey,
+        steven@oakleyproperty.com, 01273 645772).
+      </p>
     </div>
   );
 }

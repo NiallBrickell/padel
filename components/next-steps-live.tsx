@@ -1,14 +1,21 @@
 "use client";
 
 // Live layer for the next-steps document: each bet block links to the shared
-// to-do store by stable `key`. Blocks with no matching store item render
-// exactly as the static document (fallback). Assignment works two ways:
-// a compact select menu in the bet's header, or dragging the bet onto a
-// person chip in the sticky rail.
+// to-do store by stable `key`. Blocks with no matching store item render the
+// same collapsible card without the live controls (fallback). Assignment
+// works two ways: a compact select menu in the bet's header, or dragging the
+// bet onto a person chip in the sticky rail.
+//
+// Every bet renders collapsed by default — a compact row with the number,
+// title, live controls and a one-line summary — and expands on click to the
+// full who / the ask / what we want / the read card. Expansion state is
+// remembered per card in localStorage.
 
 import {
   createContext,
+  useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -93,9 +100,9 @@ export function NextStepsLive({ children }: { children: ReactNode }) {
   );
 }
 
-/* ---------------- stage progress strip (live wrapper) ---------------- */
+/* ---------------- stage progress bar (live wrapper) ---------------- */
 
-/** The three-stage progress strip, fed from the shared store via context. */
+/** The single segmented progress bar, fed from the shared store via context. */
 export function LiveStageStrip() {
   const ctx = useContext(Ctx);
   return (
@@ -118,10 +125,10 @@ export function PeopleRail() {
     <div
       className="bet-rail font-ui"
       role="group"
-      aria-label="People — drop a bet on a name to assign it"
+      aria-label="People — drop a move on a name to assign it"
     >
       <span className="rail-hint" aria-hidden="true">
-        drag a bet onto a name
+        drag a move onto a name
       </span>
       {ctx.people.map((p) => (
         <RailChip key={p} name={p} label={p} count={counts.get(p) ?? 0} />
@@ -151,16 +158,18 @@ function RailChip({
 
 /* ---------------- bet blocks ---------------- */
 
-// Controls live inside draggable elements — don't start drags from them.
-const stopDrag = {
+// Controls live inside draggable, clickable elements — don't start drags from
+// them, and don't let their clicks toggle the card open/closed.
+const stopThrough = {
   onPointerDown: (e: { stopPropagation: () => void }) => e.stopPropagation(),
   onTouchStart: (e: { stopPropagation: () => void }) => e.stopPropagation(),
+  onClick: (e: { stopPropagation: () => void }) => e.stopPropagation(),
 };
 
 /** The done checkbox, alone — it leads the header strip, before the title. */
 function BetCheck({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
   return (
-    <span className="bet-check-wrap" {...stopDrag}>
+    <span className="bet-check-wrap" data-controls {...stopThrough}>
       <Checkbox
         checked={item.done}
         onCheckedChange={() =>
@@ -181,14 +190,10 @@ function BetCheck({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
   );
 }
 
-/**
- * The trailing control cluster: assignee select, due pill, drag grip.
- * (No theme badge here — themes are a board-only concept; inside the document
- * they read as noise.)
- */
+/** The trailing control cluster: assignee select, due pill, drag grip. */
 function BetMeta({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
   return (
-    <span className="bet-meta font-ui" {...stopDrag}>
+    <span className="bet-meta font-ui" data-controls {...stopThrough}>
       <AssigneeSelect
         value={item.assignee || ""}
         people={ctx.people}
@@ -227,128 +232,202 @@ function BetMeta({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
   );
 }
 
-/**
- * A full bet block (h3 + content). If the store has an item with `betKey`,
- * the block becomes a live card: done checkbox, assignee menu, due date and
- * drag-to-assign. Otherwise it renders the static document markup unchanged.
- */
-export function Bet({
-  betKey,
-  id,
-  className,
-  title,
-  children,
-}: {
-  betKey: string;
+/** Expansion state per card, remembered in localStorage (nice-to-have). */
+function useCardOpen(storeKey: string | undefined, collapsible: boolean) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    // Restore persisted expansion once, after hydration — reading storage
+    // during render would mismatch the server-rendered (collapsed) HTML.
+    if (!collapsible || !storeKey) return;
+    try {
+      if (localStorage.getItem(`ns-open:${storeKey}`) === "1") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot post-hydration restore from an external store
+        setOpen(true);
+      }
+    } catch {
+      /* storage unavailable — default collapsed */
+    }
+  }, [collapsible, storeKey]);
+  const toggle = useCallback(() => {
+    setOpen((o) => {
+      const next = !o;
+      if (storeKey) {
+        try {
+          localStorage.setItem(`ns-open:${storeKey}`, next ? "1" : "0");
+        } catch {
+          /* fine */
+        }
+      }
+      return next;
+    });
+  }, [storeKey]);
+  return [open, toggle] as const;
+}
+
+type BetProps = {
+  /** Stable store key; omit for cards with no single store item (bet 5). */
+  betKey?: string;
   /** Anchor id placed on the h3 (used by the TOC scrollspy). */
   id?: string;
+  /** The move's number in the sheet (1–12). */
+  no?: number;
   /** Extra class on the card wrapper (e.g. "fun"). */
   className?: string;
   title: ReactNode;
+  /** One-line collapsed summary (the scoreboard's "What it tells us"). */
+  summary?: string;
   children?: ReactNode;
-}) {
+};
+
+/**
+ * A bet/move card. Collapsed by default: number + title + live controls +
+ * summary line. Click anywhere on the row (except the controls) to expand the
+ * full card. If the store has an item with `betKey`, the header carries the
+ * live controls (done / assignee / due / drag-to-assign); otherwise the same
+ * card renders without them and the document reads identically.
+ */
+export function Bet(props: BetProps) {
   const ctx = useContext(Ctx);
-  const item = ctx?.byKey.get(betKey);
-  if (!ctx || !item) {
-    // No matching store item (or data not loaded yet): same card chrome,
-    // no live controls — the document reads identically either way.
-    return (
-      <div className={`bet-card${className ? ` ${className}` : ""}`}>
-        <div className="bet-head static">
-          <h3 id={id}>{title}</h3>
-        </div>
-        {children}
-      </div>
-    );
-  }
+  const item = props.betKey ? ctx?.byKey.get(props.betKey) : undefined;
+  if (!ctx || !item) return <StaticBet {...props} />;
+  return <LiveBet {...props} ctx={ctx} item={item} />;
+}
+
+function StaticBet(props: BetProps) {
+  const collapsible = props.children != null;
+  const [open, toggle] = useCardOpen(props.betKey ?? props.id, collapsible);
   return (
-    <BetCard ctx={ctx} item={item} id={id} className={className} title={title}>
-      {children}
-    </BetCard>
+    <CardChrome {...props} open={open} onToggle={toggle} collapsible={collapsible} />
   );
 }
 
-function BetCard({
+function LiveBet({
   ctx,
   item,
-  id,
-  className,
-  title,
-  children,
-}: {
-  ctx: LiveCtx;
-  item: Todo;
-  id?: string;
-  className?: string;
-  title: ReactNode;
-  children?: ReactNode;
-}) {
+  ...props
+}: BetProps & { ctx: LiveCtx; item: Todo }) {
+  const collapsible = props.children != null;
+  const [open, toggle] = useCardOpen(props.betKey ?? props.id, collapsible);
   const { setNodeRef, listeners, isDragging } = useDraggable({ id: item.id });
   return (
-    <div
-      ref={setNodeRef}
-      className={`bet-card${item.done ? " done" : ""}${isDragging ? " dragging" : ""}${className ? ` ${className}` : ""}`}
-    >
-      <div className="bet-head" {...listeners}>
-        <BetCheck ctx={ctx} item={item} />
-        <h3 id={id}>{title}</h3>
-        <BetMeta ctx={ctx} item={item} />
+    <CardChrome
+      {...props}
+      open={open}
+      onToggle={toggle}
+      collapsible={collapsible}
+      done={item.done}
+      dragging={isDragging}
+      dragRef={setNodeRef}
+      listeners={listeners}
+      lead={<BetCheck ctx={ctx} item={item} />}
+      meta={<BetMeta ctx={ctx} item={item} />}
+    />
+  );
+}
+
+function CardChrome({
+  id,
+  no,
+  className,
+  title,
+  summary,
+  children,
+  open,
+  onToggle,
+  collapsible,
+  done,
+  dragging,
+  dragRef,
+  listeners,
+  lead,
+  meta,
+}: BetProps & {
+  open: boolean;
+  onToggle: () => void;
+  collapsible: boolean;
+  done?: boolean;
+  dragging?: boolean;
+  dragRef?: (el: HTMLElement | null) => void;
+  listeners?: Record<string, unknown>;
+  lead?: ReactNode;
+  meta?: ReactNode;
+}) {
+  const bodyId = id ? `${id}-body` : undefined;
+  const live = lead != null || meta != null;
+  const cls =
+    `bet-card${collapsible ? " clps" : ""}${open ? " open" : ""}` +
+    `${done ? " done" : ""}${dragging ? " dragging" : ""}` +
+    `${className ? ` ${className}` : ""}`;
+  return (
+    <div ref={dragRef} className={cls}>
+      <div
+        className={`bet-head${live ? "" : " static"}`}
+        {...(listeners ?? {})}
+        onClick={
+          collapsible
+            ? (e) => {
+                const t = e.target as HTMLElement | null;
+                if (t?.closest("[data-controls]")) return;
+                onToggle();
+              }
+            : undefined
+        }
+      >
+        {lead}
+        <h3 id={id} className="bet-title">
+          {collapsible ? (
+            <button
+              type="button"
+              className="bet-toggle"
+              aria-expanded={open}
+              aria-controls={bodyId}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggle();
+              }}
+            >
+              {no != null && (
+                <span className="bet-no font-ui" aria-hidden="true">
+                  {no}
+                </span>
+              )}
+              <span className="bet-title-text">{title}</span>
+            </button>
+          ) : (
+            <>
+              {no != null && (
+                <span className="bet-no font-ui" aria-hidden="true">
+                  {no}
+                </span>
+              )}
+              {title}
+            </>
+          )}
+        </h3>
+        {meta}
+        {collapsible && <span className="chev" aria-hidden="true" />}
       </div>
-      {children}
+      {collapsible && summary ? (
+        <p className="bet-summary">{summary}</p>
+      ) : null}
+      {collapsible ? (
+        <div id={bodyId} className="bet-body">
+          <div className="bet-body-in" inert={!open}>
+            {children}
+          </div>
+        </div>
+      ) : (
+        children
+      )}
     </div>
   );
 }
 
 /**
- * A live list item (used for bets that are a single `<li>` in the document,
- * e.g. the gating decisions). Falls back to a plain `<li>`.
- */
-export function BetLi({
-  betKey,
-  children,
-}: {
-  betKey: string;
-  children: ReactNode;
-}) {
-  const ctx = useContext(Ctx);
-  const item = ctx?.byKey.get(betKey);
-  if (!ctx || !item) return <li>{children}</li>;
-  return (
-    <BetLiCard ctx={ctx} item={item}>
-      {children}
-    </BetLiCard>
-  );
-}
-
-function BetLiCard({
-  ctx,
-  item,
-  children,
-}: {
-  ctx: LiveCtx;
-  item: Todo;
-  children: ReactNode;
-}) {
-  const { setNodeRef, listeners, isDragging } = useDraggable({ id: item.id });
-  return (
-    <li
-      ref={setNodeRef}
-      {...listeners}
-      className={`bet-li${item.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
-    >
-      {children}
-      <span className="bet-controls font-ui">
-        <BetCheck ctx={ctx} item={item} />
-        <BetMeta ctx={ctx} item={item} />
-      </span>
-    </li>
-  );
-}
-
-/**
  * A compact live sub-task row for store items that share a bet block
- * (e.g. the GS&P / SHW briefs inside bet 2). Renders nothing when the store
- * has no matching item — the document then reads exactly as before.
+ * (e.g. the GS&P / SHW briefs inside bet 2, or the two decisions in bet 5).
+ * Renders nothing when the store has no matching item — the document then
+ * reads exactly as before.
  */
 export function SubBet({ betKey, label }: { betKey: string; label: string }) {
   const ctx = useContext(Ctx);

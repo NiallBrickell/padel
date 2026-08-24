@@ -1,10 +1,11 @@
 "use client";
 
-// Three-segment stage progress strip shown at the top of the next-steps
-// document and the /todos board. Each segment fills from live store data
-// (done/total by key prefix); the currently-active stage carries the accent,
-// later stages sit dimmed with their "unlocked by…" note, and a fully-done
-// stage shows a quiet completion line. No confetti, no points.
+// ONE progress indicator for the whole plan, shown on /next-steps and /todos:
+// a single horizontal track segmented into the three stages (segment width
+// proportional to that stage's task count), filled by done tasks, with one
+// overall count and the three stage names as small labels under their
+// segments. The active stage label carries the accent; later stages sit
+// muted. This replaces the old three-card strip.
 
 import {
   STAGES,
@@ -23,54 +24,73 @@ export function StageStrip({
 }) {
   const progress = stageProgress(todos);
   const active: StagePrefix | null = loading ? "b1" : activeStage(progress);
+  const doneAll = STAGES.reduce((n, s) => n + progress[s.prefix].done, 0);
+  const totalAll = STAGES.reduce((n, s) => n + progress[s.prefix].total, 0);
+
+  function stateOf(prefix: StagePrefix): "complete" | "active" | "locked" {
+    const { done, total } = progress[prefix];
+    if (!loading && total > 0 && done === total) return "complete";
+    if (prefix === active || active === null) return "active";
+    return "locked";
+  }
 
   return (
-    <div
-      className="stage-strip breakout font-ui"
-      role="group"
-      aria-label="Progress through the three stages"
-    >
-      {STAGES.map((s) => {
-        const { done, total } = progress[s.prefix];
-        const complete = !loading && total > 0 && done === total;
-        const state = complete
-          ? "complete"
-          : s.prefix === active || active === null
-            ? "active"
-            : "locked";
-        const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-        return (
-          <div key={s.prefix} className={`stage-seg ${state}`}>
-            <div className="seg-top">
-              <span className="seg-kicker">Stage {s.n}</span>
+    <div className="stage-bar breakout font-ui">
+      <div className="sb-top">
+        <span className="sb-kicker">Progress</span>
+        <span className="sb-count">
+          {loading || totalAll === 0 ? "…" : `${doneAll} of ${totalAll} done`}
+        </span>
+      </div>
+      <div
+        className="sb-track"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={totalAll || 1}
+        aria-valuenow={doneAll}
+        aria-label={
+          loading || totalAll === 0
+            ? "Progress loading"
+            : `${doneAll} of ${totalAll} tasks done`
+        }
+      >
+        {STAGES.map((s) => {
+          const { done, total } = progress[s.prefix];
+          const pct = total > 0 ? (done / total) * 100 : 0;
+          return (
+            <div
+              key={s.prefix}
+              className={`sb-seg ${stateOf(s.prefix)}`}
+              style={{ flexGrow: total > 0 ? total : 1 }}
+              aria-hidden="true"
+            >
+              <div className="sb-fill" style={{ width: `${pct}%` }} />
+            </div>
+          );
+        })}
+      </div>
+      <div className="sb-labels">
+        {STAGES.map((s) => {
+          const { done, total } = progress[s.prefix];
+          return (
+            <div
+              key={s.prefix}
+              className={`sb-label ${stateOf(s.prefix)}`}
+              style={{ flexGrow: total > 0 ? total : 1 }}
+            >
+              <span className="sb-name">
+                Stage {s.n} — {s.name}
+              </span>
               <span
-                className="seg-count"
-                aria-label={`${done} of ${total} done`}
+                className="sb-ct"
+                aria-label={`${done} of ${total} done in stage ${s.n}`}
               >
                 {total > 0 ? `${done}/${total}` : loading ? "…" : "—"}
               </span>
             </div>
-            <div className="seg-name">{s.name}</div>
-            <div
-              className="seg-bar"
-              role="progressbar"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={pct}
-              aria-label={`Stage ${s.n} progress`}
-            >
-              <div className="seg-fill" style={{ width: `${pct}%` }} />
-            </div>
-            <div className="seg-note">
-              {complete
-                ? s.completeLine
-                : state === "locked"
-                  ? s.unlockNote
-                  : " "}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

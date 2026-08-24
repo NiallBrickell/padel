@@ -1,7 +1,7 @@
-// Typographic structure for the bet cards on /next-steps. Every bet from the
-// working sheet has the same shape — who / the ask / what we want / the read —
-// and these parts give that shape a consistent visual grammar without touching
-// the sheet's wording.
+// Typographic structure for the move cards on /next-steps. Every move from
+// the working sheet has the same shape — who / the ask / what we want / the
+// read — and these parts give that shape a consistent visual grammar without
+// touching the sheet's wording.
 
 import type { ReactNode } from "react";
 
@@ -34,24 +34,11 @@ export function Ask({ children }: { children: ReactNode }) {
   return <BetSec label="The ask">{children}</BetSec>;
 }
 
-export function Want({
-  note,
-  children,
-}: {
-  /** Optional inline aside after the label (kept from the sheet's wording). */
-  note?: ReactNode;
-  children: ReactNode;
-}) {
-  return (
-    <div className="bet-sec">
-      <span className="bet-label font-ui">What we want</span>
-      {note ? <span className="bet-label-note font-ui">{note}</span> : null}
-      <div className="bet-sec-body">{children}</div>
-    </div>
-  );
+export function Want({ children }: { children: ReactNode }) {
+  return <BetSec label="What we want">{children}</BetSec>;
 }
 
-/** The payoff line — the strongest outcome, styled to land. */
+/** The payoff line — the first outcome, styled to land. */
 export function WantLead({ children }: { children: ReactNode }) {
   return <p className="want-lead">{children}</p>;
 }
@@ -71,12 +58,12 @@ export function Read({
   );
 }
 
-/** Tinted block for the competitive-intel material inside bet 2. */
+/** Tinted block for the worth-mentioning material inside bet 2. */
 export function Intel({
-  label = "Competitive intel",
+  label,
   children,
 }: {
-  label?: string;
+  label: string;
   children: ReactNode;
 }) {
   return (
@@ -84,28 +71,5 @@ export function Intel({
       <span className="bet-label font-ui">{label}</span>
       {children}
     </aside>
-  );
-}
-
-/**
- * Card chrome for a bet that has no single store item of its own (bet 6 — the
- * two group decisions live as two sub-rows instead of one header checkbox).
- */
-export function StaticBetCard({
-  id,
-  title,
-  children,
-}: {
-  id?: string;
-  title: ReactNode;
-  children: ReactNode;
-}) {
-  return (
-    <div className="bet-card static">
-      <div className="bet-head static">
-        <h3 id={id}>{title}</h3>
-      </div>
-      {children}
-    </div>
   );
 }

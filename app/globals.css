@@ -1179,39 +1179,92 @@ textarea:not(:disabled) {
   line-height: 1;
   cursor: grab;
 }
-/* strip form used by single-<li> bets: checkbox + meta on one wrapping line */
-.bet-controls {
+/* ---------- collapsible move cards ----------
+   Collapsed: number chip + title + live controls + one summary line.
+   Expanded: the full who / the ask / what we want / the read card, with a
+   smooth height animation (grid-rows 0fr → 1fr). */
+.bet-card.clps {
+  padding: 0.15rem 1.1rem 0.5rem;
+}
+.bet-card.clps .bet-head {
+  cursor: pointer;
+  padding-bottom: 0.2rem;
+}
+.bet-toggle {
   display: inline-flex;
-  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  max-width: 100%;
+}
+.bet-no {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin: 0.15rem 0 0.75rem;
-  width: 100%;
+  justify-content: center;
+  transform: translateY(0.15rem);
 }
-
-.bet-controls .bet-meta {
-  flex: 1 1 auto;
-}
-.bet-controls .bet-meta .grip {
-  margin-left: auto;
-}
-
-/* live single-<li> bets (the gating decisions) */
-.bet-li {
-  cursor: grab;
-  touch-action: manipulation;
-  border-radius: 8px;
-}
-.bet-li.done {
+.bet-card.done .bet-no {
+  background: var(--thead);
   color: var(--muted);
-  text-decoration: line-through;
-  opacity: 0.75;
 }
-.bet-li.dragging {
-  opacity: 0.35;
+.bet-title-text {
+  min-width: 0;
 }
-.bet-li .bet-controls {
-  margin: 0.35rem 0 0.1rem;
+.chev {
+  flex: 0 0 auto;
+  width: 0.48rem;
+  height: 0.48rem;
+  margin: 0.62rem 0.1rem 0 0.2rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+.bet-card.open .chev {
+  transform: rotate(-135deg) translate(-0.1rem, -0.1rem);
+}
+.bet-summary {
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin: 0 0 0.3rem;
+}
+.bet-card.done .bet-summary {
+  color: var(--muted);
+}
+.bet-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+  margin: 0 -1.1rem;
+}
+.bet-card.open .bet-body {
+  grid-template-rows: 1fr;
+}
+.bet-body-in {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 1.1rem;
+  visibility: hidden;
+  transition: visibility 0.28s;
+}
+.bet-card.open .bet-body-in {
+  visibility: visible;
+  padding-top: 0.45rem;
 }
 
 /* compact sub-task rows inside a bet's list: one tight row —
@@ -1457,95 +1510,108 @@ footer.doc a {
   text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
-/* ---------- stage progress strip (next-steps + board) ---------- */
-.stage-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+/* ---------- single stage progress bar (next-steps + board) ----------
+   One track segmented into the three stages (segment width proportional to
+   task count), one overall count, stage names as small labels under their
+   segments. Replaces the old three-card strip. */
+.stage-bar {
   margin: 1.6rem 0 0.2rem;
-}
-.todos-page .stage-strip {
-  margin: 0 0 1.4rem;
-}
-@media (max-width: 640px) {
-  .stage-strip {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.stage-seg {
-  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--surface);
-  padding: 0.7rem 0.85rem 0.6rem;
-  transition: opacity 0.2s, border-color 0.2s;
+  padding: 0.7rem 0.9rem 0.65rem;
 }
-.stage-seg .seg-top {
+.todos-page .stage-bar {
+  margin: 0 0 1.4rem;
+}
+.sb-top {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
 }
-.seg-kicker {
+.sb-kicker {
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.seg-count {
-  font-size: 0.72rem;
+.sb-count {
+  font-size: 0.78rem;
   font-weight: 650;
-  color: var(--muted);
+  color: var(--accent-deep);
   font-variant-numeric: tabular-nums;
 }
-.seg-name {
-  font-size: 0.94rem;
-  font-weight: 650;
-  line-height: 1.25;
-  color: var(--ink2);
-  margin: 0.15rem 0 0.55rem;
+.sb-track {
+  display: flex;
+  gap: 4px;
+  height: 10px;
 }
-.seg-bar {
-  height: 6px;
+.sb-seg {
+  flex-basis: 0;
+  min-width: 56px;
   border-radius: 999px;
   background: var(--thead);
   border: 1px solid var(--line-soft);
   overflow: hidden;
 }
-.seg-fill {
+.sb-fill {
   height: 100%;
   border-radius: 999px;
   background: var(--accent);
   transition: width 0.4s ease;
 }
-.seg-note {
-  margin-top: 0.45rem;
-  min-height: 1em;
-  font-size: 0.72rem;
-  line-height: 1.4;
-  color: var(--muted);
-}
-.stage-seg.active {
-  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
-  box-shadow: 0 1px 8px color-mix(in srgb, var(--accent) 14%, transparent);
-}
-.stage-seg.active .seg-kicker {
-  color: var(--accent);
-}
-.stage-seg.active .seg-name {
-  color: var(--ink);
-}
-.stage-seg.locked {
-  opacity: 0.62;
-  background: color-mix(in srgb, var(--surface) 60%, var(--bg));
-}
-.stage-seg.locked .seg-fill {
+.sb-seg.locked .sb-fill {
   background: var(--muted);
 }
-.stage-seg.complete .seg-note {
-  color: var(--accent-deep);
+.sb-labels {
+  display: flex;
+  gap: 4px;
+  margin-top: 0.45rem;
+}
+.sb-label {
+  flex-basis: 0;
+  min-width: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  color: var(--muted);
+}
+.sb-label .sb-name {
   font-weight: 600;
+}
+.sb-label.active .sb-name {
+  color: var(--accent);
+  font-weight: 650;
+}
+.sb-label.complete .sb-name {
+  color: var(--accent-deep);
+}
+.sb-ct {
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+.sb-label.active .sb-ct {
+  color: var(--accent-deep);
+}
+/* narrow screens: the proportional columns get too thin for the stage names,
+   so the labels stack as rows under the (still proportional) track */
+@media (max-width: 640px) {
+  .sb-labels {
+    flex-direction: column;
+    gap: 0.12rem;
+  }
+  .sb-label {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.6rem;
+    min-width: 0;
+  }
 }
 
 /* ---------- next-steps: stage prize lines + bet card anatomy ---------- */
@@ -1555,12 +1621,6 @@ footer.doc a {
   padding-left: 1rem;
   border-left: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
 }
-.doc-body h3 .star {
-  color: var(--accent);
-  font-size: 0.82em;
-  font-weight: 600;
-  white-space: nowrap;
-}
 .bet-label {
   font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   display: inline-block;
@@ -1569,12 +1629,6 @@ footer.doc a {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--accent);
-}
-.bet-label-note {
-  font-size: 0.74rem;
-  font-style: italic;
-  color: var(--muted);
-  margin-left: 0.45rem;
 }
 .bet-who {
   font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
@@ -1593,10 +1647,6 @@ footer.doc a {
 .bet-sec > .bet-label {
   display: block;
   margin-bottom: 0.3rem;
-}
-.bet-sec .bet-label-note {
-  display: inline-block;
-  margin: -0.15rem 0 0.3rem 0;
 }
 .bet-sec-body > p {
   margin: 0 0 0.55rem;
@@ -1762,52 +1812,203 @@ footer.doc a {
   margin-right: 0.45rem;
 }
 
-/* ---------- next-steps: listings showcase (bet 2) ---------- */
-.listings {
-  margin: 0.2rem 0 1.2rem;
+/* ---------- next-steps: the live candidates (map + listings grid) ---------- */
+.candidates {
+  margin: 2.4rem 0 2.2rem;
 }
-.listings-head {
+.candidates > h3 {
+  margin: 0 0 0.2rem;
+}
+.candidates-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 0.9rem;
+}
+.candidates .map-fig {
+  margin: 0 0 1rem;
+}
+
+/* corridor map (bespoke inline SVG, themed with the palette variables) */
+.map-fig {
+  padding: 0.75rem 0.75rem 0.7rem;
+}
+.map-fig svg {
+  min-width: 660px;
+}
+.map-sea {
+  fill: color-mix(in srgb, var(--accent-soft) 55%, var(--bg));
+}
+.map-coast {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 45%, transparent);
+  stroke-width: 2;
+}
+.map-sealabel {
+  fill: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.85;
+}
+.map-road {
+  fill: none;
+  stroke: color-mix(in srgb, var(--muted) 50%, transparent);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.map-road.minor {
+  stroke-width: 2;
+  opacity: 0.75;
+}
+.map-roadlabel {
+  fill: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.map-roadlabel.minor {
+  font-size: 9px;
+  font-weight: 600;
+}
+.map-town {
+  fill: var(--ink2);
+  opacity: 0.75;
+}
+.map-townlabel {
+  fill: var(--ink2);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.map-pin {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 1.4;
+}
+.map-pin-no {
+  fill: var(--accent-contrast);
+  font-size: 10px;
+  font-weight: 700;
+}
+.map-venue {
+  fill: var(--muted);
+  stroke: var(--surface);
+  stroke-width: 1;
+}
+.map-venue.coming {
+  fill: var(--band);
+}
+.map-venue-ring {
+  fill: none;
+  stroke: var(--band);
+  stroke-width: 1;
+  stroke-dasharray: 2.5 2.5;
+  opacity: 0.9;
+}
+.map-venuelabel {
+  fill: var(--muted);
+  font-size: 9.5px;
+  font-weight: 600;
+}
+.map-venuelabel.coming {
+  fill: var(--band);
+}
+.map-legend {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.3rem 0.8rem;
-  margin-bottom: 0.6rem;
+  gap: 0.4rem 1.1rem;
+  margin-top: 0.6rem;
+  font-size: 0.74rem;
+  color: var(--ink2);
 }
-.listings-note {
-  font-size: 0.7rem;
-  color: var(--muted);
+.ml-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+.ml-swatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.ml-swatch.pin {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+.ml-swatch.open {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--muted);
+}
+.ml-swatch.coming {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--band);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--band) 28%, transparent);
+}
+
+/* listings grid — dense cards, numbered to match the map pins */
+.listings {
+  margin: 0.2rem 0 0;
 }
 .listings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
+  gap: 8px;
+}
+.listings-foot {
+  font-size: 0.78rem;
+  color: var(--ink2);
+  margin: 0.7rem 0 0;
+  max-width: 76ch;
 }
 .listing-card {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.32rem;
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 10px;
   background: color-mix(in srgb, var(--bg) 45%, var(--surface));
-  padding: 0.75rem 0.85rem 0.7rem;
+  padding: 0.6rem 0.7rem 0.55rem;
 }
 .lc-head {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.4rem;
+}
+.lc-no {
+  flex: 0 0 auto;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.62rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.12rem);
 }
 .lc-name {
-  font-size: 0.92rem;
+  flex: 1 1 auto;
+  font-size: 0.85rem;
   font-weight: 650;
   line-height: 1.25;
   margin: 0;
   color: var(--ink);
 }
 .lc-area {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: var(--muted);
   white-space: nowrap;
@@ -1816,7 +2017,7 @@ footer.doc a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   color: var(--ink2);
   font-variant-numeric: tabular-nums;
 }
@@ -1843,15 +2044,15 @@ footer.doc a {
 }
 .lc-why {
   font-family: var(--font-serif-body), "Source Serif 4", Georgia, serif;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.8rem;
+  line-height: 1.45;
   color: var(--ink2);
   margin: 0;
 }
 .lc-link {
   margin-top: auto;
   padding-top: 0.15rem;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 650;
   color: var(--accent-deep);
   text-decoration: none;

@@ -7,11 +7,11 @@ import {
   BetSec,
   Intel,
   Read,
-  StaticBetCard,
   Want,
   WantLead,
   Who,
 } from "@/components/bet-parts";
+import { CorridorMap } from "@/components/corridor-map";
 import { ListingsShowcase } from "@/components/listings";
 import {
   Bet,
@@ -27,14 +27,15 @@ export const metadata: Metadata = {
 };
 
 const SECTIONS: TocSection[] = [
-  { id: "decisions", no: "§", title: "Two gating decisions" },
+  { id: "decisions", no: "§", title: "Two decisions that come first" },
   {
     id: "stage-1",
     no: "1",
-    title: "Find out if it’s real",
+    title: "First conversations",
     subs: [
       { id: "bet-1", title: "Mill Wood Finance" },
-      { id: "bet-2", title: "The three industrial agents" },
+      { id: "bet-2", title: "Three property agents" },
+      { id: "candidates", title: "The live candidates" },
       { id: "bet-3", title: "Tennis Sussex" },
       { id: "bet-4", title: "Court suppliers" },
     ],
@@ -42,9 +43,9 @@ const SECTIONS: TocSection[] = [
   {
     id: "stage-2",
     no: "2",
-    title: "Put the pieces in place",
+    title: "Set up the company and start the applications",
     subs: [
-      { id: "bet-5", title: "The two group decisions" },
+      { id: "bet-5", title: "The two decisions" },
       { id: "bet-6", title: "Start Up Loans" },
       { id: "bet-7", title: "EIS advance assurance" },
       { id: "bet-8", title: "South East Angels" },
@@ -54,14 +55,14 @@ const SECTIONS: TocSection[] = [
   {
     id: "stage-3",
     no: "3",
-    title: "Commit or stop",
+    title: "Commit to a building, or stop",
     subs: [
       { id: "bet-10", title: "Council pre-app advice" },
       { id: "bet-11", title: "Crowdcube" },
       { id: "bet-12", title: "LTA facility loans" },
     ],
   },
-  { id: "monitoring", no: "§", title: "Being monitored" },
+  { id: "monitoring", no: "§", title: "Being watched" },
   { id: "scoreboard", no: "§", title: "The scoreboard" },
 ];
 
@@ -74,10 +75,11 @@ export default function NextStepsPage() {
           <div className="min-w-0">
             <header className="doc">
               <p className="kicker">Working sheet</p>
-              <h1>Next steps — contacts and first bets</h1>
+              <h1>Next steps — contacts and first moves</h1>
               <p className="meta">
-                <b>Working sheet, August 2026</b> &nbsp;·&nbsp; Not for sharing
-                outside the group
+                <b>Working sheet, August 2026</b> &nbsp;·&nbsp; Contact details
+                were checked against each organisation’s own website on 24
+                August 2026 unless marked ⚠
               </p>
             </header>
 
@@ -86,132 +88,114 @@ export default function NextStepsPage() {
               <PeopleRail />
 
               <section id="decisions" className="measure">
-                <h2>Two decisions that gate everything else</h2>
-                <p>
-                  Every contact verified against the organisation’s own pages on
-                  24 Aug 2026 unless marked ⚠. Each entry is a bet with the same
-                  shape: who, <strong>the ask</strong> (what we actually
-                  request), <strong>what we want</strong> (the outcomes —
-                  including when the real prize is the relationship), and an
-                  honest read on the odds.
-                </p>
+                <h2>Two decisions that come first</h2>
                 <ol>
                   <li>
-                    <strong>LTA money vs equity money — pick a lane.</strong>{" "}
-                    The LTA loan scheme (Route E) only funds not-for-profit
-                    structures; Crowdcube, angels and <G term="EIS">EIS</G> only
-                    work for a company limited by shares. We cannot keep both
-                    doors open past incorporation. Decide before applying for
-                    anything.
+                    <strong>
+                      Not-for-profit or company limited by shares — pick one.
+                    </strong>{" "}
+                    The LTA’s cheap loans (Route E in the business case) only go
+                    to not-for-profit structures. Crowdcube, angels and{" "}
+                    <G term="EIS">EIS</G> only work for a company limited by
+                    shares. We can’t keep both options open once we incorporate,
+                    so this decision comes before any application.
                   </li>
                   <li>
                     <strong>
-                      Set up as an operating company (
-                      <G term="opco">opco</G>) that leases its building — before
-                      any EIS application.
+                      Set up as an operating company (<G term="opco">opco</G>)
+                      that leases its building — before any EIS application.
                     </strong>{" "}
                     HMRC’s{" "}
                     <G term="EIS advance assurance">advance assurance</G> looks
-                    hard at ventures whose value sits in property: a company
-                    that owns its freehold is a likely refusal, an operating
-                    company leasing its premises is the standard pass. South
-                    East Angels requires an EIS-qualifying round, so this
-                    ordering is critical path for the whole equity side.
+                    hard at companies whose value sits in property: one that
+                    owns its freehold is likely to be refused, while an
+                    operating company leasing its premises is the standard
+                    pass. South East Angels only takes EIS-qualifying rounds,
+                    so getting this right unlocks the whole equity side.
                   </li>
                 </ol>
               </section>
 
               {/* ---------------- Stage 1 ---------------- */}
               <section id="stage-1" className="measure">
-                <h2>Stage 1 — Find out if it’s real</h2>
+                <h2>Stage 1 — First conversations</h2>
                 <p className="stage-prize">
-                  Seven cheap probes. Cost: emails and a coffee. Prize: within
-                  two weeks we know whether the money exists, whether a building
-                  exists, and what it really costs — the difference between a
-                  fun idea and a live project.
+                  Six emails and a coffee. Between them they answer the three
+                  questions everything else depends on: will anyone lend to us,
+                  does a suitable building exist, and what would it actually
+                  cost to build? Until we know those, the rest is theory.
                 </p>
 
                 <Bet
                   betKey="b1-millwood"
                   id="bet-1"
-                  title={
-                    <>
-                      1. Mill Wood Finance — the finance reality check{" "}
-                      <span className="star">★ best first move</span>
-                    </>
-                  }
+                  no={1}
+                  title="Mill Wood Finance — will anyone finance the courts?"
+                  summary="Whether the main loan is available, and on what terms."
                 >
                   <Who>
-                    <strong>Henry Bolland</strong> (named padel contact) · 01273
-                    523690 · millwoodfinance.com/padel-court-finance ·
-                    Rustington, West Sussex — a padel-specialist{" "}
-                    <G term="asset finance">asset-finance</G> broker, locally
-                    based.
+                    <strong>Henry Bolland</strong> · 01273 523690 ·
+                    millwoodfinance.com/padel-court-finance. A broker in
+                    Rustington that specialises in arranging finance for padel
+                    courts.
                   </Who>
                   <Ask>
                     <p>
-                      Send the financial overview and ask two questions:{" "}
+                      Send them the financial overview and ask directly:{" "}
                       <em>
-                        would you fund a new-start on this plan — and at what
-                        terms and deposit?
+                        would you arrange finance for a brand-new company on
+                        this plan, and on what terms and deposit?
                       </em>{" "}
-                      They publish exactly what they want in a first pack:
-                      business plan, cashflow forecast, evidence of own capital,
-                      management experience, security position.
+                      Their site lists what they want to see first: a business
+                      plan, a cashflow forecast, evidence of our own money going
+                      in, relevant experience, and what security is available.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      A yes/no/maybe on Route A’s biggest layer from someone
-                      whose job is placing exactly these deals.
+                      The largest loan in the funding plan is{" "}
+                      <G term="asset finance">asset finance</G> — borrowing
+                      secured on the courts and fit-out itself.
                     </WantLead>
-                    <ul>
-                      <li>
-                        Real numbers — rate, term, deposit — to replace the
-                        model’s assumptions.
-                      </li>
-                      <li>
-                        A broker relationship: when we go to credit committee
-                        for real, we want the person who’s done ten padel deals
-                        presenting ours.
-                      </li>
-                    </ul>
+                    <p>
+                      Mill Wood arranges exactly this for padel venues, so their
+                      answer tells us quickly whether that part of the plan is
+                      realistic. If it is, we also come away with real numbers
+                      (rate, term, deposit) to replace our estimates, and a
+                      broker who has already done padel deals to present ours to
+                      lenders when the time comes.
+                    </p>
                   </Want>
                   <Read>
-                    High odds of a substantive answer — local, specialist,
-                    sales-motivated. This one email tests the whole financing
-                    thesis.
+                    Very likely to get a proper reply — they’re local,
+                    specialist, and it’s how they make money.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b1-flude"
                   id="bet-2"
+                  no={2}
                   className="breakout"
-                  title={<>2. The three industrial agents — the building search</>}
+                  title="Three industrial property agents — find the building"
+                  summary="Whether a building exists; gets us known to the agents."
                 >
                   <Who>
-                    <strong>Andrew Halfacree</strong>, Director of Industrial
-                    Agency at Flude (01273 740385 · a.halfacree@flude.com);{" "}
-                    <strong>James Bryant</strong>, Head of Commercial Agency at
+                    <strong>Andrew Halfacree</strong>, Flude (01273 740385 ·
+                    a.halfacree@flude.com); <strong>James Bryant</strong>,
                     Graves Son &amp; Pilcher (jb@gsp.uk.com · 01273 321123);{" "}
                     <strong>SHW Brighton</strong> industrial team
                     (brighton@shw.co.uk · 01273 876200).
                   </Who>
                   <Ask>
                     <p>
-                      The same brief to all three:{" "}
-                      <em>
-                        13,000–20,000 sq ft, 6m+ clear height over a courts zone
-                        (apex counts, not just{" "}
-                        <G term="eaves height">eaves</G>), A23/A27 corridor,{" "}
-                        leasehold, long lease available —
-                        what’s on, and what’s coming?
-                      </em>{" "}
-                      Ask specifically about the live candidates below. Plus:
-                      Panattoni’s design-and-build option and Buckingham Park
-                      Lewes pre-lets (Oakley: Steven Harvey,
-                      steven@oakleyproperty.com, 01273 645772).
+                      The same brief to all three. We’re looking for
+                      13,000–20,000 sq ft with at least 6m of internal height
+                      over the courts area (the apex counts, not just the{" "}
+                      <G term="eaves height">eaves</G>), on the A23/A27
+                      corridor, on a long lease. What’s available now, and
+                      what’s coming? Then ask about the specific units in{" "}
+                      <a href="#candidates">the live candidates</a> below.
                     </p>
                     <ul className="subbet-list">
                       <SubBet
@@ -226,457 +210,455 @@ export default function NextStepsPage() {
                   </Ask>
                   <Want>
                     <WantLead>
-                      The real availability picture — including off-market and
-                      coming-soon stock that never hits Rightmove.
+                      Agents see buildings before they’re listed, so three
+                      briefs get us the real availability picture within a week
+                      — including rents and which landlords would contribute to
+                      a fit-out in exchange for a long lease.
                     </WantLead>
-                    <ul>
-                      <li>
-                        Real rents and landlord appetite (
-                        rent-free periods,
-                        capital contributions) for our covenant.
-                      </li>
-                      <li>
-                        To be <em>known as a serious requirement</em> — agents
-                        ring credible occupiers first when the right shed
-                        appears, and that phone call is the entire game in a
-                        market this tight.
-                      </li>
-                    </ul>
-                  </Want>
-                  <ListingsShowcase />
-                  <Intel label="Competitive intel worth raising in these conversations">
                     <p>
-                      Burgess Hill’s Consort Way scheme is approved (DM/26/0781,
-                      permission May 2026) — four indoor courts{" "}
-                      <em>plus a café and social space</em> at Victoria Business
-                      Park, from a local family (applicant Sally Vans Agnew of
-                      Capital Hair &amp; Beauty), with conditions being
-                      discharged as of August, so{" "}
-                      fit-out is imminent. Eixo has three
-                      more outdoor courts approved (Jan 2026) and Plumpton
-                      Racecourse a 5-court centre (Aug 2026); Mid Sussex’s one
-                      refusal was St Francis Sports &amp; Social Club in
-                      Haywards Heath. Mention the Consort Way opening when
-                      discussing Burgess Hill units — it affects which buildings
-                      and positioning make sense there.
+                      Just as important, it puts us on their books as a serious
+                      enquiry. In a market this tight, being the first phone
+                      call when the right unit appears is the whole game.
+                    </p>
+                  </Want>
+                  <Intel label="Worth mentioning in these conversations">
+                    <p>
+                      Burgess Hill’s Consort Way scheme is approved (May 2026)
+                      — four indoor courts plus a café at Victoria Business
+                      Park, run by a local family, with fit-out starting soon.
+                      Eixo has three more outdoor courts approved and Plumpton
+                      Racecourse a five-court centre. This affects which
+                      Burgess Hill buildings and what positioning make sense,
+                      so raise it when discussing that area.
                     </p>
                   </Intel>
                   <Read>
-                    High. Flude’s own director has talked up padel demand in the
-                    press — agents know the sector wants sheds. Three agents =
-                    the real picture within a week.
+                    High. Flude’s own director has talked up padel demand in
+                    the press — the agents already know this sector wants
+                    buildings.
                   </Read>
                 </Bet>
+
+                {/* ------- The live candidates: map + grid ------- */}
+                <div className="candidates breakout" id="candidates-block">
+                  <h3 id="candidates">The live candidates</h3>
+                  <p className="candidates-note font-ui">
+                    August 2026 — listings move. Numbered pins on the map match
+                    the cards below.
+                  </p>
+                  <CorridorMap />
+                  <ListingsShowcase />
+                </div>
 
                 <Bet
                   betKey="b1-tennis-sussex"
                   id="bet-3"
-                  title={<>3. Tennis Sussex — build the county relationship</>}
+                  no={3}
+                  title="Tennis Sussex — get to know the county association"
+                  summary="Local intelligence, plus the county relationship."
                 >
                   <Who>
                     <strong>Nicola Barnes</strong>, venue liaison ·
-                    nicola.barnes@tennissussex.com · office 07398 145446 — and
-                    their office is physically inside The Padel Hub, Haywards
-                    Heath (Unit 4 Link 23, RH17 5JS), the warehouse venue we
+                    nicola.barnes@tennissussex.com · 07398 145446. Their office
+                    is inside The Padel Hub in Haywards Heath — the venue we
                     already play at.
                   </Who>
                   <Ask>
                     <p>
-                      A 30-minute coffee. We’re four locals building a serious
-                      case for an indoor social padel venue in the corridor —
-                      can she talk us through the Sussex padel scene and how the
-                      LTA venue route works?
+                      A 30-minute coffee. We’re four locals putting together a
+                      serious plan for an indoor padel venue in the corridor —
+                      could she talk us through the Sussex padel scene and how
+                      LTA venue registration works?
                     </p>
                   </Ask>
-                  <Want note="— and this one is mostly a relationship play, deliberately">
+                  <Want>
                     <WantLead>
-                      Most valuable of all, <em>being known</em>: county bodies
-                      write letters of support for planning applications,
-                      connect new venues to club networks and league
-                      structures, and vouch for credible operators. A warm
-                      relationship established now, before we need anything, is
-                      worth more than any single fact she tells us.
+                      Partly information, mostly the relationship — and it’s
+                      worth being clear that the relationship is the point.
                     </WantLead>
-                    <ul>
-                      <li>
-                        The unpublished picture: county bodies hear who’s
-                        circling which sites, which schemes are stuck in
-                        planning, and which clubs want padel long before any of
-                        it is public.
-                      </li>
-                      <li>
-                        The practical run-through of LTA venue registration
-                        (insurance, sanctioned competition, coach pipeline) so
-                        we know if and when it’s worth it.
-                      </li>
-                    </ul>
+                    <p>
+                      County associations hear early who is planning courts
+                      where and which schemes are stuck in planning. They also
+                      write letters of support for planning applications, and
+                      they connect new venues into the leagues and club
+                      networks that fill weekday courts. Being known to them
+                      before we need anything is the real value of the coffee.
+                      Along the way we learn whether venue registration
+                      (insurance, sanctioned competitions, coaching pipeline)
+                      is worth it for us.
+                    </p>
                   </Want>
                   <Read>
-                    High odds, near-zero cost — a friendly coffee at a venue we
-                    were going to anyway, with compounding returns later.
+                    Easy yes, and it costs a coffee at a venue we were going to
+                    anyway.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b1-suppliers"
                   id="bet-4"
-                  title={<>4. Court suppliers — the real capex number</>}
+                  no={4}
+                  title="Court suppliers — what would it actually cost?"
+                  summary="The real build cost for our spec."
                 >
                   <Who>
-                    <strong>Padel Tech</strong> (built Padium; 150+ UK installs)
-                    — info@padeltech.co.uk · 0131 581 8683;{" "}
-                    <strong>Hexa Padel</strong> (East Grinstead number —
-                    closest) — sales@hexapadel.co.uk · 01342 894508.
+                    <strong>Padel Tech</strong> (built Padium; 150+ UK
+                    installations) — info@padeltech.co.uk · 0131 581 8683.{" "}
+                    <strong>Hexa Padel</strong> (East Grinstead) —
+                    sales@hexapadel.co.uk · 01342 894508.
                   </Who>
                   <Ask>
                     <p>
-                      Indicative cost, installed, for 4 doubles + 2 singles
-                      courts indoor to LTA spec — and will you do a site
-                      feasibility visit once we have a shortlist? (Padel Tech’s
-                      form asks for planning status, funding status, canopy
-                      y/n, court count — have answers ready.)
+                      An indicative installed price for four doubles courts and
+                      two singles courts, indoor, to LTA specification — and
+                      whether they’ll visit candidate buildings once we have a
+                      shortlist. Padel Tech’s enquiry form asks about planning
+                      status, funding status and court count, so have answers
+                      ready.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      A real quote to replace the capex{" "}
-                      table’s estimates — this number moves the whole model.
+                      A real quote to replace the estimates in the build budget
+                      — this single number moves the whole financial model.
                     </WantLead>
-                    <ul>
-                      <li>
-                        The feasibility-visit commitment: an installer’s
-                        walk-through of a candidate building is a free
-                        structural survey by someone who’s seen every mistake.
-                      </li>
-                      <li>
-                        A build partner shortlist — the supplier also typically
-                        brings the asset-finance introduction, connecting this
-                        bet back to bet 1.
-                      </li>
-                    </ul>
+                    <p>
+                      A site visit from an installer is also effectively a free
+                      structural check on any building we’re considering, from
+                      people who have seen every conversion mistake already.
+                      And suppliers usually bring their own finance
+                      introductions, which connects back to the Mill Wood
+                      conversation.
+                    </p>
                   </Want>
                   <Read>
-                    High response odds (they sell courts); the information gets
-                    sharp once we have a building to point at.
+                    They sell courts, so they’ll answer. The numbers get much
+                    more useful once we have a specific building to point at.
                   </Read>
                 </Bet>
               </section>
 
               {/* ---------------- Stage 2 ---------------- */}
               <section id="stage-2" className="measure">
-                <h2>Stage 2 — Put the pieces in place</h2>
+                <h2>Stage 2 — Set up the company and start the applications</h2>
                 <p className="stage-prize">
-                  Unlocked by Stage 1’s answers. Cost: some paperwork and £500.
-                  Prize: a company that can actually receive money, with the
-                  founder terms agreed while everyone is still friends.
+                  These need Stage 1’s answers first. The cost is some
+                  paperwork and about £500; the result is a company that can
+                  actually receive money, with the awkward founder
+                  conversations had while everything is still hypothetical.
                 </p>
 
-                <StaticBetCard id="bet-5" title={<>5. The two group decisions</>}>
+                <Bet
+                  id="bet-5"
+                  no={5}
+                  title="The two decisions, made properly"
+                  summary="Structure settled, founder terms in writing."
+                >
                   <BetSec label="The ask (of ourselves)">
                     <p>
-                      One evening, two decisions, written down. First:
-                      not-for-profit (LTA loans at 2.5–5%,
-                      community shares, no exit — Route E) vs company limited by
-                      shares (equity, <G term="EIS">EIS</G>, upside). Second:
-                      founder split, roles, and the{" "}
-                      personal-guarantee policy
-                      — who signs what, capped how.
+                      One evening, two decisions, written down. First, the
+                      structure: not-for-profit or company limited by shares
+                      (the fork described at the top of this sheet). Second,
+                      founder terms: who owns what, who does what, and who
+                      signs personal guarantees, capped at what.
                     </p>
                     <ul className="subbet-list">
                       <SubBet
                         betKey="b2-route-e-decision"
-                        label="Decision 1 — LTA money vs equity money: pick a lane"
+                        label="Decision 1 — not-for-profit or company limited by shares: pick one"
                       />
                       <SubBet
                         betKey="b2-founders-agreement"
-                        label="Decision 2 — founder split, roles and the personal-guarantee policy"
+                        label="Decision 2 — founder terms: who owns what, does what, signs what"
                       />
                     </ul>
                   </BetSec>
                   <Want>
                     <WantLead>
-                      The structural fork settled so every later application
-                      points the same way — and the friendship-protecting
-                      clarity of having agreed the hard terms before any money
-                      moves.
+                      Every later application needs to know which structure we
+                      are, so this unblocks everything.
                     </WantLead>
-                    <p>This is the cheapest insurance in the entire plan.</p>
+                    <p>
+                      And agreeing the difficult terms now is far easier than
+                      agreeing them once real money is involved. It’s the
+                      cheapest insurance in the whole plan.
+                    </p>
                   </Want>
                   <Read>
-                    Certain to pay off; the only risk is not doing it.
+                    Nothing uncertain about it — it just needs doing.
                   </Read>
-                </StaticBetCard>
+                </Bet>
 
                 <Bet
                   betKey="b2-startup-loans"
                   id="bet-6"
-                  title={<>6. Start Up Loans — the founder capital substitute</>}
+                  no={6}
+                  title="Start Up Loans — up to £100k that doesn’t need trading history"
+                  summary="Whether £100k of the plan is confirmed."
                 >
                   <Who>
-                    apply.startuploans.co.uk; Sussex delivery partner is{" "}
-                    <strong>Let’s Do Business Group</strong> (01424 205500 ·
-                    info@ldbgroup.co.uk).
+                    Apply at apply.startuploans.co.uk. The Sussex delivery
+                    partner is <strong>Let’s Do Business Group</strong> (01424
+                    205500 · info@ldbgroup.co.uk).
                   </Who>
                   <Ask>
                     <p>
-                      One application per founder — £500–£25k each at 7.5%
-                      fixed, no security, no{" "}
-                      personal guarantees;
-                      applying founders must together hold ≥50% of the company.
+                      One application per founder — £500–£25,000 each at 7.5%
+                      fixed over one to five years, with no security and no
+                      personal guarantees. Founders applying must together hold
+                      at least half the company.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      Up to £100k of the stack that doesn’t depend on trading
-                      history — the layer that substitutes for the founder cash
-                      we don’t have.
+                      Up to £100k of the funding plan that doesn’t depend on
+                      trading history — the layer that substitutes for the
+                      founder capital we don’t have.
                     </WantLead>
-                    <p>Draw only when there’s a project to spend on.</p>
+                    <p>We’d only draw it once there’s a project to spend it on.</p>
                   </Want>
                   <Read>
-                    High approval odds for employed applicants with clean
-                    credit; these are affordability-assessed personal loans and
-                    the scheme exists for exactly this.
+                    Approval is likely for employed applicants with clean
+                    credit; the scheme exists for exactly this situation.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b2-eis"
                   id="bet-7"
-                  title={
-                    <>
-                      7. EIS advance assurance — the domino that unlocks the
-                      equity side
-                    </>
-                  }
+                  no={7}
+                  title="EIS advance assurance — the letter that unlocks investors"
+                  summary="Whether the investor route works at all."
                 >
                   <Who>
-                    SeedLegals runs it as HMRC agent for{" "}
-                    <strong>£499 + VAT</strong>; HMRC typically responds in 3–4
-                    weeks.
+                    SeedLegals handles it end-to-end for{" "}
+                    <strong>£499 + VAT</strong>; HMRC usually responds within
+                    three to four weeks.
                   </Who>
                   <Ask>
                     <p>
-                      <G term="EIS advance assurance">Advance assurance</G> that
-                      investment in the company qualifies for{" "}
-                      <G term="EIS">EIS</G> relief (needs: incorporated{" "}
-                      leasehold{" "}
-                      <G term="opco">opco</G>, business plan, forecasts,
-                      evidence of prospective investors — a{" "}
-                      crowdfunding platform
-                      letter counts).
+                      HMRC’s advance confirmation that investment in the
+                      company would qualify for <G term="EIS">EIS</G> tax
+                      relief. It needs an incorporated company, a business
+                      plan, forecasts, and evidence of prospective investors —
+                      a letter from a crowdfunding platform counts.
                     </p>
                   </Ask>
                   <Want>
-                    <WantLead>
-                      The letter itself — without it no{" "}
-                      angel network will look at us
-                      and every investor conversation is theoretical.
-                    </WantLead>
+                    <WantLead>The letter itself.</WantLead>
                     <p>
-                      With it, every £1,000 cheque costs an investor £700.
+                      Angel networks won’t look at a company without it; with
+                      it, an investor putting in £1,000 is effectively risking
+                      £700 after the tax relief. It’s the domino that has to
+                      fall before any investor conversation is real.
                     </p>
                   </Want>
                   <Read>
-                    Good odds if we’re set up as the leasing opco (sports
-                    venues aren’t an excluded trade); this is why gating
-                    decision 2 comes first.
+                    Good odds provided we’re set up as the leasing{" "}
+                    <G term="opco">opco</G> — sports venues aren’t an excluded
+                    trade.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b2-sea"
                   id="bet-8"
-                  title={<>8. South East Angels — the first equity conversation</>}
+                  no={8}
+                  title="South East Angels — the first investor conversation"
+                  summary="First investor interest and introductions."
                 >
                   <Who>
-                    Brighton-based angel network,
-                    50+ angels, £3m+/yr deployed; pitch via the form at
+                    A Brighton-based angel network — 50+ investors, over £3m a
+                    year invested. Pitches go through the form at
                     southeastangels.co.uk/how-to-raise-with-us.
                   </Who>
                   <Ask>
                     <p>
                       A pitch slot for an EIS-qualifying round of £250–350k,
-                      anchored by the demand data in the business case.
+                      built on the demand data in the business case.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      The first £50–150k of the equity slice soft-circled.
+                      The first £50–150k of the equity round soft-committed, or
+                      failing that, introductions — local angel networks know
+                      the county’s family offices and business owners.
                     </WantLead>
-                    <ul>
-                      <li>
-                        Even a “not yet” with introductions — local angel
-                        networks know the county’s family offices and
-                        operators.
-                      </li>
-                      <li>
-                        A lead investor, which is also the unlock for a credible
-                        Crowdcube round later.
-                      </li>
-                    </ul>
+                    <p>
+                      A lead investor from here also makes a later Crowdcube
+                      round credible, since crowd platforms want a third to
+                      half of the target committed before a pitch goes public.
+                    </p>
                   </Want>
                   <Read>
-                    Medium — generalist angels, but local consumer-leisure with
-                    our occupancy data is a good story.
+                    Genuinely uncertain — generalist investors, but a local
+                    leisure business with our occupancy data is a good story.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b2-sussex-innovation"
                   id="bet-9"
-                  title={<>9. Sussex Innovation — the second network</>}
+                  no={9}
+                  title="Sussex Innovation — a second network for coffee money"
+                  summary="A second investor pool and advice."
                 >
                   <Who>
                     <strong>Nigel Lambe</strong>, CEO ·
-                    nigel.lambe@sussexinnovation.co.uk · 01273 704400;
-                    membership from £50 + VAT/month.
+                    nigel.lambe@sussexinnovation.co.uk · 01273 704400.
+                    Community membership from £50 + VAT a month.
                   </Who>
                   <Ask>
                     <p>
-                      Community membership, the included strategy session, and
-                      an intro to the University of Sussex Business Angels
-                      programme.
+                      Membership, the strategy session that comes with it, and
+                      an introduction to the University of Sussex Business
+                      Angels programme.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      A second pool of local investors plus ongoing advisory
-                      support for coffee money.
+                      A second pool of local investors, ongoing advisory
+                      support, and more people who know us before we’re asking
+                      them for anything.
                     </WantLead>
-                    <p>
-                      And another set of people who know us before we’re asking
-                      for anything.
-                    </p>
                   </Want>
-                  <Read>Medium, slower burn, tiny cost.</Read>
+                  <Read>Slower burn, tiny cost.</Read>
                 </Bet>
               </section>
 
               {/* ---------------- Stage 3 ---------------- */}
               <section id="stage-3" className="measure">
-                <h2>Stage 3 — Commit or stop</h2>
+                <h2>Stage 3 — Commit to a building, or stop</h2>
                 <p className="stage-prize">
-                  Unlocked by a building shortlist and Stage 2’s structure.
-                  Cost: real money starts here (£600–£1,600 pre-app, then
-                  commitments). Prize: keys — or a clean, cheap stop.
+                  Real money starts here: planning advice on a specific
+                  building, closing the funding, and the final decision against
+                  the stop criteria in the business case.
                 </p>
 
                 <Bet
                   betKey="b3-preapp"
                   id="bet-10"
-                  title={
-                    <>10. Council pre-application advice — the official signal</>
-                  }
+                  no={10}
+                  title="Council pre-application advice — the official signal"
+                  summary="The council’s view on a real building."
                 >
                   <Who>
                     <strong>Mid Sussex DC</strong>{" "}
-                    (planninginfo@midsussex.gov.uk · 01444 477566) — a padel
-                    building is “Major” (≥1,000 sqm): £582 written / £1,164
-                    meeting; change-of-use-only may fit the cheaper tier — ask.{" "}
+                    (planninginfo@midsussex.gov.uk · 01444 477566) — a
+                    padel-sized building counts as a “Major” application: £582
+                    for written advice, £1,164 with a meeting; a
+                    change-of-use-only case may fit a cheaper tier, so ask.{" "}
                     <strong>Brighton &amp; Hove</strong>:
-                    planning.applications@brighton-hove.gov.uk — Major: £952.75
-                    written / £1,586.20 virtual.
+                    planning.applications@brighton-hove.gov.uk — £952.75
+                    written, £1,586.20 with a meeting.
                   </Who>
                   <Ask>
                     <p>
-                      <G term="pre-app">Pre-app</G> advice on the shortlisted
-                      building — change of use to indoor sport (
-                      <G term="use class">Class E(d)</G>), with the
-                      employment-and-community case attached.
+                      The council’s <G term="pre-app">advice</G> on converting
+                      the shortlisted building to indoor sport use, with the
+                      jobs-and-community case attached.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      The council’s written steer before committing to a lease —
-                      the single strongest de-risking document a landlord,
-                      lender or investor can be shown.
+                      The council’s written steer before we commit to a lease.
                     </WantLead>
+                    <p>
+                      It’s the single most persuasive de-risking document we
+                      can show a landlord, a lender or an investor.
+                    </p>
                   </Want>
                   <Read>
-                    Near-certain to deliver its purpose, which is why it waits
-                    for a real building.
+                    It reliably delivers what it’s for — which is why it waits
+                    until there’s a real building.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b3-crowdcube"
                   id="bet-11"
-                  title={<>11. Crowdcube — the closer</>}
+                  no={11}
+                  title="Crowdcube — the round that closes the gap"
+                  summary="The final £150–250k, plus founding members."
                 >
                   <Who>
-                    crowdcube.com/explore/raising; gates: UK ltd topco, property{" "}
-                    <em>development</em> excluded (a{" "}
-                    leasehold <G term="opco">opco</G> is
-                    the standard fit); fees{" "}
-                    <span style={{ color: "var(--warn)" }}>⚠</span> last
-                    verified ~7% success + ~1% completion; pitches go public
-                    only after ~30–50% is pre-committed from your own network.
+                    crowdcube.com/explore/raising. Requirements: a UK limited
+                    company at the top of the structure; property{" "}
+                    <em>development</em> is excluded but an operating company
+                    leasing its building is the standard fit. Fees were around
+                    7% on success plus ~1% completion when last verified{" "}
+                    <span style={{ color: "var(--warn)" }}>⚠</span>. Pitches
+                    only go public once roughly a third to half of the target
+                    is already committed from your own network.
                   </Who>
                   <Ask>
                     <p>
-                      A raise to close the equity slice, launched once an anchor
-                      exists.
+                      An equity round to close the remaining £150–250k,
+                      launched once an anchor investor exists.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      The final £150–250k — and two hundred local investors who
-                      are also two hundred founding members with a reason to
-                      fill Tuesday nights.
+                      The money, and something money can’t usually buy — a
+                      couple of hundred local investors who become founding
+                      members with a personal stake in filling the venue on
+                      quiet nights.
                     </WantLead>
-                    <p>The raise doubles as the membership launch.</p>
+                    <p>
+                      Four UK padel businesses have raised at this size on the
+                      platform already.
+                    </p>
                   </Want>
                   <Read>
-                    Genuinely promising for this concept (four padel precedents
-                    at our size) — but it’s a closer, not an opener. Needs the
-                    Stage 2 dominoes down.
+                    Promising for this kind of business, but it’s the closing
+                    move, not the opening one.
                   </Read>
                 </Bet>
 
                 <Bet
                   betKey="b3-lta-loan"
                   id="bet-12"
-                  title={
-                    <>12. LTA facility loans — only on the not-for-profit fork</>
-                  }
+                  no={12}
+                  title="LTA facility loans — only on the not-for-profit route"
+                  summary="The not-for-profit route’s terms."
                 >
                   <Who>
-                    Eligibility check → expression of interest at lta.org.uk;
-                    ~8 weeks to decision; wants 2 years of accounts, 3 quotes, a
-                    business plan. Contact via the LTA Support Centre web form
-                    (no phone line; the facilities@ email could not be
-                    verified).{" "}
+                    Eligibility check and expression of interest at lta.org.uk;
+                    about eight weeks to a decision; they ask for two years of
+                    accounts, three quotes and a business plan. Contact goes
+                    through their support-centre web form.{" "}
                     <span style={{ color: "var(--warn)" }}>
-                      ⚠ Their pages say loans up to 5 years; earlier research
-                      said 5–15 — verify on the call.
+                      ⚠ Their pages currently say loans run up to five years;
+                      earlier guidance said up to fifteen — worth confirming.
                     </span>
                   </Who>
                   <Ask>
                     <p>
-                      A facility loan covering up to 50% of covered-court costs
-                      at 5% fixed (2.5% in deprived areas).
+                      A loan covering up to half the cost of covered courts at
+                      5% fixed.
                     </p>
                   </Ask>
                   <Want>
                     <WantLead>
-                      The cheapest capital in the sector — if and only if the
-                      group chose the not-for-profit lane at decision 1.
+                      The cheapest capital available in this sport — but only
+                      if the group chose the not-for-profit structure at
+                      decision 1.
                     </WantLead>
+                    <p>On the equity route this door is closed.</p>
                   </Want>
                   <Read>
-                    Strong odds <em>on that fork</em> — the scheme has funded
-                    100+ padel courts; irrelevant on the equity fork.
+                    Strong on that route (the scheme has funded over a hundred
+                    padel courts); irrelevant otherwise.
                   </Read>
                 </Bet>
               </section>
 
-              {/* ---------------- Being monitored ---------------- */}
+              {/* ---------------- Being watched ---------------- */}
               <section id="monitoring" className="measure">
-                <h2>Being monitored — nothing for anyone to do</h2>
+                <h2>Being watched — nothing to do yet</h2>
                 <p>
-                  Not tasks — just things being watched, with the trigger that
-                  turns each into one.
+                  These aren’t tasks. They’re things being monitored, each with
+                  the event that would turn it into one.
                 </p>
                 <div className="watchlist">
                   <div className="watch-item">
@@ -686,19 +668,17 @@ export default function NextStepsPage() {
                         British Business Bank — South East Investment Fund
                       </p>
                       <p>
-                        Not launched as of late August 2026 despite the “summer
-                        2026” target: no fund managers appointed for any product
-                        line and no way for a borrower to apply or register
-                        interest. The facts that matter when it opens: £350m
-                        across the South East + East of England funds, loans
-                        £25k–£2m, <strong>equity up to £5m</strong>, and the
-                        same bank’s northern fund already backed a padel
+                        Not launched as of late August 2026 despite a “summer
+                        2026” target: no fund managers appointed and no way to
+                        apply or register interest. When it does launch it
+                        offers loans of £25k–£2m and equity up to £5m, and the
+                        same bank’s northern fund has already backed a padel
                         operator.
                       </p>
                       <p className="watch-trigger font-ui">
-                        <span className="bet-label">Trigger</span> fund managers
-                        announced → the Route B1 conversation opens with a named
-                        counterparty and becomes a Stage 1 task.
+                        <span className="bet-label">Becomes a task when</span>{" "}
+                        fund managers are announced — then there’s a named
+                        counterparty to approach.
                       </p>
                     </div>
                   </div>
@@ -707,13 +687,16 @@ export default function NextStepsPage() {
                     <div className="watch-body">
                       <p className="watch-name font-ui">Club Padel, Shoreham</p>
                       <p>
-                        Opens autumn 2026 — its first months of occupancy and
-                        membership data are free validation (or warning) for the
+                        Opens autumn 2026. Its first months of occupancy and
+                        membership numbers are free evidence for or against our
                         whole thesis.
                       </p>
                       <p className="watch-trigger font-ui">
-                        <span className="bet-label">Trigger</span> visible
-                        trading data → feeds the commit-or-stop decision.
+                        <span className="bet-label">
+                          Becomes relevant when
+                        </span>{" "}
+                        trading is visible — it feeds the final commit-or-stop
+                        decision.
                       </p>
                     </div>
                   </div>
@@ -724,12 +707,12 @@ export default function NextStepsPage() {
                         Sussex &amp; Brighton Combined County Authority
                       </p>
                       <p>
-                        £1.14bn investment fund from 2028; business-support
-                        machinery still forming.
+                        Controls a £1.14bn long-term investment fund from 2028;
+                        its business-support arm is still being set up.
                       </p>
                       <p className="watch-trigger font-ui">
-                        <span className="bet-label">Trigger</span> growth-hub or
-                        fund launch → check fit.
+                        <span className="bet-label">Becomes a task when</span>{" "}
+                        a fund or growth hub actually opens.
                       </p>
                     </div>
                   </div>
@@ -744,11 +727,11 @@ export default function NextStepsPage() {
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Bet</th>
+                        <th>Move</th>
                         <th>Stage</th>
                         <th>Cost</th>
                         <th>What it tells us</th>
-                        <th>Odds of useful signal</th>
+                        <th>Likelihood of a useful answer</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -756,10 +739,9 @@ export default function NextStepsPage() {
                         <td>1</td>
                         <td>Mill Wood Finance</td>
                         <td>1</td>
-                        <td>email</td>
+                        <td>an email</td>
                         <td>
-                          Is the <G term="asset finance">asset-finance</G> layer
-                          real, at what terms
+                          Whether the main loan is available, and on what terms
                         </td>
                         <td>High</td>
                       </tr>
@@ -768,15 +750,18 @@ export default function NextStepsPage() {
                         <td>Flude + GS&amp;P + SHW</td>
                         <td>1</td>
                         <td>3 emails</td>
-                        <td>Does a building exist; are we a known requirement</td>
+                        <td>
+                          Whether a building exists; gets us known to the
+                          agents
+                        </td>
                         <td>High</td>
                       </tr>
                       <tr>
                         <td>3</td>
                         <td>Tennis Sussex</td>
                         <td>1</td>
-                        <td>coffee</td>
-                        <td>Local pipeline intel + the county relationship</td>
+                        <td>a coffee</td>
+                        <td>Local intelligence, plus the county relationship</td>
                         <td>High</td>
                       </tr>
                       <tr>
@@ -784,15 +769,12 @@ export default function NextStepsPage() {
                         <td>Padel Tech + Hexa</td>
                         <td>1</td>
                         <td>2 emails</td>
-                        <td>
-                          Real capex for our spec + a
-                          feasibility visit
-                        </td>
+                        <td>The real build cost for our spec</td>
                         <td>High</td>
                       </tr>
                       <tr>
                         <td>5</td>
-                        <td>The two group decisions</td>
+                        <td>The two decisions</td>
                         <td>2</td>
                         <td>an evening</td>
                         <td>Structure settled, founder terms in writing</td>
@@ -803,7 +785,7 @@ export default function NextStepsPage() {
                         <td>Start Up Loans</td>
                         <td>2</td>
                         <td>4 applications</td>
-                        <td>£100k of the stack, yes/no</td>
+                        <td>Whether £100k of the plan is confirmed</td>
                         <td>High</td>
                       </tr>
                       <tr>
@@ -811,66 +793,66 @@ export default function NextStepsPage() {
                         <td>EIS advance assurance</td>
                         <td>2</td>
                         <td>£499 + VAT</td>
-                        <td>Whether the equity side works at all</td>
+                        <td>Whether the investor route works at all</td>
                         <td>Good</td>
                       </tr>
                       <tr>
                         <td>8</td>
                         <td>South East Angels</td>
                         <td>2</td>
-                        <td>form</td>
-                        <td>First equity interest + intros</td>
-                        <td>Medium</td>
+                        <td>a form</td>
+                        <td>First investor interest and introductions</td>
+                        <td>Uncertain</td>
                       </tr>
                       <tr>
                         <td>9</td>
                         <td>Sussex Innovation</td>
                         <td>2</td>
                         <td>£50/month</td>
-                        <td>Second investor pool + advisory</td>
-                        <td>Medium</td>
+                        <td>A second investor pool and advice</td>
+                        <td>Uncertain</td>
                       </tr>
                       <tr>
                         <td>10</td>
                         <td>Council pre-app</td>
                         <td>3</td>
                         <td>£582–£1,586</td>
-                        <td>Official planning signal on a real building</td>
-                        <td>High (when timed right)</td>
+                        <td>The council’s view on a real building</td>
+                        <td>High, once timed right</td>
                       </tr>
                       <tr>
                         <td>11</td>
                         <td>Crowdcube</td>
                         <td>3</td>
                         <td>fees on success</td>
-                        <td>The £150–250k closer + founding members</td>
-                        <td>Good, sequenced last</td>
+                        <td>The final £150–250k, plus founding members</td>
+                        <td>Good, but goes last</td>
                       </tr>
                       <tr>
                         <td>12</td>
                         <td>LTA loan</td>
                         <td>3</td>
-                        <td>form</td>
-                        <td>Route E’s terms, on that fork only</td>
-                        <td>High, gated on decision 1</td>
+                        <td>a form</td>
+                        <td>The not-for-profit route’s terms</td>
+                        <td>High on that route only</td>
                       </tr>
                     </tbody>
                   </table>
                 </TW>
                 <p>
-                  Stage 1 answers the four biggest unknowns — finance terms,
-                  building availability, real capex, local intel — for the price
-                  of about six emails and a coffee. Everything in Stage 2
-                  either needs those answers or spends real money.
+                  Stage 1 answers the biggest unknowns — financing, buildings,
+                  build cost, local intelligence — for the price of six emails
+                  and a coffee. Everything after it either needs those answers
+                  or spends real money.
                 </p>
 
-                <Bet betKey="fun-play" className="fun" title={<>Play more padel</>} />
+                <Bet betKey="fun-play" className="fun" title="Play more padel" />
               </section>
             </main>
 
             <footer className="doc">
-              Working sheet · August 2026 · Not for sharing outside the group ·
-              Unfamiliar terms? <Link href="/glossary">Glossary →</Link>
+              Working sheet · August 2026 · Unfamiliar terms?{" "}
+              <Link href="/glossary">Glossary →</Link>
             </footer>
           </div>
 

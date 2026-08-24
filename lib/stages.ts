@@ -1,8 +1,8 @@
 // The three-stage structure of the next-steps plan, derived from the shared
 // to-do store. A store item's stage is its key prefix: "b1-*" → Stage 1,
 // "b2-*" → Stage 2, "b3-*" → Stage 3 (other keys, e.g. "fun-play", belong to
-// no stage). Used by the stage progress strip on /next-steps and /todos and by
-// the "Stage n" chips on board cards.
+// no stage). Used by the single stage progress bar on /next-steps and /todos
+// and by the "Stage n" chips on board cards.
 
 import type { Todo } from "@/lib/use-todos";
 
@@ -11,36 +11,18 @@ export type StagePrefix = "b1" | "b2" | "b3";
 export type StageInfo = {
   prefix: StagePrefix;
   n: 1 | 2 | 3;
+  /** Stage name as written in the working sheet. */
   name: string;
-  /** One-line note shown while the stage is still locked (dimmed). */
-  unlockNote: string | null;
-  /** Quiet line shown when every store item in the stage is done. */
-  completeLine: string;
 };
 
 export const STAGES: StageInfo[] = [
-  {
-    prefix: "b1",
-    n: 1,
-    name: "Find out if it’s real",
-    unlockNote: null,
-    completeLine: "Stage 1 complete — the idea survived contact with reality.",
-  },
+  { prefix: "b1", n: 1, name: "First conversations" },
   {
     prefix: "b2",
     n: 2,
-    name: "Put the pieces in place",
-    unlockNote: "unlocked by Stage 1’s answers",
-    completeLine:
-      "Stage 2 complete — a company that can actually receive money.",
+    name: "Set up the company and start the applications",
   },
-  {
-    prefix: "b3",
-    n: 3,
-    name: "Commit or stop",
-    unlockNote: "unlocked by a building shortlist and the structure decisions",
-    completeLine: "Stage 3 complete — keys, or a clean, cheap stop.",
-  },
+  { prefix: "b3", n: 3, name: "Commit to a building, or stop" },
 ];
 
 /** "b1-millwood" → "b1"; "fun-play" → null. */
