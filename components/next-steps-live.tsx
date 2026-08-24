@@ -29,7 +29,6 @@ import {
   AssigneeSelect,
   DueBadge,
   PasscodeOverlay,
-  ThemeBadge,
 } from "@/components/todo-bits";
 import { useTodos, type Todo, type TodosApi } from "@/lib/use-todos";
 
@@ -141,14 +140,16 @@ function RailChip({
 
 /* ---------------- bet blocks ---------------- */
 
-function BetControls({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
+// Controls live inside draggable elements — don't start drags from them.
+const stopDrag = {
+  onPointerDown: (e: { stopPropagation: () => void }) => e.stopPropagation(),
+  onTouchStart: (e: { stopPropagation: () => void }) => e.stopPropagation(),
+};
+
+/** The done checkbox, alone — it leads the header strip, before the title. */
+function BetCheck({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
   return (
-    <span
-      className="bet-controls font-ui"
-      // controls live inside the draggable header — don't start drags from them
-      onPointerDown={(e) => e.stopPropagation()}
-      onTouchStart={(e) => e.stopPropagation()}
-    >
+    <span className="bet-check-wrap" {...stopDrag}>
       <Checkbox
         checked={item.done}
         onCheckedChange={() =>
@@ -165,6 +166,18 @@ function BetControls({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
         className="bet-check"
         aria-label={`Mark “${item.text}” as ${item.done ? "not done" : "done"}`}
       />
+    </span>
+  );
+}
+
+/**
+ * The trailing control cluster: assignee select, due pill, drag grip.
+ * (No theme badge here — themes are a board-only concept; inside the document
+ * they read as noise.)
+ */
+function BetMeta({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
+  return (
+    <span className="bet-meta font-ui" {...stopDrag}>
       <AssigneeSelect
         value={item.assignee || ""}
         people={ctx.people}
@@ -196,7 +209,6 @@ function BetControls({ ctx, item }: { ctx: LiveCtx; item: Todo }) {
         }
         label={`Due date for “${item.text}”`}
       />
-      <ThemeBadge theme={item.theme} />
       <span className="grip" aria-hidden="true">
         ⠿
       </span>
@@ -253,8 +265,9 @@ function BetCard({
       className={`bet-card${item.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
     >
       <div className="bet-head" {...listeners}>
+        <BetCheck ctx={ctx} item={item} />
         <h3>{title}</h3>
-        <BetControls ctx={ctx} item={item} />
+        <BetMeta ctx={ctx} item={item} />
       </div>
       {children}
     </div>
@@ -299,7 +312,10 @@ function BetLiCard({
       className={`bet-li${item.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
     >
       {children}
-      <BetControls ctx={ctx} item={item} />
+      <span className="bet-controls font-ui">
+        <BetCheck ctx={ctx} item={item} />
+        <BetMeta ctx={ctx} item={item} />
+      </span>
     </li>
   );
 }
@@ -333,8 +349,9 @@ function SubBetRow({
       className={`subbet${item.done ? " done" : ""}${isDragging ? " dragging" : ""}`}
       title={item.text}
     >
+      <BetCheck ctx={ctx} item={item} />
       <span className="subbet-label">↳ {label}</span>
-      <BetControls ctx={ctx} item={item} />
+      <BetMeta ctx={ctx} item={item} />
     </li>
   );
 }

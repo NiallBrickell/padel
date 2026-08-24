@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Caveat, TW } from "@/components/doc";
 import { MobileToc, Toc, type TocSection } from "@/components/toc";
@@ -9,6 +10,7 @@ import {
   PeopleRail,
   SubBet,
 } from "@/components/next-steps-live";
+import { G } from "@/components/glossary";
 
 export const metadata: Metadata = {
   title: "Next steps — Padel Business Case",
@@ -48,17 +50,24 @@ export default function NextStepsPage() {
               </p>
               <ol>
                 <BetLi betKey="b2-route-e-decision">
-                  <strong>LTA money vs equity money — structural fork.</strong> The
-                  LTA loan scheme (Route E) only funds not-for-profit structures;
-                  Crowdcube, angels and EIS only work for a company limited by
-                  shares. We cannot keep both doors open past incorporation. Decide
+                  <strong>LTA money vs equity money — structural fork.</strong>{" "}
+                  The <G term="LTA">LTA</G> loan scheme (Route E) only funds
+                  not-for-profit structures; Crowdcube,{" "}
+                  <G term="angel investor">angels</G> and <G term="EIS">EIS</G>{" "}
+                  only work for a company limited by shares. We cannot keep both doors open past incorporation. Decide
                   before applying for anything.
                 </BetLi>
                 <li>
-                  <strong>Leasehold opco before EIS.</strong> HMRC’s advance
-                  assurance looks hard at asset-backed ventures; a freehold-owning
-                  company is a likely refusal, a trading operator leasing its
-                  premises is the standard pass. South East Angels{" "}
+                  <strong>
+                    <G term="leasehold">Leasehold</G> <G term="opco">opco</G>{" "}
+                    before EIS.
+                  </strong>{" "}
+                  <G term="HMRC">HMRC</G>’s{" "}
+                  <G term="EIS advance assurance">advance assurance</G> looks
+                  hard at <G term="asset-backed">asset-backed</G> ventures; a{" "}
+                  <G term="freehold">freehold</G>-owning company is a likely
+                  refusal, a trading operator leasing its premises is the
+                  standard pass. South East Angels{" "}
                   <em>requires</em> an EIS-qualifying round, so this ordering is
                   critical path for the whole equity side.
                 </li>
@@ -69,9 +78,10 @@ export default function NextStepsPage() {
               <h2>The batches — thirteen first bets</h2>
               <p>
                 Batch 1 hits the four biggest unknowns — finance terms, building
-                availability, SEIF status, real capex — for the price of about
-                seven emails. Everything in Batch 2 either needs those answers or
-                spends real money; Batch 3 needs the earlier dominoes down.
+                availability, <G term="SEIF">SEIF</G> status, real{" "}
+                <G term="capex">capex</G> — for the price of about seven emails.
+                Everything in Batch 2 either needs those answers or spends real
+                money; Batch 3 needs the earlier dominoes down.
               </p>
 
               <Tabs defaultValue="b1" className="doc-tabs breakout" id="batch-tabs">
@@ -143,7 +153,8 @@ export default function NextStepsPage() {
                     </li>
                     <li>
                       Brief: 13,000–20,000 sq ft, 6m+ height over a courts zone
-                      (apex counts, not just eaves — pitched roofs are fine),
+                      (apex counts, not just{" "}
+                      <G term="eaves height">eaves</G> — pitched roofs are fine),
                       A23/A27 corridor, leasehold, long lease available. Ask
                       what’s on and what’s coming.
                     </li>
@@ -174,7 +185,10 @@ export default function NextStepsPage() {
                       £9.75/sq ft — GS&amp;P, height unstated); Units 3&amp;5
                       Lancing Business Park (6.7m high-bay, £10/sq ft — GS&amp;P);
                       Units 3&amp;4 School Close Burgess Hill (£6.75/sq ft,{" "}
-                      <strong>already has Class E consent</strong> — Flude’s own
+                      <strong>
+                        already has <G term="use class">Class E</G> consent
+                      </strong>{" "}
+                      — Flude’s own
                       listing; height doubtful, view anyway); Unit 3 Ellen Street
                       Portslade (13,011 sq ft, 6.5m — SHW Crawley). Also: Panattoni
                       offers design-and-build at Burgess Hill, and Buckingham Park
@@ -193,7 +207,8 @@ export default function NextStepsPage() {
                       family, Capital Hair &amp; Beauty; likely vehicle Foundry
                       Investment Capital Ltd — its SIC codes include “operation of
                       sports facilities”). A discharge-of-conditions application
-                      went in 11 Aug 2026, so fit-out is imminent. No second
+                      went in 11 Aug 2026, so <G term="fit-out">fit-out</G> is
+                      imminent. No second
                       Burgess Hill scheme exists. Also approved: 3 more outdoor
                       courts at Eixo (Jan 2026) and Plumpton Racecourse’s 5-court
                       centre (Aug 2026); one refusal at St Francis Sports &amp;
@@ -342,8 +357,9 @@ export default function NextStepsPage() {
                       SeedLegals runs it for <strong>£499 + VAT</strong> as HMRC
                       agent; typical HMRC turnaround ~3–4 weeks (up to 6–8). Needs:
                       incorporated company, business plan, forecasts, use of funds
-                      — and evidence of prospective investors (a crowdfunding
-                      platform letter counts).
+                      — and evidence of prospective investors (a{" "}
+                      <G term="equity crowdfunding">crowdfunding</G> platform
+                      letter counts).
                     </li>
                     <li>
                       <strong>
@@ -548,7 +564,11 @@ export default function NextStepsPage() {
                       <td>1</td>
                       <td>Mill Wood Finance</td>
                       <td>email</td>
-                      <td>Is Route A’s asset-finance layer real, at what terms</td>
+                      <td>
+                        Is Route A’s{" "}
+                        <G term="asset finance">asset-finance</G> layer real, at
+                        what terms
+                      </td>
                       <td>High</td>
                     </tr>
                     <tr>
@@ -641,7 +661,8 @@ export default function NextStepsPage() {
           </main>
 
           <footer className="doc">
-            Working sheet · August 2026 · Not for sharing outside the group
+            Working sheet · August 2026 · Not for sharing outside the group ·
+            Unfamiliar terms? <Link href="/glossary">Glossary →</Link>
           </footer>
         </div>
 

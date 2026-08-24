@@ -51,7 +51,11 @@ export function AssigneeSelect({
       disabled={disabled}
     >
       <SelectTrigger size={size} className={className} aria-label={ariaLabel}>
-        <SelectValue />
+        {/* belt and braces: even if the items map is ever bypassed, the raw
+            sentinel must not render — map it to the label ourselves */}
+        <SelectValue>
+          {(v: string | null) => (!v || v === NONE ? noneLabel : (items[v] ?? v))}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent className="font-ui">
         <SelectItem value={NONE}>Unassigned</SelectItem>
@@ -113,7 +117,10 @@ export function ThemeSelect({
       disabled={disabled}
     >
       <SelectTrigger size={size} className={className} aria-label={ariaLabel}>
-        <SelectValue />
+        {/* same sentinel guard as AssigneeSelect */}
+        <SelectValue>
+          {(v: string | null) => (!v || v === NONE ? noneLabel : (items[v] ?? v))}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent className="font-ui">
         <SelectItem value={NONE}>No theme</SelectItem>
@@ -140,8 +147,9 @@ export function BatchBadge({ itemKey }: { itemKey?: string | null }) {
 
 /**
  * Due-date badge that doubles as the control: an invisible native date input
- * sits on top of the pill, so clicking it opens the OS date picker.
- * Amber when overdue.
+ * sits on top of the pill, so clicking it opens the OS date picker. The raw
+ * input is never visible — unset shows a quiet "+ due" pill, set shows
+ * "due 12 Sep" (amber when overdue) with an × to clear.
  */
 export function DueBadge({
   due,
@@ -164,16 +172,13 @@ export function DueBadge({
           className={`pill pill-due${overdue ? " overdue" : ""}${due ? "" : " empty"}`}
           aria-hidden="true"
         >
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M8 3v3M16 3v3M4 8h16M6 5h12a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          {due ? formatDue(due) : "due"}
+          {due ? (
+            <>
+              <span className="due-word">due</span> {formatDue(due)}
+            </>
+          ) : (
+            "+ due"
+          )}
         </span>
         <input
           type="date"

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Caveat, RouteHead, TW, Verdict } from "@/components/doc";
 import {
@@ -7,6 +8,7 @@ import {
   PipelineAbsorptionFigure,
 } from "@/components/figures";
 import { MobileToc, Toc, type TocSection } from "@/components/toc";
+import { G } from "@/components/glossary";
 
 const SECTIONS: TocSection[] = [
   { id: "summary", no: "§", title: "Summary" },
@@ -148,10 +150,15 @@ export default function BusinessCasePage() {
                   competitor is building towards it.
                 </li>
                 <li>
-                  <strong>The economics work at moderate utilisation.</strong> Base
-                  case: ~£990k revenue and ~£350k EBITDA on ~£950k invested.
-                  Break-even including debt service sits at roughly 50–55% court
-                  utilisation, against observed local utilisation of 85–97%.
+                  <strong>
+                    The economics work at moderate{" "}
+                    <G term="utilisation">utilisation</G>.
+                  </strong>{" "}
+                  Base case: ~£990k revenue and ~£350k{" "}
+                  <G term="EBITDA">EBITDA</G> on ~£950k invested.{" "}
+                  <G term="break-even">Break-even</G> including debt service sits
+                  at roughly 50–55% court utilisation, against observed local
+                  utilisation of 85–97%.
                   Filling the venue needs ~1,290 regular players — about 12–14% of
                   the people already playing locally, before any growth.
                 </li>
@@ -167,21 +174,26 @@ export default function BusinessCasePage() {
                   not exist for a new company with no trading history or leisure
                   background — so the real question is how to answer that gap, and
                   Section 8 lays out four routes rather than one plan:{" "}
-                  <strong>(A)</strong> assemble a full stack now (founder capital,
-                  Start Up Loans, asset finance on the courts, landlord
-                  contribution, a £250–350k EIS equity round with precedents at
-                  exactly this size); <strong>(B)</strong> bring in institutional
-                  capital — the British Business Bank’s brand-new South East
-                  Investment Fund (loans £25k–£2m, equity to £5m), the leisure
+                  <strong>(A)</strong> assemble a full stack now (founder capital,{" "}
+                  <G term="Start Up Loans">Start Up Loans</G>,{" "}
+                  <G term="asset finance">asset finance</G> on the courts,
+                  landlord contribution, a £250–350k <G term="EIS">EIS</G> equity
+                  round with precedents at exactly this size);{" "}
+                  <strong>(B)</strong> bring in institutional capital — the{" "}
+                  <G term="British Business Bank">British Business Bank</G>’s
+                  brand-new South East Investment Fund (loans £25k–£2m, equity to
+                  £5m), the leisure
                   funds already invested in padel as anchor investors, or landlord
                   “build-to-suit” capital via the lease; <strong>(C)</strong> build
                   a small £250–450k version first at an existing sports club, trade
                   12–18 months, and finance the full venue off real accounts;{" "}
                   <strong>(D)</strong> franchise first to borrow someone else’s
                   credibility and playbook; or <strong>(E)</strong> structure as a
-                  not-for-profit and unlock the LTA loans that have built 100+
-                  padel courts — the cheapest money in the sector, at the price of
-                  an asset lock (salaries yes, equity upside no). The current lean:
+                  not-for-profit and unlock the <G term="LTA">LTA</G> loans that
+                  have built 100+ padel courts — the cheapest money in the
+                  sector, at the price of an{" "}
+                  <G term="asset lock">asset lock</G> (salaries yes, equity
+                  upside no). The current lean:
                   price A and B together during validation, hold C as a genuine
                   fallback, take D only if the experience gap matters more than the
                   concept, and decide on E explicitly — it’s a fork in what we’re
@@ -280,7 +292,7 @@ export default function BusinessCasePage() {
                   year early.
                 </li>
                 <li>
-                  Playtomic’s 2026 Global Padel Report classifies the UK as a
+                  <G term="Playtomic">Playtomic</G>’s 2026 Global Padel Report classifies the UK as a
                   “Hotspot” market: demand consistently outpacing supply, ~85%
                   average court occupancy, and roughly half of UK players reporting
                   difficulty booking peak slots.
@@ -294,7 +306,8 @@ export default function BusinessCasePage() {
                 <li>
                   The sport is structurally social: doubles by default, 90-minute
                   sessions, playable across mixed abilities, with tournament
-                  formats (Americano) designed around rotating partners. These
+                  formats (<G term="Americano">Americano</G>) designed around
+                  rotating partners. These
                   mechanics drive food and beverage spend directly.
                 </li>
               </ul>
@@ -517,7 +530,8 @@ export default function BusinessCasePage() {
                       <td>4 indoor</td>
                       <td>
                         <strong>Approved May 2026</strong>; conditions being
-                        discharged Aug 2026 — fit-out imminent
+                        discharged Aug 2026 — <G term="fit-out">fit-out</G>{" "}
+                        imminent
                       </td>
                       <td>
                         Includes a café and social space; local family applicant
@@ -708,7 +722,8 @@ export default function BusinessCasePage() {
 
               <h3 id="s4-singles">Singles courts</h3>
               <p>
-                A padel singles court measures 20m × 6m against 20m × 10m for
+                A <G term="padel singles court">padel singles court</G> measures
+                20m × 6m against 20m × 10m for
                 doubles, so it fits floor-space a doubles court cannot use. Within
                 20 miles there is one bookable outdoor singles court (Eixo) and one
                 indoor (Eastbourne). Singles serves two-player groups, lunchtime
@@ -745,7 +760,8 @@ export default function BusinessCasePage() {
                   <p>
                     <strong>Option B — courts with a full hospitality layer.</strong>{" "}
                     The same courts plus a licensed bar, kitchen, garden/terrace
-                    and membership programming. Adds £200–300k of capex and
+                    and membership programming. Adds £200–300k of{" "}
+                    <G term="capex">capex</G> and
                     requires hospitality operations. In return: 20–35% of revenue
                     from streams pay-and-play venues do not have, customers with
                     reasons to attend beyond slot availability, and materially
@@ -965,7 +981,10 @@ export default function BusinessCasePage() {
                       </td>
                     </tr>
                     <tr>
-                      <td>Working capital / opening-period buffer</td>
+                      <td>
+                        <G term="working capital">Working capital</G> /
+                        opening-period buffer
+                      </td>
                       <td>£100k</td>
                     </tr>
                     <tr className="total">
@@ -1112,7 +1131,10 @@ export default function BusinessCasePage() {
                       <td>£135k</td>
                     </tr>
                     <tr>
-                      <td>Business rates (leisure multiplier, post-2026 regime)</td>
+                      <td>
+                        <G term="business rates">Business rates</G> (leisure
+                        multiplier, post-2026 regime)
+                      </td>
                       <td>£45k</td>
                     </tr>
                     <tr>
@@ -1243,10 +1265,14 @@ export default function BusinessCasePage() {
               <h3 id="s8-constraint">The constraint, briefly</h3>
               <p>
                 No UK padel venue in the £500k–£2m range that we found was funded
-                mainly by unsecured bank debt. Unsecured lenders underwrite against
+                mainly by{" "}
+                <G term="unsecured loan">unsecured bank debt</G>. Unsecured
+                lenders underwrite against
                 filed accounts: Funding Circle excludes businesses under a year
                 old, iwoca caps new companies around £10k, Starling wants trading
-                businesses plus personal guarantees, and the high-street banks cap
+                businesses plus{" "}
+                <G term="personal guarantee">personal guarantees</G>, and the
+                high-street banks cap
                 unsecured lending at £25k–£100k against track records a new company
                 doesn’t have. Projected revenue, however well-evidenced, isn’t
                 collateral. The gap in our case is exactly that — no trading
@@ -1332,7 +1358,8 @@ export default function BusinessCasePage() {
                           <td>Landlord contribution</td>
                           <td>£50–100k equivalent</td>
                           <td>
-                            Rent-free period plus capital contribution — standard
+                            <G term="rent-free period">Rent-free period</G> plus
+                            capital contribution — standard
                             incentives on hard-to-let big-box units, which 7m-eaves
                             sheds are
                           </td>
@@ -1340,12 +1367,16 @@ export default function BusinessCasePage() {
                         </tr>
                         <tr>
                           <td>
-                            <strong>Equity round</strong> (angels / EIS /
-                            crowdfunding)
+                            <strong>Equity round</strong> (
+                            <G term="angel investor">angels</G> / EIS /{" "}
+                            <G term="equity crowdfunding">crowdfunding</G>)
                           </td>
                           <td>£250–350k</td>
                           <td>See supporting detail below</td>
-                          <td>25–35% dilution at a defensible newco valuation</td>
+                          <td>
+                            25–35% <G term="dilution">dilution</G> at a
+                            defensible newco valuation
+                          </td>
                         </tr>
                         <tr className="total">
                           <td>
@@ -1400,7 +1431,8 @@ export default function BusinessCasePage() {
                     British Business Bank’s new fund for the region (£350m across
                     its South East and East of England funds) will write{" "}
                     <strong>loans of £25k–£2m and equity up to £5m</strong> — and
-                    its northern sibling (NPIF II) put £1.5m into The Padel Club’s
+                    its northern sibling (<G term="NPIF II">NPIF II</G>) put
+                    £1.5m into The Padel Club’s
                     expansion, so the parent institution already understands this
                     exact sector. One counterparty could anchor most of the
                     requirement. Status check (late Aug 2026): the fund{" "}
@@ -1490,7 +1522,8 @@ export default function BusinessCasePage() {
                     cover it{" "}
                     <strong>with little or no equity round at all</strong>. Trade
                     for 12–18 months at the occupancy the local market strongly
-                    suggests, then approach the same lenders — and the SEIF — as an
+                    suggests, then approach the same lenders — and the{" "}
+                    <G term="SEIF">SEIF</G> — as an
                     operator with filed accounts, at which point everything
                     reprices: banks lend, asset finance gets cheap, and the full
                     venue raise becomes routine.
@@ -1560,7 +1593,11 @@ export default function BusinessCasePage() {
                     The cheapest capital in this sector is reserved for
                     not-for-profits, and nothing says we have to be a company
                     limited by shares. Structured as a company limited by guarantee
-                    or a community benefit society, the venue qualifies for the{" "}
+                    or a{" "}
+                    <G term="community benefit society">
+                      community benefit society
+                    </G>
+                    , the venue qualifies for the{" "}
                     <strong>
                       LTA facility loans that have already built 100+ padel courts
                     </strong>
@@ -1697,7 +1734,8 @@ export default function BusinessCasePage() {
               <FinancingDecisionMapFigure />
 
               <p>
-                Also looked at and set aside: a commercial mortgage (freehold-only,
+                Also looked at and set aside: a commercial mortgage (
+                <G term="freehold">freehold</G>-only,
                 needs trading history) and a council concession like Hove Beach
                 Park (the channel exists but is currently occupied, and costs the
                 licence and the format).
@@ -1711,7 +1749,8 @@ export default function BusinessCasePage() {
                 business — but the first ~£300k of risk (planning, licensing and
                 the build, all pre-revenue) is venture risk that debt providers
                 simply won’t price. Equity absorbs the risk debt refuses; debt
-                finances the asset-backed layer it’s good at. An EIS-qualifying
+                finances the <G term="asset-backed">asset-backed</G> layer it’s
+                good at. An EIS-qualifying
                 round — 30% income-tax relief to investors, which meaningfully
                 improves the terms we can ask for — covering 25–35% of the company
                 is how this gets solved at this scale.
@@ -1721,7 +1760,9 @@ export default function BusinessCasePage() {
                 a £250k target; The Padel Hub raised ~£163k on Crowdcube alongside
                 £1.24m elsewhere in the round; Court de Padel has raised £641k
                 across two Crowdcube rounds from a single open club; Smash Padel
-                raised ~£537k at a £5.8m pre-money valuation; The Padel Club’s
+                raised ~£537k at a £5.8m{" "}
+                <G term="pre-money valuation">pre-money valuation</G>; The Padel
+                Club’s
                 expansion round included EIS investment from Endeavour Ventures.
                 Crowdfunding has an additional property relevant to a membership
                 venue: two hundred local investors are two hundred founding
@@ -1807,7 +1848,9 @@ export default function BusinessCasePage() {
                 <li>
                   <strong>EIS note:</strong> padel operators demonstrably secure
                   EIS investment, but leisure trades can face qualification
-                  questions; advance assurance (in the validation plan) should
+                  questions;{" "}
+                  <G term="EIS advance assurance">advance assurance</G> (in the
+                  validation plan) should
                   precede any approach so the 30% relief is bankable in the offer.
                 </li>
               </ul>
@@ -1937,7 +1980,8 @@ export default function BusinessCasePage() {
                 <li>
                   A padel court is 20m × 10m; indoor play needs{" "}
                   <strong>7–8m clear height</strong> (LTA minimum 6m, recommended
-                  8m). Standard industrial eaves run 6–8m, so genuinely suitable
+                  8m). Standard industrial <G term="eaves height">eaves</G> run
+                  6–8m, so genuinely suitable
                   units are scarce — the market’s main constraint, and a barrier
                   in this plan’s favour once a building is secured.
                 </li>
@@ -1947,14 +1991,16 @@ export default function BusinessCasePage() {
                   £110–170k/year at corridor rents.
                 </li>
                 <li>
-                  Change of use from industrial (B2/B8) to indoor sport (Class
-                  E(d)) requires planning permission. Indoor schemes avoid the
+                  Change of use from industrial (B2/B8) to indoor sport (
+                  <G term="use class">Class E(d)</G>) requires planning
+                  permission. Indoor schemes avoid the
                   noise objections currently defeating outdoor padel applications
                   nationally (Harrogate refused despite 4m acoustic barriers; Bath
                   refusing applications broadly; Withdean operating under a noise
                   abatement order). An enclosed building is a materially easier
                   application than floodlit outdoor courts near housing.
-                  Pre-application advice first; the objection to prepare for is
+                  <G term="pre-app">Pre-application advice</G> first; the
+                  objection to prepare for is
                   loss of employment land, answered by the jobs the format creates
                   on site.
                 </li>
@@ -2407,8 +2453,9 @@ export default function BusinessCasePage() {
               </p>
               <ol start={9}>
                 <li>
-                  Heads of terms on a building (subject to planning), with the
-                  landlord contribution and rent-free period negotiated in.
+                  <G term="heads of terms">Heads of terms</G> on a building
+                  (subject to planning), with the landlord contribution and
+                  rent-free period negotiated in.
                 </li>
                 <li>
                   Start Up Loan applications (×4); asset finance to credit
@@ -2482,7 +2529,8 @@ export default function BusinessCasePage() {
 
           <footer className="doc">
             Draft for discussion among friends · v0.1 · August 2026 · Brighton /
-            Hove / Mid Sussex
+            Hove / Mid Sussex · Unfamiliar terms?{" "}
+            <Link href="/glossary">Glossary →</Link>
           </footer>
         </div>
 
