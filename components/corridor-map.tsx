@@ -2,9 +2,10 @@
 // the bottom, the A23 running north–south and the A27 east–west, town labels,
 // numbered teal pins for the seven candidate buildings (numbers match the
 // listing cards below the map), small neutral/amber markers for the existing
-// and incoming padel venues, and hollow teal rings for the rural
-// partner-target sites (move 5). Pure inline SVG, themed entirely with
-// the document's CSS variables — no external images.
+// and incoming padel venues, and hollow teal rings lettered A–D for the
+// rural partner-target sites (letters match the partner cards; move 5).
+// Pure inline SVG, themed entirely with the document's CSS variables — no
+// external images.
 //
 // Cottesmore (Pease Pottage, ~51.08°N) sits north of the viewBox's latitude
 // range and is deliberately omitted rather than clipped.
@@ -61,7 +62,8 @@ const CANDIDATES: { no: number; name: string; at: [number, number] }[] = [
   { no: 7, name: "Buckingham Park, Lewes", at: pt(50.878, 0.008) },
 ];
 
-/** Existing / incoming padel venues, plus rural partner-target sites. */
+/** Existing / incoming padel venues, plus rural partner-target sites
+ *  (targets carry the A–D letters that match the partner cards). */
 const VENUES: {
   name: string;
   at: [number, number];
@@ -69,6 +71,7 @@ const VENUES: {
   anchor: Anchor;
   coming?: boolean;
   target?: boolean;
+  letter?: string;
 }[] = [
   { name: "PADELHUB (Warninglid)", at: pt(51.02, -0.25), label: [x(-0.25) + 12, y(51.02) + 4], anchor: "start" },
   { name: "Eixo, Goddards Green", at: pt(50.95, -0.182), label: [x(-0.182) - 4, y(50.95) + 18], anchor: "middle" },
@@ -85,10 +88,10 @@ const VENUES: {
   { name: "Consort Way (approved)", at: [x(-0.112) + 6, y(50.958)], label: [x(-0.112) + 18, y(50.958) + 17], anchor: "start", coming: true },
   { name: "Plumpton (approved)", at: pt(50.93, -0.06), label: [x(-0.06), y(50.93) + 18], anchor: "middle", coming: true },
   { name: "Q Leisure (approved)", at: [x(-0.205) - 10, y(50.955) + 2], label: [x(-0.205) - 22, y(50.955) - 1], anchor: "end", coming: true },
-  { name: "Mid Sussex GC", at: pt(50.92, -0.09), label: [x(-0.09) - 12, y(50.92) + 4], anchor: "end", target: true },
-  { name: "Singing Hills", at: [x(-0.2), y(50.92) + 6], label: [x(-0.2) + 10, y(50.92) + 10], anchor: "start", target: true },
-  { name: "Hickstead", at: pt(50.98, -0.26), label: [x(-0.26) - 10, y(50.98) + 4], anchor: "end", target: true },
-  { name: "Mannings Heath", at: pt(51.03, -0.3), label: [x(-0.3) + 10, y(51.03) + 4], anchor: "start", target: true },
+  { name: "Mid Sussex GC", at: pt(50.92, -0.09), label: [x(-0.09) - 14, y(50.92) + 4], anchor: "end", target: true, letter: "A" },
+  { name: "Singing Hills", at: [x(-0.2), y(50.92) + 6], label: [x(-0.2) + 12, y(50.92) + 11], anchor: "start", target: true, letter: "B" },
+  { name: "Hickstead", at: pt(50.98, -0.26), label: [x(-0.26) - 12, y(50.98) + 4], anchor: "end", target: true, letter: "C" },
+  { name: "Mannings Heath", at: pt(51.03, -0.3), label: [x(-0.3) + 12, y(51.03) + 4], anchor: "start", target: true, letter: "D" },
 ];
 
 const A27: [number, number][] = [
@@ -152,7 +155,7 @@ export function CorridorMap() {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
-        aria-label="Schematic map of the Brighton–Mid Sussex corridor showing the A23 and A27, the seven candidate buildings as numbered pins, existing and incoming padel venues, and the rural partner-target sites — Mid Sussex Golf Club, Singing Hills, Hickstead and Mannings Heath"
+        aria-label="Schematic map of the Brighton–Mid Sussex corridor showing the A23 and A27, the seven candidate buildings as numbered pins, existing and incoming padel venues, and the rural partner-target sites as rings lettered A to D — Mid Sussex Golf Club, Singing Hills, Hickstead and Mannings Heath"
       >
         <title>The Brighton–Mid Sussex corridor</title>
 
@@ -193,7 +196,7 @@ export function CorridorMap() {
         ))}
 
         {/* venues: open (neutral), approved/coming (amber, dashed ring) and
-            rural partner targets (hollow teal ring) */}
+            rural partner targets (hollow teal ring, lettered A–D) */}
         {VENUES.map((v) => (
           <g key={v.name}>
             <title>{v.name}</title>
@@ -201,7 +204,7 @@ export function CorridorMap() {
               className={`map-venue${v.coming ? " coming" : ""}${v.target ? " target" : ""}`}
               cx={v.at[0]}
               cy={v.at[1]}
-              r={v.target ? 5 : 4}
+              r={v.target ? 7.5 : 4}
             />
             {v.coming && (
               <circle
@@ -210,6 +213,16 @@ export function CorridorMap() {
                 cy={v.at[1]}
                 r={7.5}
               />
+            )}
+            {v.target && v.letter && (
+              <text
+                className="map-target-letter"
+                x={v.at[0]}
+                y={v.at[1] + 3.5}
+                textAnchor="middle"
+              >
+                {v.letter}
+              </text>
             )}
             <text
               className={`map-venuelabel${v.coming ? " coming" : ""}${v.target ? " target" : ""}`}
@@ -244,7 +257,9 @@ export function CorridorMap() {
           approved &amp; coming
         </span>
         <span className="ml-item">
-          <span className="ml-swatch target" aria-hidden="true" />
+          <span className="ml-swatch target" aria-hidden="true">
+            A
+          </span>
           rural partner target
         </span>
       </div>
@@ -253,9 +268,9 @@ export function CorridorMap() {
         The corridor at a glance. Numbered teal pins are the seven candidate
         buildings (numbers match the cards below); grey dots are padel venues
         already open, amber dots are approved or opening soon, and hollow teal
-        rings are the rural partner-target sites from move 5. Positions are
-        schematic; Cottesmore (Pease Pottage) sits just north of the mapped
-        area.
+        rings lettered A–D are the country-club partner targets (letters match
+        their cards below; move 5). Positions are schematic; Cottesmore (Pease
+        Pottage) sits just north of the mapped area.
       </figcaption>
     </figure>
   );

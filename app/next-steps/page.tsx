@@ -12,7 +12,10 @@ import {
   Who,
 } from "@/components/bet-parts";
 import { CorridorMap } from "@/components/corridor-map";
-import { ListingsShowcase } from "@/components/listings";
+import {
+  ListingsShowcase,
+  PartnerTargetsShowcase,
+} from "@/components/listings";
 import {
   Bet,
   LiveStageStrip,
@@ -241,15 +244,18 @@ export default function NextStepsPage() {
                   </Read>
                 </Bet>
 
-                {/* ------- The live candidates: map + grid ------- */}
+                {/* ------- The live candidates: map + the two card grids ------- */}
                 <div className="candidates breakout" id="candidates-block">
-                  <h3 id="candidates">The live candidates</h3>
+                  <h3 id="candidates">
+                    The live candidates — two kinds of site
+                  </h3>
                   <p className="candidates-note font-ui">
-                    August 2026 — listings move. Numbered pins on the map match
-                    the cards below.
+                    August 2026 — listings move. Numbered pins and lettered
+                    rings on the map match the cards below.
                   </p>
                   <CorridorMap />
                   <ListingsShowcase />
+                  <PartnerTargetsShowcase />
                 </div>
 
                 <Bet

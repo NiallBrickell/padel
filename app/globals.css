@@ -1934,6 +1934,11 @@ footer.doc a {
 .map-venuelabel.target {
   fill: var(--accent);
 }
+.map-target-letter {
+  fill: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+}
 .map-legend {
   display: flex;
   flex-wrap: wrap;
@@ -1977,12 +1982,15 @@ footer.doc a {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--band) 28%, transparent);
 }
 .ml-swatch.target {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 1.05rem;
+  height: 1.05rem;
   border-radius: 999px;
   background: transparent;
   border: 2px solid var(--accent);
   box-sizing: border-box;
+  color: var(--accent-deep);
+  font-size: 0.55rem;
+  font-weight: 700;
 }
 
 /* listings grid — dense cards, numbered to match the map pins */
@@ -2089,6 +2097,86 @@ footer.doc a {
 }
 .lc-link:hover {
   text-decoration: underline;
+}
+
+/* the two card groups: a small label each, so the "two kinds of site"
+   heading reads on the cards themselves */
+.listing-group-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.partner-listings {
+  margin-top: 1.6rem;
+}
+.listings-intro {
+  font-family: var(--font-serif-body), "Source Serif 4", Georgia, serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin: -0.15rem 0 0.7rem;
+  max-width: 76ch;
+}
+
+/* partner-target cards: same family as the listing cards, but visually
+   distinct — teal outline + hollow-ring letter badge echoing the map's
+   partner-target rings. Approaches, not listings. */
+.listing-card.partner {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 26%, var(--surface));
+}
+.lc-letter {
+  flex: 0 0 auto;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  box-sizing: border-box;
+  color: var(--accent-deep);
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.12rem);
+}
+.lc-status {
+  align-self: flex-start;
+  font-size: 0.66rem;
+  font-weight: 650;
+  line-height: 1.1;
+  border-radius: 999px;
+  padding: 0.16rem 0.5rem;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.lc-contact {
+  font-size: 0.73rem;
+  color: var(--ink2);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.lc-contact a {
+  color: var(--accent-deep);
+  font-weight: 650;
+  text-decoration: none;
+}
+.lc-contact a:hover {
+  text-decoration: underline;
+}
+.lc-tag {
+  margin-top: auto;
+  padding-top: 0.15rem;
+  font-size: 0.6rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* height bar: eaves height against the 6m courts minimum + 8m ideal */
