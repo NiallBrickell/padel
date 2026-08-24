@@ -245,6 +245,7 @@ main.doc-body {
   font-weight: 650;
   line-height: 1.3;
   margin: 1.6rem 0 0.5rem;
+  scroll-margin-top: 5.5rem;
 }
 .doc-body section {
   padding-top: 3.2rem;
@@ -258,7 +259,8 @@ main.doc-body {
   .doc-body section {
     scroll-margin-top: 4.5rem;
   }
-  .doc-body h3 {
+  .doc-body h3,
+  .doc-body h4 {
     scroll-margin-top: 4.5rem;
   }
 }

@@ -66,6 +66,18 @@ const SECTIONS: TocSection[] = [
       { id: "bet-13", title: "LTA facility loans" },
     ],
   },
+  {
+    id: "people",
+    no: "§",
+    title: "People worth knowing",
+    subs: [
+      { id: "people-founders", title: "Founders who have done the crowdfunding" },
+      { id: "people-operators", title: "Local operators" },
+      { id: "people-specialists", title: "Specialists to line up" },
+      { id: "people-press", title: "Press and community" },
+      { id: "people-rooms", title: "The rooms" },
+    ],
+  },
   { id: "monitoring", no: "§", title: "Being watched" },
   { id: "scoreboard", no: "§", title: "The scoreboard" },
 ];
@@ -645,10 +657,25 @@ export default function NextStepsPage() {
                     <em>development</em> is excluded but an operating company
                     leasing its building is the standard fit. Fees were around
                     7% on success plus ~1% completion when last verified{" "}
-                    <span style={{ color: "var(--warn)" }}>⚠</span>. Pitches
-                    only go public once roughly a third to half of the target
-                    is already committed from your own network.
+                    <span style={{ color: "var(--warn)" }}>⚠</span>.
                   </Who>
+                  <BetSec label="How it works">
+                    <p>
+                      Crowdcube reviews the company and assigns a campaign
+                      manager, but expects you to bring your own crowd — by
+                      convention roughly a third to half of the target
+                      committed from your own network and anchor investors
+                      before the pitch goes public. The public phase runs a
+                      few weeks; end to end is around three to four months,
+                      and founders who’ve done it describe the campaign as
+                      close to a full-time job for one person (the pitch
+                      video, the financial model, and answering every investor
+                      question on a public wall). The hundreds of small
+                      investors sit in Crowdcube’s nominee company, so they
+                      appear as a single line on the cap table. The pitch
+                      video is produced at the company’s own cost.
+                    </p>
+                  </BetSec>
                   <Ask>
                     <p>
                       An equity round to close the remaining £150–250k,
@@ -664,9 +691,23 @@ export default function NextStepsPage() {
                     </WantLead>
                     <p>
                       Four UK padel businesses have raised at this size on the
-                      platform already.
+                      platform, and the founders of two of them are on{" "}
+                      <a href="#people">the people list below</a> — the
+                      cheapest expertise available is an hour with someone who
+                      has done it.
                     </p>
                   </Want>
+                  <BetSec label="Legals">
+                    <p>
+                      The Jonathan Lea Network in Haywards Heath runs a
+                      dedicated crowdfunding legal service (structuring,
+                      nominee agreements, promotion review) alongside{" "}
+                      <G term="EIS">EIS</G> work and commercial property — one
+                      local firm that could cover the raise and the lease.
+                      wewillhelp@jonathanlea.net · 01444 708 640. SeedLegals
+                      covers the round documents and EIS side too.
+                    </p>
+                  </BetSec>
                   <Read>
                     Promising for this kind of business, but it’s the closing
                     move, not the opening one.
@@ -709,6 +750,155 @@ export default function NextStepsPage() {
                     padel courts); irrelevant otherwise.
                   </Read>
                 </Bet>
+              </section>
+
+              {/* ---------------- People worth knowing ---------------- */}
+              <section id="people" className="measure">
+                <h2>People worth knowing</h2>
+                <p>
+                  Relationships to start before we need them. None of these is
+                  a transaction — the aim is that by the time we’re raising
+                  money, filing planning or hiring, the people involved
+                  already know who we are.
+                </p>
+
+                <h4 id="people-founders">
+                  Founders who have done the crowdfunding
+                </h4>
+                <ul>
+                  <li>
+                    <strong>Rupert Taylor and Carson Russell — Smash Padel.</strong>{" "}
+                    They raised on Crowdcube <em>and</em> operate the canopy
+                    courts at Haywards Heath Rugby Club in Cuckfield — one
+                    conversation covers crowdfunding experience and local
+                    operating reality, at a venue we can simply book a court
+                    at. Russell built their rugby-club partnership model,
+                    which is close cousin to our Route C.
+                  </li>
+                  <li>
+                    <strong>
+                      Jesper Konstantinov — Social Sports Society (Wembley).
+                    </strong>{" "}
+                    Raised on Crowdcube for a social-first padel concept much
+                    like ours and gives candid interviews. Reachable via
+                    socialsportssociety.com.
+                  </li>
+                  <li>
+                    <strong>Charles Winterton — founded PADELHUB</strong>{" "}
+                    (including the Crawley club we play at), and has since
+                    exited. The “built it, sold it” conversation — including
+                    what went wrong when PADELHUB cancelled its premium
+                    memberships and enraged its members, a cautionary tale for
+                    our own membership design. Route: LinkedIn.
+                  </li>
+                  <li>
+                    <strong>Alan Forsyth — Court de Padel (Norwich).</strong>{" "}
+                    Funded a first club into existence partly through rolling
+                    Crowdcube rounds. info@courtdepadel.com.
+                  </li>
+                </ul>
+
+                <h4 id="people-operators">
+                  Local operators — some competitors, all worth knowing
+                </h4>
+                <ul>
+                  <li>
+                    <strong>Alan McGuinness — Club Padel, Shoreham</strong>{" "}
+                    (alan@clubpadel.co.uk). Opening the closest thing to our
+                    concept this autumn, in a different corridor. His
+                    £3,500-a-year founder-membership tier is worth studying
+                    whether or not he’ll talk.
+                  </li>
+                  <li>
+                    <strong>
+                      Chris Ellicott-Taylor and Stuart Poole — Hurstwood
+                      Sports Group, Haywards Heath.
+                    </strong>{" "}
+                    Two locals who just got five courts approved at Plumpton
+                    Racecourse — weeks past the exact planning process we’d
+                    face on the rural route. Ideal compare-notes conversation.
+                  </li>
+                  <li>
+                    <strong>Kris Ball — The Padel Club.</strong> The national
+                    operator opening at Albourne; gives interviews and hosts
+                    the UK Padel Convention at his Gloucester club.
+                    info@thepadelclub.co.uk.
+                  </li>
+                  <li>
+                    <strong>Eixo Padel, Goddards Green.</strong> Independent
+                    local operators (Companies House lists Ben and Samantha
+                    Ellis as directors). A coffee at their own venue — the
+                    closest thing to our situation, a few years ahead.
+                  </li>
+                </ul>
+
+                <h4 id="people-specialists">
+                  Specialists to line up when the time comes
+                </h4>
+                <ul>
+                  <li>
+                    <strong>Legals (lease + raise + <G term="EIS">EIS</G>):</strong>{" "}
+                    Jonathan Lea Network, Haywards Heath (see{" "}
+                    <a href="#bet-12">move 12</a>); Mayo Wynne Baxter
+                    (Brighton/Lewes) as the established Sussex alternative.
+                  </li>
+                  <li>
+                    <strong>Capital allowances</strong> (worth six figures on
+                    the fit-out — see the business case): E3 Consulting
+                    (e3consulting.co.uk) or Lovell Consulting
+                    (hello@lovellconsulting.com), both specialist practices.
+                  </li>
+                  <li>
+                    <strong>The GM and head-coach search:</strong> 4Leisure
+                    Recruitment (leisure-management specialists, 01895
+                    450640), the LTA’s padel coaching pathway for qualified
+                    coaches, and — most effectively —{" "}
+                    <a href="#people-rooms">the industry rooms below</a>,
+                    where every good padel GM and coach in the country passes
+                    through.
+                  </li>
+                </ul>
+
+                <h4 id="people-press">Press and community</h4>
+                <ul>
+                  <li>
+                    <strong>Sarah Booker-Lewis, Brighton &amp; Hove News</strong>{" "}
+                    — the local democracy reporter who covers the planning
+                    committees that would hear our application.{" "}
+                    <strong>Frank le Duc</strong> edits
+                    (frank@brightonandhovenews.org).{" "}
+                    <strong>Nick Staunton at Brighton Journal</strong> and the{" "}
+                    <strong>SussexWorld/Sussex Express</strong> desk have
+                    covered every recent Sussex padel story.{" "}
+                    <strong>Mike Dale at The Padel Paper</strong>{" "}
+                    (info@thepadelpaper.com) has interviewed most of the
+                    founders above — the industry’s connector.
+                  </li>
+                  <li>
+                    The practical player communities are on Playtomic at Eixo,
+                    Smash Cuckfield and PADELHUB — where our first hundred
+                    members already play.
+                  </li>
+                </ul>
+
+                <h4 id="people-rooms">The rooms</h4>
+                <ul>
+                  <li>
+                    <strong>
+                      UK Padel Convention — Wednesday 4 November 2026,
+                      Gloucester Quays.
+                    </strong>{" "}
+                    Around 1,250 attendees and 50+ exhibitors: operators,
+                    installers, financiers, coaches, all in one place. The
+                    single best day of relationship-building available to us —
+                    tickets via thepadeldirectory.co.uk. (On the board.)
+                  </li>
+                  <li>
+                    <strong>LTA National Padel Operator Forum</strong> —
+                    reached by registering as a venue; the May 2026 edition
+                    drew operators covering ~40% of UK courts.
+                  </li>
+                </ul>
               </section>
 
               {/* ---------------- Being watched ---------------- */}
