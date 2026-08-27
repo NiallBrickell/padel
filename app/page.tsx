@@ -71,6 +71,7 @@ const SECTIONS: TocSection[] = [
       { id: "s10-country", title: "The country-club route" },
       { id: "s10-building", title: "Building requirements" },
       { id: "s10-market", title: "Buildings on the market" },
+      { id: "s10-selfbuild", title: "Building it ourselves" },
     ],
   },
   { id: "s11", no: "11", title: "Route to market" },
@@ -1021,6 +1022,16 @@ export default function BusinessCasePage() {
                 run £250–450k all-in; Padium’s 8-court flagship cost ~£5m; a
                 13-court centre in Farnham cost £2.75m. This project sits
                 deliberately mid-market.
+              </p>
+              <p>
+                One route changes this table’s shape rather than its scale:{" "}
+                <strong>building our own hall on a town-edge plot</strong>{" "}
+                (Section 10) replaces the fit-out budget with roughly £1.6–2.8m
+                including land — but removes the rent line from operating costs
+                and turns the largest cost into a freehold a lender can secure
+                against. If that route survives its first supplier quotes, the
+                Section 8 financing routes get re-run with a commercial mortgage
+                in the stack.
               </p>
 
               <h3 id="s7-revenue">Revenue — three scenarios (steady state, year 2)</h3>
@@ -2122,14 +2133,8 @@ export default function BusinessCasePage() {
                 approved schemes are courts-plus-café.
               </p>
               <p>
-                <strong>
-                  The site search therefore runs two tracks in parallel
-                </strong>
-                : the industrial shortlist above (faster, cheaper, certain), and
-                partnership letters to the named rural sites (slower, riskier,
-                and the version of the venue this plan was actually dreamed up
-                for). The first track to produce a signable deal that passes the
-                Section 7 numbers wins.
+                How this track fits the wider search is set out at the end of
+                this section, after the third route.
               </p>
 
               <h3 id="s10-building">Building requirements</h3>
@@ -2154,8 +2159,19 @@ export default function BusinessCasePage() {
                   noise objections currently defeating outdoor padel applications
                   nationally (Harrogate refused despite 4m acoustic barriers; Bath
                   refusing applications broadly; Withdean operating under a noise
-                  abatement order). An enclosed building is a materially easier
-                  application than floodlit outdoor courts near housing.
+                  abatement order; Guildford refused courts calling padel noise
+                  “above and beyond” other sports). An enclosed building is a
+                  materially easier application than floodlit outdoor courts near
+                  housing.{" "}
+                  <strong>
+                    This plan commits to fully enclosed courts only — no
+                    canopies.
+                  </strong>{" "}
+                  Canopy-covered courts are the corridor’s default because
+                  they’re cheap, but they leak noise, play badly in winter wind,
+                  and are the format drawing neighbour objections in Hove right
+                  now; the fully enclosed hall is both the better product and the
+                  safer application.{" "}
                   <G term="pre-app">Pre-application advice</G> first; the
                   objection to prepare for is
                   loss of employment land, answered by the jobs the format creates
@@ -2290,6 +2306,298 @@ export default function BusinessCasePage() {
                 and rents confirm the model’s assumptions (£6.75–£13/sq ft across
                 candidates against £8–10 modelled). Listings move — this table is a
                 snapshot for the agent conversations, not a shortlist decision.
+              </p>
+
+              <h3 id="s10-selfbuild">
+                Building it ourselves — a hall on the town edge
+              </h3>
+              <p>
+                The third route to a building is to stop hunting for one and
+                build it: a plot on the edge of a Mid Sussex town, and a
+                purpose-built six-court hall on it. This route exists because
+                the two location ideals in this document — the countryside
+                setting and a venue at the centre of players’ weekly routine —
+                actually meet on the town edge. A venue people can cycle or walk
+                to fills the Monday-to-Thursday evenings where break-even lives,
+                and squares the circle a licensed bar creates around driving;
+                Brighton’s only bikeable courts run at 90–97% occupancy, the
+                strongest revealed demand in the catchment. And the first mile
+                of countryside past the last house is where the views start —
+                the Low Weald opening south towards the Downs escarpment. The
+                brief: a plot within a ten-to-fifteen-minute cycle of a town
+                centre, outside the National Park and the High Weald National
+                Landscape, with an open outlook.
+              </p>
+              <p>
+                <strong>
+                  A kit hall roughly halves the price of a real building.
+                </strong>{" "}
+                A conventional UK design-and-build for a ~1,900 m² sports
+                building prices at £1,100–1,600/m² — a £2.5m+ project, which is
+                how purpose-built venues end up at TraffordCity’s £2.5m and
+                Padium’s £5m. Standardised hall systems do the same enclosure
+                for far less: Northpower’s off-the-shelf six-court padel hall
+                (48×35m, 9.5m clear height, mezzanine included) lists at ~£530k
+                plus VAT including assembly — in Sweden, where padel halls are a
+                catalogue product. The Swedish factories don’t deliver here, but
+                the same product exists with UK delivery and UK crews:{" "}
+                <strong>Hallgruppen</strong> (Stoke — two- to eight-court
+                structures, own erection teams),{" "}
+                <strong>Frisomat via TotalSpan</strong> (clear spans past 50m,
+                eaves to 12m, engineered to UK Part L),{" "}
+                <strong>Rubb</strong> (Gateshead — insulated fabric halls; one
+                already houses a nine-court padel centre in the North East, and
+                Rubb built Stratford Padel Club), <strong>SMC2</strong> (glulam
+                frames with translucent membrane — the most architectural
+                catalogue product, with French padel references), and{" "}
+                <strong>Smart-Space</strong> (the most active UK padel marketer,
+                publishing ~£70–85k-per-court building costs). EU CE marking
+                remains accepted for UK construction products, but the structure
+                must be re-engineered to UK wind loads and a UK principal
+                contractor must run the site — both reasons to buy through a UK
+                arm rather than import a bare kit. Nobody in the UK has built a
+                padel venue this way yet; operators here choose canopies or
+                conventional builds. What it stacks to:
+              </p>
+              <TW>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Element</th>
+                      <th>Estimate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Plot, 0.75–1.5 acres on a town edge</td>
+                      <td>£150–500k</td>
+                    </tr>
+                    <tr>
+                      <td>Groundworks, slab, services</td>
+                      <td>£300–500k</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hall superstructure (kit system, erected), ~48×35m, 9m+
+                        clear
+                      </td>
+                      <td>£500–700k</td>
+                    </tr>
+                    <tr>
+                      <td>Courts — 4 doubles + 2 singles, indoor spec</td>
+                      <td>£170–250k</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Clubhouse fit-out: bar, kitchen, changing rooms,
+                        mezzanine
+                      </td>
+                      <td>£250–350k</td>
+                    </tr>
+                    <tr>
+                      <td>Looking like a club, not a shed (below)</td>
+                      <td>£100–250k</td>
+                    </tr>
+                    <tr>
+                      <td>Fees, planning, contingency</td>
+                      <td>£150–250k</td>
+                    </tr>
+                    <tr className="total">
+                      <td>
+                        <strong>Total, owning the freehold</strong>
+                      </td>
+                      <td>
+                        <strong>~£1.6m–£2.8m</strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </TW>
+              <p>
+                These are published unit rates assembled into a budget, not
+                quotes — the spread is the honest width of the uncertainty, and
+                the first action on this route is sending one specification to
+                the five suppliers above and comparing what comes back.
+              </p>
+              <p>
+                <strong>A kit hall doesn’t have to look like one.</strong> The
+                pattern in every good example is the same: a cheap standardised
+                frame, with the money spent on the skin and the social end.
+                Sweden’s most celebrated padel hall — Tengbom’s six-court hall
+                at Mölnlycke, winner of two international architecture awards —
+                is literally a relocated prefab kit with a designed envelope;
+                Adare Manor’s padel club in Ireland is a hall wrapped in larch
+                and glulam fins. The local design language already exists too:
+                Sussex’s winery buildings (Wiston’s estate-oak cladding and
+                flint gabions, Rathfinny dug into its hillside, Bolney’s timber
+                visitor centre) are precisely “steel shed dressed for the
+                landscape”, by architects working an hour away. Timber-clad
+                visible elevations plus a glazed clubhouse frontage price at
+                roughly £100–250k — 5–10% of the project — and the cheapest
+                single move, dark matt micro-ribbed cladding instead of shiny
+                box profile, costs almost nothing. Inside, the layout that works
+                is a mezzanine lounge over the changing rooms: glass balustrade
+                over the courts on one side (the pattern at Beaulieu Padel Club
+                in Chelmsford), full-height glazing to the countryside on the
+                other. No UK padel venue has built that dual-aspect room yet.
+              </p>
+              <p>
+                <strong>
+                  Planning is this route’s real risk, and it’s noise-shaped in
+                  our favour.
+                </strong>{" "}
+                A new building needs a full application, and indoor sport (Class
+                E(d)) counts as a “town-centre use” in planning policy, so an
+                out-of-centre site must pass a sequential test — evidence that
+                no suitable existing building exists, which the height survey
+                above conveniently is. National refusal patterns are noise,
+                floodlighting and landscape; all three are answered by a fully
+                enclosed, dark-sky-compliant building on an undesignated edge.
+                Local timelines run from four months (the Albourne six-court
+                scheme through Mid Sussex) to 25 (Leatherhead’s dome, delayed by
+                ecology). Sport England and LTA support letters demonstrably
+                help — one more reason the Tennis Sussex relationship in the
+                next-steps sheet matters. The strongest applications sit on land
+                where sport already lives, which drives this list:
+              </p>
+              <TW size="wide">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Site</th>
+                      <th>What it is</th>
+                      <th>Why it fits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Theobalds Road, Wivelsfield</strong>
+                      </td>
+                      <td>
+                        2.46-acre meadow on Burgess Hill’s north-east edge;
+                        guide £150–200k, listed August 2026
+                      </td>
+                      <td>
+                        The one live listing that matches the brief: level,
+                        gated road access, mains water, a five-to-eight-minute
+                        cycle from the World’s End edge of town, a mile from
+                        Wivelsfield station. Cheap because it’s unconsented —
+                        the price of carrying the planning risk ourselves. Walk
+                        it first.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Brookleigh Centre for Outdoor Sport</strong>
+                      </td>
+                      <td>
+                        8.6-hectare sports hub within the 3,500-home Brookleigh
+                        development (Homes England, the district council and
+                        Places Leisure)
+                      </td>
+                      <td>
+                        The council’s own consultation FAQ already fields
+                        questions about adding padel, and cycle routes are
+                        designed into the masterplan. The strongest planning
+                        path on this list: sport proposed on land allocated for
+                        sport.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Hassocks Golf Club</strong>
+                      </td>
+                      <td>
+                        Golf club on the London Road between Hassocks and
+                        Burgess Hill
+                      </td>
+                      <td>
+                        Has released land commercially before (homes approved on
+                        part of its course), sits in undesignated Low Weald with
+                        escarpment views, bikeable from both towns. A
+                        partnership approach, not a purchase.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Burgess Hill Golf Centre</strong>
+                      </td>
+                      <td>
+                        Driving range and par-3 course on the town’s north-west
+                        edge
+                      </td>
+                      <td>
+                        The Whitemans Green model — a trading sports business
+                        with spare land, an open outlook towards the Ansty gap,
+                        ten minutes’ cycle from the town centre.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Goddards Green science park</strong>
+                      </td>
+                      <td>
+                        100,000 m²+ masterplan on the A2300 whose supporting
+                        uses explicitly include leisure; the £23m road upgrade
+                        delivered cycle links
+                      </td>
+                      <td>
+                        Early-stage — plot availability unconfirmed; approach
+                        through the council’s economic development team.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>
+                          St Francis Sports &amp; Social Club, Haywards Heath
+                        </strong>
+                      </td>
+                      <td>
+                        Members’ sports club that already holds temporary
+                        consent to convert tennis courts to padel
+                      </td>
+                      <td>
+                        A possible partner on the south side of Haywards Heath —
+                        the side outside the protected landscape.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </TW>
+              <p>
+                The geography behind the list:{" "}
+                <strong>Burgess Hill is the best-positioned town</strong> — its
+                entire fringe is undesignated Low Weald, the National Park is
+                three miles south, and it has real cycling infrastructure (the
+                Green Circle network, plus the new cycle links built with the
+                A2300 upgrade on its western edge). Haywards Heath is wrapped to
+                the north and east by the High Weald National Landscape, which
+                behaves like the park for planning purposes, leaving its
+                south-west corridor. Hassocks abuts the park, but its Low Weald
+                strip to the north-west looks back at the escarpment — the views
+                are better from a mile back than from underneath. The Brighton
+                fringe is out for new-build: the park boundary hugs the built
+                edge, and the one open gap is a contested wildlife site. Two
+                honesty notes: there is no usable cycle link between Burgess
+                Hill and Haywards Heath, so “bikeable” means bikeable from one
+                town, not both; and nothing above is a listing except Theobalds
+                Road — the rest are approaches, which cost letters and get told
+                “no” by default. The off-market channel matters most: the
+                Burgess Hill land agents (SHW, Oakley, Hunters Commercial) see
+                the one-acre plots before the portals do.
+              </p>
+              <p>
+                <strong>
+                  The site search therefore runs three tracks in parallel
+                </strong>
+                : the industrial shortlist above (fastest, cheapest to test,
+                rented), partnership letters to the named rural sites (slower,
+                someone else’s land), and the town-edge build (slowest and most
+                capital — and the only version that ends with the full brief:
+                bikeable, views, fully indoor, and a freehold on the balance
+                sheet). The first track to produce a signable deal that passes
+                the Section 7 numbers wins.
               </p>
             </section>
 

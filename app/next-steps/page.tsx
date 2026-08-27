@@ -270,6 +270,31 @@ export default function NextStepsPage() {
                   <PartnerTargetsShowcase />
                 </div>
 
+                <p>
+                  <strong>
+                    And one plot, for the build-it-ourselves route (
+                    <Link href="/#s10-selfbuild">business case, Section 10</Link>
+                    ):
+                  </strong>{" "}
+                  land at Theobalds Road, Wivelsfield — a 2.46-acre meadow on
+                  Burgess Hill’s north-east edge, guide £150–200k, listed August
+                  2026 through Neville &amp; Neville. It’s the only live listing
+                  matching the town-edge brief: level, gated access, mains
+                  water, a short cycle from World’s End. It’s cheap because
+                  it’s unconsented, so the visit is about views and neighbours,
+                  not the price. <strong>Walk it</strong> — and when phoning the
+                  agents above, add a second brief: 0.75–1.5 acres of
+                  edge-of-town land around Burgess Hill, because the one-acre
+                  plots trade off-market through SHW, Oakley and Hunters
+                  Commercial before the portals see them.
+                </p>
+                <ul className="subbet-list">
+                  <SubBet
+                    betKey="b1-theobalds-walk"
+                    label="Walk the Theobalds Road plot, Wivelsfield — views, neighbours, access"
+                  />
+                </ul>
+
                 <Bet
                   betKey="b1-tennis-sussex"
                   id="bet-3"
@@ -351,9 +376,34 @@ export default function NextStepsPage() {
                       conversation.
                     </p>
                   </Want>
+                  <BetSec label="The hall suppliers too">
+                    <p>
+                      The build-it-ourselves route (
+                      <Link href="/#s10-selfbuild">business case, Section 10</Link>
+                      ) needs one specification sent to five firms and the
+                      answers compared — Hallgruppen (hallgruppen.co.uk,
+                      Stoke), TotalSpan for the Frisomat system
+                      (totalspan.co.uk), Rubb (rubbuk.com, Gateshead), SMC2
+                      (smc2-construction.co.uk) and Smart-Space
+                      (smart-space.co.uk). The spec: a fully enclosed six-court
+                      padel hall, ~48×35m, minimum 8m clear over the courts,
+                      insulated to Part L, mezzanine over the changing rooms,
+                      delivered and erected price for a Mid Sussex site, with
+                      timber cladding and a glazed frontage priced as options.
+                      Five answers to the same letter turn the £1.6–2.8m budget
+                      range into a real number.
+                    </p>
+                    <ul className="subbet-list">
+                      <SubBet
+                        betKey="b1-hall-quotes"
+                        label="Six-court hall spec to Hallgruppen, TotalSpan, Rubb, SMC2 and Smart-Space"
+                      />
+                    </ul>
+                  </BetSec>
                   <Read>
-                    They sell courts, so they’ll answer. The numbers get much
-                    more useful once we have a specific building to point at.
+                    They sell courts and buildings, so they’ll answer. The
+                    numbers get much more useful once we have a specific
+                    building or plot to point at.
                   </Read>
                 </Bet>
 
@@ -397,13 +447,35 @@ export default function NextStepsPage() {
                       (Plumpton Racecourse, Q Leisure, even a grain-store
                       conversion inside the National Park), so the question is
                       only whether a site wants a partner. One warm reply
-                      changes the whole shape of the project.
+                      changes the whole shape of the project. One update since
+                      the first draft: Singing Hills now sits next door to the
+                      approved six-court Padel Club scheme at Q Leisure, which
+                      weakens it as a host — keep the letter, lower the
+                      expectation.
                     </p>
                   </Want>
+                  <BetSec label="The town-edge partners, same letter, different postcode">
+                    <p>
+                      The bikeable version of the site (
+                      <Link href="/#s10-selfbuild">business case, Section 10</Link>
+                      ) has its own approach list — Hassocks Golf Club (has
+                      released land before, escarpment views, between the two
+                      towns), Burgess Hill Golf Centre (driving range on the
+                      town’s north-west edge — the closest thing to the
+                      Whitemans Green model), St Francis Sports &amp; Social
+                      Club in Haywards Heath (already holds temporary padel
+                      consent), and the district council’s Brookleigh Centre
+                      for Outdoor Sport team, whose own consultation FAQ fields
+                      padel questions — that one goes through Mid Sussex
+                      District Council and Places Leisure rather than a cold
+                      letter to a club.
+                    </p>
+                  </BetSec>
                   <Read>
                     Genuinely uncertain — these are cold letters to businesses
                     that haven’t asked for us. But Mid Sussex GC has already
-                    shown its hand, and the cost is three emails.
+                    shown its hand, Brookleigh is a public body with a live
+                    sports-hub consultation, and the cost is a batch of emails.
                   </Read>
                 </Bet>
               </section>
