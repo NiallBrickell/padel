@@ -2478,7 +2478,15 @@ export default function BusinessCasePage() {
                   <tbody>
                     <tr>
                       <td>
-                        <strong>Theobalds Road, Wivelsfield</strong>
+                        <strong>
+                          <a
+                            href="https://www.rightmove.co.uk/properties/91480824"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Theobalds Road, Wivelsfield
+                          </a>
+                        </strong>
                       </td>
                       <td>
                         2.46-acre meadow on Burgess Hill’s north-east edge;
@@ -2495,7 +2503,15 @@ export default function BusinessCasePage() {
                     </tr>
                     <tr>
                       <td>
-                        <strong>Brookleigh Centre for Outdoor Sport</strong>
+                        <strong>
+                          <a
+                            href="https://engage.midsussex.gov.uk/cfos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Brookleigh Centre for Outdoor Sport
+                          </a>
+                        </strong>
                       </td>
                       <td>
                         8.6-hectare sports hub within the 3,500-home Brookleigh
@@ -2527,7 +2543,15 @@ export default function BusinessCasePage() {
                     </tr>
                     <tr>
                       <td>
-                        <strong>Burgess Hill Golf Centre</strong>
+                        <strong>
+                          <a
+                            href="https://burgesshillgolfcentre.co.uk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Burgess Hill Golf Centre
+                          </a>
+                        </strong>
                       </td>
                       <td>
                         Driving range and par-3 course on the town’s north-west
@@ -2541,7 +2565,15 @@ export default function BusinessCasePage() {
                     </tr>
                     <tr>
                       <td>
-                        <strong>Goddards Green science park</strong>
+                        <strong>
+                          <a
+                            href="https://www.opportunitymidsussex.co.uk/burgess-hill-strategic-growth-programme"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Goddards Green science park
+                          </a>
+                        </strong>
                       </td>
                       <td>
                         100,000 m²+ masterplan on the A2300 whose supporting

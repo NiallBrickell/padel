@@ -276,7 +276,14 @@ export default function NextStepsPage() {
                     <Link href="/#s10-selfbuild">business case, Section 10</Link>
                     ):
                   </strong>{" "}
-                  land at Theobalds Road, Wivelsfield — a 2.46-acre meadow on
+                  <a
+                    href="https://www.rightmove.co.uk/properties/91480824"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    land at Theobalds Road, Wivelsfield
+                  </a>{" "}
+                  — a 2.46-acre meadow on
                   Burgess Hill’s north-east edge, guide £150–200k, listed August
                   2026 through Neville &amp; Neville. It’s the only live listing
                   matching the town-edge brief: level, gated access, mains
