@@ -380,8 +380,12 @@ export default function NextStepsPage() {
                     <p>
                       The build-it-ourselves route (
                       <Link href="/#s10-selfbuild">business case, Section 10</Link>
-                      ) needs one specification sent to five firms and the
-                      answers compared — Hallgruppen (hallgruppen.co.uk,
+                      ) needs one specification sent to six firms and the
+                      answers compared — Northpower (northpower.se, the Swedish
+                      factory whose catalogue six-court hall anchors the budget;
+                      they haven&apos;t sold in the UK, so ask what
+                      delivered-and-erected to Sussex costs and treat the answer
+                      as a negotiation, not a no), Hallgruppen (hallgruppen.co.uk,
                       Stoke), TotalSpan for the Frisomat system
                       (totalspan.co.uk), Rubb (rubbuk.com, Gateshead), SMC2
                       (smc2-construction.co.uk) and Smart-Space
@@ -390,13 +394,13 @@ export default function NextStepsPage() {
                       insulated to Part L, mezzanine over the changing rooms,
                       delivered and erected price for a Mid Sussex site, with
                       timber cladding and a glazed frontage priced as options.
-                      Five answers to the same letter turn the £1.6–2.8m budget
+                      Six answers to the same letter turn the £1.6–2.8m budget
                       range into a real number.
                     </p>
                     <ul className="subbet-list">
                       <SubBet
                         betKey="b1-hall-quotes"
-                        label="Six-court hall spec to Hallgruppen, TotalSpan, Rubb, SMC2 and Smart-Space"
+                        label="Six-court hall spec to Northpower, Hallgruppen, TotalSpan, Rubb, SMC2 and Smart-Space"
                       />
                     </ul>
                   </BetSec>

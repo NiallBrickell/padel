@@ -2339,10 +2339,12 @@ export default function BusinessCasePage() {
                 for far less: Northpower’s off-the-shelf six-court padel hall
                 (48×35m, 9.5m clear height, mezzanine included) lists at ~£530k
                 plus VAT including assembly — in Sweden, where padel halls are a
-                catalogue product. The Swedish factories don’t deliver here, but
-                the same product exists with UK delivery and UK crews:{" "}
-                <strong>Hallgruppen</strong> (Stoke — two- to eight-court
-                structures, own erection teams),{" "}
+                catalogue product. Northpower quotes with Swedish assembly and
+                hasn’t sold in the UK — which is a phone call and a freight
+                quote, not a wall, and the price gap leaves plenty of room to
+                pay for delivery. The same product also exists with UK crews
+                already in place: <strong>Hallgruppen</strong> (Stoke — two- to
+                eight-court structures, own erection teams),{" "}
                 <strong>Frisomat via TotalSpan</strong> (clear spans past 50m,
                 eaves to 12m, engineered to UK Part L),{" "}
                 <strong>Rubb</strong> (Gateshead — insulated fabric halls; one
@@ -2351,12 +2353,16 @@ export default function BusinessCasePage() {
                 frames with translucent membrane — the most architectural
                 catalogue product, with French padel references), and{" "}
                 <strong>Smart-Space</strong> (the most active UK padel marketer,
-                publishing ~£70–85k-per-court building costs). EU CE marking
-                remains accepted for UK construction products, but the structure
-                must be re-engineered to UK wind loads and a UK principal
-                contractor must run the site — both reasons to buy through a UK
-                arm rather than import a bare kit. Nobody in the UK has built a
-                padel venue this way yet; operators here choose canopies or
+                publishing ~£70–85k-per-court building costs). The real
+                frictions on a direct import are smaller but real: the structure
+                gets re-engineered to UK wind loads (EU CE marking itself
+                remains accepted), a UK principal contractor has to run the
+                site, and from January 2027 direct steel imports over £50k carry
+                carbon-border paperwork. All of that is cost and admin to price,
+                not a reason to rule the Swedish route out — the way to price it
+                is to put Northpower’s delivered number next to the UK five and
+                see whether the gap survives. Nobody in the UK has built a padel
+                venue this way yet; operators here choose canopies or
                 conventional builds. What it stacks to:
               </p>
               <TW>
