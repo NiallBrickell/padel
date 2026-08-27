@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WhatsNewNavLink } from "@/components/whats-new";
 
 const LINKS = [
   { href: "/", label: "Business case" },
@@ -29,6 +30,7 @@ export function NavBar() {
             {l.label}
           </Link>
         ))}
+        <WhatsNewNavLink />
         <a
           href="https://github.com/NiallBrickell/padel"
           target="_blank"

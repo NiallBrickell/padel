@@ -736,15 +736,18 @@ details.toc-m a .n {
   transition: color 0.15s, border-color 0.15s;
   white-space: nowrap;
 }
-/* Mobile: short brand, tighter spacing — four links fit a 360px viewport */
+/* Mobile: short brand, tighter spacing — four links plus two icons fit a 360px viewport */
 @media (max-width: 599px) {
   .site-nav .nav-inner {
     padding: 0 10px;
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
   .site-nav .brand {
     font-size: 0.9rem;
     gap: 0.4rem;
+  }
+  .site-nav .brand .dot {
+    display: none;
   }
   .site-nav .brand .brand-rest {
     display: none;
@@ -769,6 +772,128 @@ details.toc-m a .n {
 }
 .site-nav .nav-gh:hover {
   color: var(--accent-deep);
+}
+.site-nav .nav-wn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink2);
+  transition: color 0.15s;
+}
+.site-nav .nav-wn:hover {
+  color: var(--accent-deep);
+}
+.site-nav .nav-wn .wn-dot {
+  position: absolute;
+  top: -2px;
+  right: -3px;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* What's new — announcement strip under the nav */
+.wn-banner {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.83rem;
+}
+.wn-banner .wn-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.45rem 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.wn-banner a {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wn-banner a:hover {
+  color: var(--accent-deep);
+}
+.wn-banner .wn-tag {
+  font-weight: 700;
+  color: var(--accent-deep);
+  margin-right: 0.5rem;
+}
+.wn-banner .wn-date {
+  color: var(--ink2);
+}
+.wn-banner button {
+  flex: 0 0 auto;
+  border: 0;
+  background: none;
+  color: var(--ink2);
+  font-size: 1.05rem;
+  line-height: 1;
+  padding: 0.15rem 0.3rem;
+  cursor: pointer;
+}
+.wn-banner button:hover {
+  color: var(--ink);
+}
+@media (max-width: 599px) {
+  .wn-banner .wn-inner {
+    padding: 0.45rem 10px;
+  }
+}
+
+/* What's new — the updates page */
+.wn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wn-entry {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.wn-entry:first-child {
+  padding-top: 0.4rem;
+}
+.wn-entry:last-child {
+  border-bottom: 0;
+}
+.wn-entry .wn-when {
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.35rem;
+}
+.wn-entry .wn-title {
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.55rem;
+}
+.wn-entry .wn-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  font-family: var(--font-bricolage), "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+.wn-entry .wn-links a {
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+.wn-entry .wn-links a:hover {
+  text-decoration: underline;
 }
 
 footer.doc {

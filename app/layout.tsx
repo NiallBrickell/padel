@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/nav-bar";
 import { ChatWidget } from "@/components/chat-widget";
+import { WhatsNewBanner } from "@/components/whats-new";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="en-GB" className={`${bricolage.variable} ${sourceSerif.variable}`}>
       <body>
         <NavBar />
+        <WhatsNewBanner />
         {children}
         <ChatWidget />
       </body>
