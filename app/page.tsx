@@ -2317,16 +2317,39 @@ export default function BusinessCasePage() {
                 purpose-built six-court hall on it. This route exists because
                 the two location ideals in this document — the countryside
                 setting and a venue at the centre of players’ weekly routine —
-                actually meet on the town edge. A venue people can cycle or walk
-                to fills the Monday-to-Thursday evenings where break-even lives,
-                and squares the circle a licensed bar creates around driving;
-                Brighton’s only bikeable courts run at 90–97% occupancy, the
-                strongest revealed demand in the catchment. And the first mile
-                of countryside past the last house is where the views start —
-                the Low Weald opening south towards the Downs escarpment. The
-                brief: a plot within a ten-to-fifteen-minute cycle of a town
-                centre, outside the National Park and the High Weald National
-                Landscape, with an open outlook.
+                actually meet on the town edge. A venue people can roll to in
+                ten or twenty unhurried minutes — and roll home from after a
+                couple of pints — becomes part of the week rather than an
+                outing, which is what fills the Monday-to-Thursday evenings
+                where break-even lives; Brighton’s bikeable courts running at
+                90–97% occupancy is the strongest revealed demand in the
+                catchment. And the first mile of countryside past the last house
+                is where the views start — the Low Weald opening south towards
+                the Downs escarpment. The brief: a plot within an easy, flat,
+                ten-to-twenty-minute ride of the town it serves, outside the
+                National Park and the High Weald National Landscape, with an
+                open outlook.
+              </p>
+              <p>
+                <strong>Be honest about whose ride that is.</strong> A town-edge
+                plot is bikeable for that town — Burgess Hill’s ~40,000 people
+                or Haywards Heath’s ~35,000 — and a fifteen-minute drive for
+                everyone else, Brighton included. It is not bikeable from Hove,
+                and no buildable plot is: the hills close off the city’s
+                northern fringe for a casual ride, and the National Park closes
+                off everything beyond them. From Hove, the genuinely flat casual
+                ride runs west along the coast to Portslade and Fishersgate —
+                which is lease-and-convert territory (the Ellen Street unit
+                above), not build territory. Worth noticing on the same map:
+                Club Padel’s Shoreham site sits on that flat coastal ride, about
+                twenty-five minutes from Hove, so the Brighton casual-ride
+                catchment is about to be contested — and Portslade is the
+                position that contests it from closer in. The two meanings of
+                “bikeable” therefore point at two different tracks:
+                Brighton-bikeable sharpens the Portslade end of the industrial
+                search, town-bikeable is what this build route delivers, and
+                choosing between them is really choosing whose weekly routine
+                the venue sits in.
               </p>
               <p>
                 <strong>
